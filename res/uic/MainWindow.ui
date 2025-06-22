@@ -1,0 +1,2268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindown</class>
+ <widget class="QMainWindow" name="MainWindown">
+  <property name="windowModality">
+   <enum>Qt::WindowModality::ApplicationModal</enum>
+  </property>
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>1468</width>
+    <height>1078</height>
+   </rect>
+  </property>
+  <property name="sizePolicy">
+   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+    <horstretch>0</horstretch>
+    <verstretch>0</verstretch>
+   </sizepolicy>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>0</width>
+    <height>0</height>
+   </size>
+  </property>
+  <property name="font">
+   <font>
+    <pointsize>12</pointsize>
+    <hintingpreference>PreferDefaultHinting</hintingpreference>
+    <fontweight>Medium</fontweight>
+   </font>
+  </property>
+  <property name="contextMenuPolicy">
+   <enum>Qt::ContextMenuPolicy::NoContextMenu</enum>
+  </property>
+  <property name="windowTitle">
+   <string>Hemy Markdown Editor Powered By Qt</string>
+  </property>
+  <property name="accessibleName">
+   <string/>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QMenuBar {
+    padding: 0px;
+    margin: 0px;
+    spacing: 2px;
+    font-size: 12pt;
+    background: transparent;
+}
+
+QMenuBar::item {
+    padding: 1px 6px;
+    margin: 0px 1px;
+    background: transparent;
+    border-radius: 2px;
+}
+
+QMenuBar::item:selected {
+    background: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QMenuBar::item:pressed {
+    background: palette(dark);
+}</string>
+  </property>
+  <widget class="QWidget" name="CentralWidgets">
+   <widget class="QToolBox" name="toolBox">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>251</width>
+      <height>1021</height>
+     </rect>
+    </property>
+    <property name="currentIndex">
+     <number>1</number>
+    </property>
+    <widget class="QWidget" name="page">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>251</width>
+       <height>963</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Page 1</string>
+     </attribute>
+    </widget>
+    <widget class="QWidget" name="page_2">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>251</width>
+       <height>963</height>
+      </rect>
+     </property>
+     <attribute name="label">
+      <string>Page 2</string>
+     </attribute>
+    </widget>
+   </widget>
+  </widget>
+  <widget class="QMenuBar" name="MenuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>1468</width>
+     <height>29</height>
+    </rect>
+   </property>
+   <property name="sizePolicy">
+    <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+     <horstretch>0</horstretch>
+     <verstretch>0</verstretch>
+    </sizepolicy>
+   </property>
+   <property name="layoutDirection">
+    <enum>Qt::LayoutDirection::LeftToRight</enum>
+   </property>
+   <property name="autoFillBackground">
+    <bool>false</bool>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">QMenuBar {
+    padding: 0px;
+    margin: 0px;
+    spacing: 2px;
+    background: transparent;
+    border: 1px solid palette(mid);
+    border-radius: 2px;
+    padding: 2px;
+}
+
+QMenuBar::item {
+    padding: 1px 6px;
+    margin: 0px 1px;
+    background: transparent;
+    border-radius: 2px;
+}
+
+QMenuBar::item:selected {
+    background: palette(highlight);
+    color: palette(highlighted-text);
+}
+
+QMenuBar::item:pressed {
+    background: palette(dark);
+}</string>
+   </property>
+   <widget class="QMenu" name="MenuFile">
+    <property name="title">
+     <string>文件&amp;F</string>
+    </property>
+    <property name="toolTipsVisible">
+     <bool>true</bool>
+    </property>
+    <widget class="QMenu" name="SubMenuImport">
+     <property name="title">
+      <string>导入</string>
+     </property>
+     <addaction name="FromWord"/>
+     <addaction name="FromHtml"/>
+     <addaction name="FromJson"/>
+     <addaction name="FromYaml"/>
+     <addaction name="FromTxt"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuExport">
+     <property name="title">
+      <string>导出</string>
+     </property>
+     <addaction name="ToWord"/>
+     <addaction name="ToHtml"/>
+     <addaction name="ToPdf"/>
+    </widget>
+    <addaction name="ActionNewFile"/>
+    <addaction name="ActionNewDir"/>
+    <addaction name="ActionOpenFile"/>
+    <addaction name="ActionOpenDir"/>
+    <addaction name="separator"/>
+    <addaction name="SubMenuImport"/>
+    <addaction name="SubMenuExport"/>
+    <addaction name="separator"/>
+    <addaction name="ActionSave"/>
+    <addaction name="ActionSaveAs"/>
+    <addaction name="ActionReloadFromDisk"/>
+    <addaction name="separator"/>
+    <addaction name="ActionExit"/>
+   </widget>
+   <widget class="QMenu" name="MenuEdit">
+    <property name="title">
+     <string>编辑&amp;E</string>
+    </property>
+    <addaction name="EditUndo"/>
+    <addaction name="EditRedo"/>
+    <addaction name="separator"/>
+    <addaction name="DoCopy"/>
+    <addaction name="DoCut"/>
+    <addaction name="DoPaste"/>
+    <addaction name="DoDelete"/>
+    <addaction name="separator"/>
+    <addaction name="GoToLine"/>
+    <addaction name="FindInDir"/>
+    <addaction name="ReplaceInDir"/>
+    <addaction name="FindInFile"/>
+    <addaction name="ReplaceInFile"/>
+   </widget>
+   <widget class="QMenu" name="MenuView">
+    <property name="title">
+     <string>视图&amp;V</string>
+    </property>
+    <widget class="QMenu" name="SubMenuFold">
+     <property name="title">
+      <string>折叠/展开</string>
+     </property>
+     <addaction name="ActionFoldLevel1"/>
+     <addaction name="ActionFoldLevel2"/>
+     <addaction name="ActionFoldLevel3"/>
+     <addaction name="ActionFoldLevel4"/>
+     <addaction name="ActionFoldLevel5"/>
+     <addaction name="ActionFoldLevel6"/>
+    </widget>
+    <addaction name="ActionEditView"/>
+    <addaction name="ActivePreView"/>
+    <addaction name="ActiveEditPreView"/>
+    <addaction name="separator"/>
+    <addaction name="ActionShowExplorer"/>
+    <addaction name="ActiveShowToc"/>
+    <addaction name="ActionShowSpace"/>
+    <addaction name="ActionShowLineNo"/>
+    <addaction name="separator"/>
+    <addaction name="SubMenuFold"/>
+   </widget>
+   <widget class="QMenu" name="MenuCode">
+    <property name="title">
+     <string>编码&amp;C</string>
+    </property>
+    <widget class="QMenu" name="SubMenuOpenWith">
+     <property name="title">
+      <string>用...编码重新打开</string>
+     </property>
+     <addaction name="OpenUtf8"/>
+     <addaction name="OpenUtf16Be"/>
+     <addaction name="OpenUtf16Le"/>
+     <addaction name="separator"/>
+     <addaction name="OpenGbk"/>
+     <addaction name="OpenGB2312"/>
+     <addaction name="OpenGB1830"/>
+     <addaction name="separator"/>
+     <addaction name="OpenBig5"/>
+     <addaction name="OpenBig5HKSCS"/>
+     <addaction name="separator"/>
+     <addaction name="OpenHex"/>
+     <addaction name="separator"/>
+     <addaction name="OpenNote"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuConvert">
+     <property name="title">
+      <string>转为...编码</string>
+     </property>
+     <addaction name="ToUtf8"/>
+     <addaction name="ToUtf16LE"/>
+     <addaction name="ToUtf16BE"/>
+     <addaction name="separator"/>
+     <addaction name="ToGbk"/>
+     <addaction name="ToGB2312"/>
+     <addaction name="ToGB18030"/>
+     <addaction name="separator"/>
+     <addaction name="ToBig5"/>
+     <addaction name="ToBig5HKSCS"/>
+     <addaction name="separator"/>
+     <addaction name="ToHex"/>
+     <addaction name="separator"/>
+     <addaction name="ToNote"/>
+    </widget>
+    <addaction name="SubMenuOpenWith"/>
+    <addaction name="SubMenuConvert"/>
+   </widget>
+   <widget class="QMenu" name="MenuInsert">
+    <property name="title">
+     <string>插入&amp;I</string>
+    </property>
+    <widget class="QMenu" name="SubMenuModel">
+     <property name="title">
+      <string>写作模板</string>
+     </property>
+     <addaction name="InsLeetCode"/>
+     <addaction name="InsQResolve"/>
+     <addaction name="InsActiveCover"/>
+     <addaction name="InsPaperTemplete"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuTextBlock">
+     <property name="title">
+      <string>文本</string>
+     </property>
+     <addaction name="InsTImgLinks"/>
+     <addaction name="InsTBlockCode"/>
+     <addaction name="InsTLinksList"/>
+     <addaction name="InsTFmtDate"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuFromFile">
+     <property name="title">
+      <string>来自文件</string>
+     </property>
+     <addaction name="InsFJson"/>
+     <addaction name="InsFTxt"/>
+     <addaction name="InsFIni"/>
+     <addaction name="InsFYaml"/>
+     <addaction name="InsFCsv"/>
+     <addaction name="InsFXlsx"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuMermaind">
+     <property name="title">
+      <string>Mermaind</string>
+     </property>
+     <addaction name="InsMBase"/>
+     <addaction name="InsMFlowChat"/>
+     <addaction name="InsMBlockDiagram"/>
+     <addaction name="InsMC4"/>
+     <addaction name="InsMClass"/>
+     <addaction name="InsMEr"/>
+     <addaction name="InsMGantt"/>
+     <addaction name="InsMGit"/>
+     <addaction name="InsMGraph"/>
+     <addaction name="InsMJourney"/>
+     <addaction name="InsMMindmap"/>
+     <addaction name="InsMPacket"/>
+     <addaction name="InsMPie"/>
+     <addaction name="InsMQuaChart"/>
+     <addaction name="InsMReqDia"/>
+     <addaction name="InsMSankey"/>
+     <addaction name="InsMSeqDia"/>
+     <addaction name="InsMStateDia"/>
+     <addaction name="InsMTimeLine"/>
+     <addaction name="InsMXYChart"/>
+     <addaction name="InsMZenuml"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuPlantUML">
+     <property name="title">
+      <string>PlantUML</string>
+     </property>
+     <addaction name="InsPBase"/>
+     <addaction name="InsPActivity"/>
+     <addaction name="InsPSdl"/>
+     <addaction name="InsPArchimate"/>
+     <addaction name="InsPAscIIMath"/>
+     <addaction name="InsPClass"/>
+     <addaction name="InsPComp"/>
+     <addaction name="InsPDeploy"/>
+     <addaction name="InsPDitaa"/>
+     <addaction name="InsPEntity"/>
+     <addaction name="InsPEbnf"/>
+     <addaction name="InsPGantt"/>
+     <addaction name="InsPInfoEng"/>
+     <addaction name="InsPJson"/>
+     <addaction name="InsPMindmap"/>
+     <addaction name="InsPNwdiag"/>
+     <addaction name="InsPObject"/>
+     <addaction name="InsPRegular"/>
+     <addaction name="InsPSalt"/>
+     <addaction name="InsPSeq"/>
+     <addaction name="InsPState"/>
+     <addaction name="InsPTiming"/>
+     <addaction name="InsPUseCase"/>
+     <addaction name="InsPWbs"/>
+     <addaction name="InsPYaml"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuMaterial">
+     <property name="title">
+      <string>Material</string>
+     </property>
+     <addaction name="InsAdmonition"/>
+     <addaction name="InsTemp"/>
+    </widget>
+    <addaction name="InsSpeFont"/>
+    <addaction name="InsMath"/>
+    <addaction name="InsTable"/>
+    <addaction name="InsWebLink"/>
+    <addaction name="separator"/>
+    <addaction name="SubMenuModel"/>
+    <addaction name="SubMenuTextBlock"/>
+    <addaction name="SubMenuFromFile"/>
+    <addaction name="separator"/>
+    <addaction name="SubMenuMermaind"/>
+    <addaction name="SubMenuPlantUML"/>
+    <addaction name="SubMenuMaterial"/>
+    <addaction name="separator"/>
+    <addaction name="CustomModel"/>
+    <addaction name="ModelMgr"/>
+   </widget>
+   <widget class="QMenu" name="MenuSettings">
+    <property name="title">
+     <string>设置&amp;S</string>
+    </property>
+    <addaction name="SetSystem"/>
+    <addaction name="SetTheme"/>
+    <addaction name="SetQuickLink"/>
+    <addaction name="SetEditor"/>
+    <addaction name="SetMdParser"/>
+   </widget>
+   <widget class="QMenu" name="MenuTools">
+    <property name="title">
+     <string>工具&amp;T</string>
+    </property>
+    <addaction name="TMermaid"/>
+    <addaction name="TMathLatex"/>
+    <addaction name="TEleTable"/>
+    <addaction name="TImage"/>
+   </widget>
+   <widget class="QMenu" name="MenuPlugins">
+    <property name="title">
+     <string>插件&amp;P</string>
+    </property>
+    <widget class="QMenu" name="SubMenuEncrypt">
+     <property name="title">
+      <string>加解密插件</string>
+     </property>
+     <addaction name="PluginTokenGen"/>
+     <addaction name="PluginHashText"/>
+     <addaction name="PluginUUIDs"/>
+     <addaction name="PluginULID"/>
+     <addaction name="PluginEncDec"/>
+     <addaction name="PluginCrypto"/>
+     <addaction name="PluginHmac"/>
+     <addaction name="PluginRSA"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuPluginCvt">
+     <property name="title">
+      <string>各类转换器</string>
+     </property>
+     <addaction name="PluginCvtDate"/>
+     <addaction name="PluginCvtInt"/>
+     <addaction name="PluginCvtRoma"/>
+     <addaction name="PluginCvtColor"/>
+     <addaction name="PluginCvtUpLow"/>
+     <addaction name="PluginCvtASCII"/>
+     <addaction name="PluginCvtUnicode"/>
+     <addaction name="PluginCvtYAML_JSON"/>
+     <addaction name="PluginCvtYAML_TOML"/>
+     <addaction name="PluginCvtJSONTOML"/>
+     <addaction name="PluginCvtJSONCSV"/>
+     <addaction name="PluginCvtList"/>
+     <addaction name="PluginCvtJSON"/>
+     <addaction name="PluginCvtSQL"/>
+     <addaction name="PluginCvtXML"/>
+     <addaction name="PluginCvtYAML"/>
+     <addaction name="PluginCvtHTML"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuNetCalc">
+     <property name="title">
+      <string>网络计算插件</string>
+     </property>
+     <addaction name="PluginNetIPv4SubNet"/>
+     <addaction name="PluginNetIpv4Addr"/>
+     <addaction name="PluginNetMACLookup"/>
+     <addaction name="PluginNetMACCvt"/>
+     <addaction name="PluginNetIPv6_ULA"/>
+     <addaction name="PluginNetWiFi"/>
+     <addaction name="PluginNetQrcode"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuInfoCompare">
+     <property name="title">
+      <string>常用对照表</string>
+     </property>
+     <addaction name="PluginInfoASCII"/>
+     <addaction name="PluginInfoHTML"/>
+     <addaction name="PluginInfoFormula"/>
+     <addaction name="PluginInfoPhysical"/>
+     <addaction name="PluginInfoSubNetMask"/>
+     <addaction name="PluginInfoHTTP"/>
+     <addaction name="PluginInfoNumCase"/>
+     <addaction name="PluginInfoNormalFont"/>
+     <addaction name="PluginInfoMIME"/>
+     <addaction name="PluginInfoGreece"/>
+    </widget>
+    <addaction name="SubMenuEncrypt"/>
+    <addaction name="SubMenuPluginCvt"/>
+    <addaction name="SubMenuNetCalc"/>
+    <addaction name="SubMenuInfoCompare"/>
+   </widget>
+   <widget class="QMenu" name="MenuLink">
+    <property name="title">
+     <string>链接&amp;L</string>
+    </property>
+    <widget class="QMenu" name="SubMenuLinkW3School">
+     <property name="title">
+      <string>编程狮在线工具（无序）</string>
+     </property>
+     <addaction name="LinkW3SchoolCSV_HTML"/>
+     <addaction name="LinkW3SchoolSQL"/>
+     <addaction name="LinkW3SchoolFullHalfCode"/>
+     <addaction name="LinkW3SchoolCheckList"/>
+     <addaction name="LinkW3SchoolYAML_Lint"/>
+     <addaction name="LinkW3SchoolHTMLValid"/>
+     <addaction name="LinkW3SchoolIpCalc"/>
+     <addaction name="LinkW3SchoolExcel_CSV_JSON"/>
+     <addaction name="LinkW3SchoolXML_JSON"/>
+     <addaction name="LinkW3SchoolXML"/>
+     <addaction name="LinkW3SchoolTexPaiBan"/>
+     <addaction name="LinkW3SchoolHtmlCpicker"/>
+     <addaction name="LinkW3SchoolColorPicker"/>
+     <addaction name="LinkW3SchoolWEB"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkEncDec">
+     <property name="title">
+      <string>在线编解码工具（无序）</string>
+     </property>
+     <addaction name="LinkEncDecQrcodeEnc"/>
+     <addaction name="LinkEncDecQrcodeDec"/>
+     <addaction name="LinkEncDecUrlEncDec"/>
+     <addaction name="LinkEncDecBASE64"/>
+     <addaction name="LinkEncDecUTF_8"/>
+     <addaction name="LinkEncDecNative_ASCII"/>
+     <addaction name="LinkEncDecUnicode"/>
+     <addaction name="LinkEncDecFileHash"/>
+     <addaction name="LinkEncDecJSON"/>
+     <addaction name="LinkEncDecEscape"/>
+     <addaction name="LinkEncDecMD5"/>
+     <addaction name="LinkEncDecStrongPwd"/>
+     <addaction name="LinkEncDecMorse"/>
+     <addaction name="LinkEncDecHashMd5Sha"/>
+     <addaction name="LinkEncDecHtpasswd"/>
+     <addaction name="LinkEncDecURL_16"/>
+     <addaction name="LinkEncDecRandom"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkOnlineIDE">
+     <property name="title">
+      <string>在线IDE编辑器（无序）</string>
+     </property>
+     <addaction name="LinkOnlineIDEWebIDE_Online"/>
+     <addaction name="LinkOnlineIDEHtml"/>
+     <addaction name="LinkOnlineIDEPython"/>
+     <addaction name="LinkOnlineIDEClang"/>
+     <addaction name="LinkOnlineIDEGo"/>
+     <addaction name="LinkOnlineIDECpp"/>
+     <addaction name="LinkOnlineIDERuby"/>
+     <addaction name="LinkOnlineIDELua"/>
+     <addaction name="LinkOnlineIDECShap"/>
+     <addaction name="LinkOnlineIDER"/>
+     <addaction name="LinkOnlineIDEJavaScript"/>
+     <addaction name="LinkOnlineIDEPascal"/>
+     <addaction name="LinkOnlineIDEAWK"/>
+     <addaction name="LinkOnlineIDEEmoji"/>
+     <addaction name="LinkOnlineIDENodeJs"/>
+     <addaction name="LinkOnlineIDETCL"/>
+     <addaction name="LinkOnlineIDETypeScript"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkDevOps">
+     <property name="title">
+      <string>开发者工具（无序）</string>
+     </property>
+     <addaction name="LinkDevOpsQrcode"/>
+     <addaction name="LinkDevOpsQrcodeDec"/>
+     <addaction name="LinkDevOpsImgCvt"/>
+     <addaction name="LinkDevOpsLinux_Crontab"/>
+     <addaction name="LinkDevOpsJWT_JSON_Web_Tokens"/>
+     <addaction name="LinkDevOpsEscape_UnEscape"/>
+     <addaction name="LinkDevOpsAES_128_AES_256"/>
+     <addaction name="LinkDevOpsAES_128_AES_257"/>
+     <addaction name="LinkDevOpsREgular"/>
+     <addaction name="LinkDevOpsHTML_JS_CSS"/>
+     <addaction name="LinkDevOpsTsfh"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkChinaWeb">
+     <property name="title">
+      <string>国内知名前端团队（无序）</string>
+     </property>
+     <addaction name="LinkChinaWebFED"/>
+     <addaction name="LinkChinaWebTmallfe"/>
+     <addaction name="LinkChinaWebTHX_from_Alimama_FE"/>
+     <addaction name="LinkChinaWebNode_js"/>
+     <addaction name="LinkChinaWebFEX"/>
+     <addaction name="LinkChinaWebAlloyTeam"/>
+     <addaction name="LinkChinaWebElemeFE"/>
+     <addaction name="LinkChinaWebMeiTuan"/>
+     <addaction name="LinkChinaWebAuto"/>
+     <addaction name="LinkChinaWebQiniu"/>
+     <addaction name="LinkChinaWebYouzan"/>
+     <addaction name="LinkChinaWeb75Team"/>
+     <addaction name="LinkChinaWebYMFE"/>
+     <addaction name="LinkChinaWebUED"/>
+     <addaction name="LinkChinaWebAlipay"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkCloudCom">
+     <property name="title">
+      <string>云计算平台（无序）</string>
+     </property>
+     <addaction name="LinkCloudAliyun"/>
+     <addaction name="LinkCloudTencent"/>
+     <addaction name="LinkCloudHuawei"/>
+     <addaction name="LinkCloudCtyun"/>
+     <addaction name="LinkCloudKsyun"/>
+     <addaction name="LinkCloudBaidu"/>
+     <addaction name="LinkCloudUCLOUD"/>
+     <addaction name="LinkCloudQingCloud"/>
+     <addaction name="LinkCloudBoCloud"/>
+     <addaction name="LinkCloudAkamai"/>
+     <addaction name="LinkCloudYunXin"/>
+     <addaction name="LinkCloudAWS"/>
+     <addaction name="LinkCloudWorkday"/>
+     <addaction name="LinkCloudBlsc"/>
+     <addaction name="LinkCloudAzure"/>
+    </widget>
+    <widget class="QMenu" name="SubMenuLinkJyShare">
+     <property name="title">
+      <string>菜鸟在线工具（无序）</string>
+     </property>
+     <addaction name="LinkJyShareSvgEditor"/>
+     <addaction name="LinkJyShareShapeFly"/>
+     <addaction name="LinkJyShareOffice"/>
+     <addaction name="LinkJyShareFront"/>
+    </widget>
+    <addaction name="SubMenuLinkW3School"/>
+    <addaction name="SubMenuLinkEncDec"/>
+    <addaction name="SubMenuLinkOnlineIDE"/>
+    <addaction name="SubMenuLinkDevOps"/>
+    <addaction name="SubMenuLinkChinaWeb"/>
+    <addaction name="SubMenuLinkCloudCom"/>
+    <addaction name="SubMenuLinkJyShare"/>
+   </widget>
+   <widget class="QMenu" name="MenuLinkOnline">
+    <property name="title">
+     <string>在线工具&amp;O</string>
+    </property>
+    <addaction name="LinkOnlineJyshare"/>
+    <addaction name="LinkOnlineW3CSchool"/>
+    <addaction name="LinkOnlineBox3"/>
+    <addaction name="LinkOnlineToolFK"/>
+    <addaction name="LinkOnlineJSON_BeJson"/>
+    <addaction name="LinkOnline67tool"/>
+    <addaction name="LinkOnlineToolLu"/>
+    <addaction name="LinkOnlineSoJSON"/>
+    <addaction name="LinkOnlineLatex"/>
+    <addaction name="LinkOnlineMermaid"/>
+    <addaction name="LinkOnlinePlantText"/>
+    <addaction name="LinkOnlineMindLine"/>
+    <addaction name="LinkOnlineDiagrams"/>
+    <addaction name="LinkOnlinePlantUml"/>
+   </widget>
+   <widget class="QMenu" name="MenuAI">
+    <property name="title">
+     <string>AI</string>
+    </property>
+    <addaction name="AIWenXinYiYan"/>
+    <addaction name="AIDeepSeek"/>
+    <addaction name="AIDevmate"/>
+    <addaction name="AIDouBao"/>
+    <addaction name="AIXingHuo"/>
+    <addaction name="AITongyi"/>
+    <addaction name="AITenCentYuanBao"/>
+    <addaction name="AIZiDongTaiChu"/>
+   </widget>
+   <widget class="QMenu" name="MenuHelp">
+    <property name="title">
+     <string>帮助&amp;H</string>
+    </property>
+    <addaction name="HelpVerRel"/>
+    <addaction name="separator"/>
+    <addaction name="HelpKeyQuick"/>
+    <addaction name="HelpDoc"/>
+    <addaction name="HelpIssue"/>
+    <addaction name="separator"/>
+    <addaction name="HelpAbort"/>
+    <addaction name="HelpMainPage"/>
+    <addaction name="HelpThanks"/>
+    <addaction name="HelpUpdate"/>
+    <addaction name="HelpContactUs"/>
+   </widget>
+   <addaction name="MenuFile"/>
+   <addaction name="MenuEdit"/>
+   <addaction name="MenuView"/>
+   <addaction name="MenuCode"/>
+   <addaction name="MenuInsert"/>
+   <addaction name="MenuSettings"/>
+   <addaction name="MenuTools"/>
+   <addaction name="MenuPlugins"/>
+   <addaction name="MenuLinkOnline"/>
+   <addaction name="MenuLink"/>
+   <addaction name="MenuAI"/>
+   <addaction name="MenuHelp"/>
+  </widget>
+  <widget class="QStatusBar" name="StatusBar"/>
+  <action name="ActionNewFile">
+   <property name="text">
+    <string>新建文件</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+N</string>
+   </property>
+   <property name="shortcutVisibleInContextMenu">
+    <bool>true</bool>
+   </property>
+  </action>
+  <action name="ActionNewDir">
+   <property name="text">
+    <string>新建文件夹</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+D</string>
+   </property>
+  </action>
+  <action name="FromWord">
+   <property name="text">
+    <string>从Word导入</string>
+   </property>
+  </action>
+  <action name="FromHtml">
+   <property name="text">
+    <string>从Html导入</string>
+   </property>
+  </action>
+  <action name="FromJson">
+   <property name="text">
+    <string>从JSON导入</string>
+   </property>
+  </action>
+  <action name="FromYaml">
+   <property name="text">
+    <string>从YAML导入</string>
+   </property>
+  </action>
+  <action name="FromTxt">
+   <property name="text">
+    <string>从文本文件导入</string>
+   </property>
+  </action>
+  <action name="ActionOpenDir">
+   <property name="text">
+    <string>打开文件夹</string>
+   </property>
+  </action>
+  <action name="ActionOpenFile">
+   <property name="text">
+    <string>打开文件</string>
+   </property>
+  </action>
+  <action name="ActionSave">
+   <property name="text">
+    <string>保存</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+S</string>
+   </property>
+  </action>
+  <action name="ActionSaveAs">
+   <property name="text">
+    <string>另存为</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Alt+S</string>
+   </property>
+  </action>
+  <action name="ActionReloadFromDisk">
+   <property name="text">
+    <string>从磁盘重新加载</string>
+   </property>
+  </action>
+  <action name="ToWord">
+   <property name="text">
+    <string>导出为Word</string>
+   </property>
+  </action>
+  <action name="ToHtml">
+   <property name="text">
+    <string>导出为Html</string>
+   </property>
+  </action>
+  <action name="ToPdf">
+   <property name="text">
+    <string>导出为PDF</string>
+   </property>
+  </action>
+  <action name="ActionExit">
+   <property name="text">
+    <string>退出</string>
+   </property>
+   <property name="shortcut">
+    <string>F4</string>
+   </property>
+  </action>
+  <action name="EditUndo">
+   <property name="text">
+    <string>撤销</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Z</string>
+   </property>
+  </action>
+  <action name="EditRedo">
+   <property name="text">
+    <string>恢复/重做</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Y</string>
+   </property>
+  </action>
+  <action name="DoCopy">
+   <property name="text">
+    <string>拷贝</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+C</string>
+   </property>
+  </action>
+  <action name="DoCut">
+   <property name="text">
+    <string>剪切</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+X</string>
+   </property>
+  </action>
+  <action name="DoPaste">
+   <property name="text">
+    <string>粘贴</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+V</string>
+   </property>
+  </action>
+  <action name="GoToLine">
+   <property name="text">
+    <string>跳转到行</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+G</string>
+   </property>
+  </action>
+  <action name="FindInDir">
+   <property name="text">
+    <string>在目录中查找</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+F</string>
+   </property>
+  </action>
+  <action name="ReplaceInDir">
+   <property name="text">
+    <string>在目录中替换</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+Shift+R</string>
+   </property>
+  </action>
+  <action name="DoDelete">
+   <property name="text">
+    <string>删除</string>
+   </property>
+   <property name="shortcut">
+    <string>D</string>
+   </property>
+  </action>
+  <action name="FindInFile">
+   <property name="text">
+    <string>在文件中查找</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+F</string>
+   </property>
+  </action>
+  <action name="ReplaceInFile">
+   <property name="text">
+    <string>在文件中替换</string>
+   </property>
+   <property name="shortcut">
+    <string>Ctrl+R</string>
+   </property>
+  </action>
+  <action name="ActionEditView">
+   <property name="text">
+    <string>编辑视图</string>
+   </property>
+   <property name="shortcut">
+    <string>F9</string>
+   </property>
+  </action>
+  <action name="ActivePreView">
+   <property name="text">
+    <string>预览视图</string>
+   </property>
+   <property name="shortcut">
+    <string>F10</string>
+   </property>
+  </action>
+  <action name="ActiveEditPreView">
+   <property name="text">
+    <string>编辑/预览视图</string>
+   </property>
+   <property name="shortcut">
+    <string>F11</string>
+   </property>
+  </action>
+  <action name="ActionShowExplorer">
+   <property name="text">
+    <string>显示/隐藏资源管理器</string>
+   </property>
+  </action>
+  <action name="ActionShowLineNo">
+   <property name="text">
+    <string>显示/隐藏行号</string>
+   </property>
+  </action>
+  <action name="ActiveShowToc">
+   <property name="text">
+    <string>显示/隐藏文章大纲</string>
+   </property>
+  </action>
+  <action name="ActionShowSpace">
+   <property name="text">
+    <string>显示/隐藏空白字符</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel1">
+   <property name="text">
+    <string>一级标题</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel2">
+   <property name="text">
+    <string>二级标题</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel3">
+   <property name="text">
+    <string>三级标题</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel4">
+   <property name="text">
+    <string>四级标题</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel5">
+   <property name="text">
+    <string>五级标题</string>
+   </property>
+  </action>
+  <action name="ActionFoldLevel6">
+   <property name="text">
+    <string>六级标题</string>
+   </property>
+  </action>
+  <action name="OpenUtf8">
+   <property name="text">
+    <string>UTF-8</string>
+   </property>
+  </action>
+  <action name="OpenUtf16Be">
+   <property name="text">
+    <string>UTF-16BE</string>
+   </property>
+  </action>
+  <action name="OpenGB2312">
+   <property name="text">
+    <string>GB2312(简体中文)</string>
+   </property>
+  </action>
+  <action name="OpenGB1830">
+   <property name="text">
+    <string>GB18030(简体中文)</string>
+   </property>
+  </action>
+  <action name="OpenBig5">
+   <property name="text">
+    <string>Big5(繁体中文)</string>
+   </property>
+  </action>
+  <action name="OpenBig5HKSCS">
+   <property name="text">
+    <string>Big5-HKSCS(繁体中文)</string>
+   </property>
+  </action>
+  <action name="OpenHex">
+   <property name="text">
+    <string>十六进制</string>
+   </property>
+  </action>
+  <action name="OpenGbk">
+   <property name="text">
+    <string>GBK(简体中文)</string>
+   </property>
+  </action>
+  <action name="OpenUtf16Le">
+   <property name="text">
+    <string>UTF-16LE</string>
+   </property>
+  </action>
+  <action name="ToBig5">
+   <property name="text">
+    <string>转为 Big5(繁体中文) 编码</string>
+   </property>
+  </action>
+  <action name="ToUtf8">
+   <property name="text">
+    <string>转为 UTF-8 编码</string>
+   </property>
+  </action>
+  <action name="ToGbk">
+   <property name="text">
+    <string>转为 GBK(简体中文) 编码</string>
+   </property>
+  </action>
+  <action name="ToUtf16BE">
+   <property name="text">
+    <string>转为 UTF-16 Big Endian 编码</string>
+   </property>
+  </action>
+  <action name="ToBig5HKSCS">
+   <property name="text">
+    <string>转为 Big5-HKSCS(繁体中文) 编码</string>
+   </property>
+  </action>
+  <action name="ToNote">
+   <property name="text">
+    <string>注意: 请勿直接编辑乱码文件</string>
+   </property>
+  </action>
+  <action name="ToGB2312">
+   <property name="text">
+    <string>转为 GB2312(简体中文) 编码</string>
+   </property>
+  </action>
+  <action name="ToHex">
+   <property name="text">
+    <string>转为 十六进制 编码</string>
+   </property>
+  </action>
+  <action name="ToGB18030">
+   <property name="text">
+    <string>转为 GB18030(简体中文) 编码</string>
+   </property>
+  </action>
+  <action name="ToUtf16LE">
+   <property name="text">
+    <string>转为 UTF-16 Little Endian 编码</string>
+   </property>
+  </action>
+  <action name="OpenNote">
+   <property name="text">
+    <string>注意: 请勿直接编辑乱码文件。</string>
+   </property>
+  </action>
+  <action name="InsSpeFont">
+   <property name="text">
+    <string>特殊字体</string>
+   </property>
+  </action>
+  <action name="InsMath">
+   <property name="text">
+    <string>数学公式</string>
+   </property>
+  </action>
+  <action name="InsTable">
+   <property name="text">
+    <string>Markdown表格</string>
+   </property>
+  </action>
+  <action name="InsWebLink">
+   <property name="text">
+    <string>网页链接</string>
+   </property>
+  </action>
+  <action name="CustomModel">
+   <property name="text">
+    <string>自定义模板</string>
+   </property>
+  </action>
+  <action name="ModelMgr">
+   <property name="text">
+    <string>模板管理</string>
+   </property>
+  </action>
+  <action name="InsLeetCode">
+   <property name="text">
+    <string>力扣题解模板</string>
+   </property>
+  </action>
+  <action name="InsQResolve">
+   <property name="text">
+    <string>问题处理模板</string>
+   </property>
+  </action>
+  <action name="InsActiveCover">
+   <property name="text">
+    <string>文章封面</string>
+   </property>
+  </action>
+  <action name="InsPaperTemplete">
+   <property name="text">
+    <string>论文模板</string>
+   </property>
+  </action>
+  <action name="InsTImgLinks">
+   <property name="text">
+    <string>图片链接</string>
+   </property>
+  </action>
+  <action name="InsTBlockCode">
+   <property name="text">
+    <string>折叠代码块</string>
+   </property>
+  </action>
+  <action name="InsTLinksList">
+   <property name="text">
+    <string>有序链接列表</string>
+   </property>
+  </action>
+  <action name="InsTFmtDate">
+   <property name="text">
+    <string>文章更新日期</string>
+   </property>
+  </action>
+  <action name="InsFJson">
+   <property name="text">
+    <string>*.json'</string>
+   </property>
+  </action>
+  <action name="InsFTxt">
+   <property name="text">
+    <string>*.txt;*.log</string>
+   </property>
+  </action>
+  <action name="InsFIni">
+   <property name="text">
+    <string>*.ini</string>
+   </property>
+  </action>
+  <action name="InsFYaml">
+   <property name="text">
+    <string>*.yaml;*.yml</string>
+   </property>
+  </action>
+  <action name="InsFCsv">
+   <property name="text">
+    <string>*.csv</string>
+   </property>
+  </action>
+  <action name="InsFXlsx">
+   <property name="text">
+    <string>*.xls;*.xlsx</string>
+   </property>
+  </action>
+  <action name="InsMBase">
+   <property name="text">
+    <string>基础框架</string>
+   </property>
+  </action>
+  <action name="InsMFlowChat">
+   <property name="text">
+    <string>flowchart</string>
+   </property>
+  </action>
+  <action name="InsMBlockDiagram">
+   <property name="text">
+    <string>BlockDiagram</string>
+   </property>
+  </action>
+  <action name="InsMC4">
+   <property name="text">
+    <string>C4图</string>
+   </property>
+  </action>
+  <action name="InsMClass">
+   <property name="text">
+    <string>类图</string>
+   </property>
+  </action>
+  <action name="InsMEr">
+   <property name="text">
+    <string>实体关系图</string>
+   </property>
+  </action>
+  <action name="InsMGantt">
+   <property name="text">
+    <string>甘特图</string>
+   </property>
+  </action>
+  <action name="InsMGit">
+   <property name="text">
+    <string>Git图</string>
+   </property>
+  </action>
+  <action name="InsMGraph">
+   <property name="text">
+    <string>基本流程图</string>
+   </property>
+  </action>
+  <action name="InsMJourney">
+   <property name="text">
+    <string>用户旅程图</string>
+   </property>
+  </action>
+  <action name="InsMMindmap">
+   <property name="text">
+    <string>思维导图</string>
+   </property>
+  </action>
+  <action name="InsMPacket">
+   <property name="text">
+    <string>Packet</string>
+   </property>
+  </action>
+  <action name="InsMPie">
+   <property name="text">
+    <string>饼图</string>
+   </property>
+  </action>
+  <action name="InsMQuaChart">
+   <property name="text">
+    <string>象限图</string>
+   </property>
+  </action>
+  <action name="InsMReqDia">
+   <property name="text">
+    <string>需求图</string>
+   </property>
+  </action>
+  <action name="InsMSankey">
+   <property name="text">
+    <string>桑基图</string>
+   </property>
+  </action>
+  <action name="InsMSeqDia">
+   <property name="text">
+    <string>序列图</string>
+   </property>
+  </action>
+  <action name="InsMStateDia">
+   <property name="text">
+    <string>状态图</string>
+   </property>
+  </action>
+  <action name="InsMTimeLine">
+   <property name="text">
+    <string>时间线图</string>
+   </property>
+  </action>
+  <action name="InsMXYChart">
+   <property name="text">
+    <string>XYChart</string>
+   </property>
+  </action>
+  <action name="InsMZenuml">
+   <property name="text">
+    <string>Zenuml</string>
+   </property>
+  </action>
+  <action name="InsPBase">
+   <property name="text">
+    <string>基础框架</string>
+   </property>
+  </action>
+  <action name="InsPActivity">
+   <property name="text">
+    <string>活动图</string>
+   </property>
+  </action>
+  <action name="InsPSdl">
+   <property name="text">
+    <string>规范和描述语言（SDL）</string>
+   </property>
+  </action>
+  <action name="InsPArchimate">
+   <property name="text">
+    <string>架构图</string>
+   </property>
+  </action>
+  <action name="InsPAscIIMath">
+   <property name="text">
+    <string>AsciiMath</string>
+   </property>
+  </action>
+  <action name="InsPClass">
+   <property name="text">
+    <string>类图</string>
+   </property>
+  </action>
+  <action name="InsPComp">
+   <property name="text">
+    <string>组件图</string>
+   </property>
+  </action>
+  <action name="InsPDeploy">
+   <property name="text">
+    <string>部署图</string>
+   </property>
+  </action>
+  <action name="InsPDitaa">
+   <property name="text">
+    <string>Ditaa 图表</string>
+   </property>
+  </action>
+  <action name="InsPEntity">
+   <property name="text">
+    <string>实体关系图</string>
+   </property>
+  </action>
+  <action name="InsPEbnf">
+   <property name="text">
+    <string>EBNF 图表</string>
+   </property>
+  </action>
+  <action name="InsPGantt">
+   <property name="text">
+    <string>甘特图</string>
+   </property>
+  </action>
+  <action name="InsPInfoEng">
+   <property name="text">
+    <string>信息工程图</string>
+   </property>
+  </action>
+  <action name="InsPJson">
+   <property name="text">
+    <string>JSON 数据</string>
+   </property>
+  </action>
+  <action name="InsPMindmap">
+   <property name="text">
+    <string>思维导图</string>
+   </property>
+  </action>
+  <action name="InsPNwdiag">
+   <property name="text">
+    <string>网络图</string>
+   </property>
+  </action>
+  <action name="InsPObject">
+   <property name="text">
+    <string>对象图</string>
+   </property>
+  </action>
+  <action name="InsPRegular">
+   <property name="text">
+    <string>Regex 图表</string>
+   </property>
+  </action>
+  <action name="InsPSalt">
+   <property name="text">
+    <string>用户界面模型</string>
+   </property>
+  </action>
+  <action name="InsPSeq">
+   <property name="text">
+    <string>序列图</string>
+   </property>
+  </action>
+  <action name="InsPState">
+   <property name="text">
+    <string>状态图</string>
+   </property>
+  </action>
+  <action name="InsPTiming">
+   <property name="text">
+    <string>定时图</string>
+   </property>
+  </action>
+  <action name="InsPUseCase">
+   <property name="text">
+    <string>用例图</string>
+   </property>
+  </action>
+  <action name="InsPWbs">
+   <property name="text">
+    <string>WBS 图表</string>
+   </property>
+  </action>
+  <action name="InsPYaml">
+   <property name="text">
+    <string>YAML 数据</string>
+   </property>
+  </action>
+  <action name="InsAdmonition">
+   <property name="text">
+    <string>Admonition</string>
+   </property>
+  </action>
+  <action name="InsTemp">
+   <property name="text">
+    <string>Templete</string>
+   </property>
+  </action>
+  <action name="SetSystem">
+   <property name="text">
+    <string>系统设置</string>
+   </property>
+  </action>
+  <action name="SetTheme">
+   <property name="text">
+    <string>主题设置</string>
+   </property>
+  </action>
+  <action name="SetQuickLink">
+   <property name="text">
+    <string>快速链接设置</string>
+   </property>
+  </action>
+  <action name="SetEditor">
+   <property name="text">
+    <string>编辑器设置</string>
+   </property>
+  </action>
+  <action name="SetMdParser">
+   <property name="text">
+    <string>Markdown解析器</string>
+   </property>
+  </action>
+  <action name="TMermaid">
+   <property name="text">
+    <string>Mermaid绘图</string>
+   </property>
+  </action>
+  <action name="TMathLatex">
+   <property name="text">
+    <string>公式编辑器</string>
+   </property>
+  </action>
+  <action name="TEleTable">
+   <property name="text">
+    <string>电子表格</string>
+   </property>
+  </action>
+  <action name="TImage">
+   <property name="text">
+    <string>绘图工具</string>
+   </property>
+  </action>
+  <action name="PluginTokenGen">
+   <property name="text">
+    <string>Token Generator</string>
+   </property>
+  </action>
+  <action name="PluginHashText">
+   <property name="text">
+    <string>Hash Text</string>
+   </property>
+  </action>
+  <action name="PluginUUIDs">
+   <property name="text">
+    <string>UUIDs 生成器</string>
+   </property>
+  </action>
+  <action name="PluginULID">
+   <property name="text">
+    <string>ULID 生成器</string>
+   </property>
+  </action>
+  <action name="PluginEncDec">
+   <property name="text">
+    <string>加密/解密文本</string>
+   </property>
+  </action>
+  <action name="PluginCrypto">
+   <property name="text">
+    <string>Crypto加密/解密文本</string>
+   </property>
+  </action>
+  <action name="PluginHmac">
+   <property name="text">
+    <string>Hmac 生成器</string>
+   </property>
+  </action>
+  <action name="PluginRSA">
+   <property name="text">
+    <string>RSA密钥对生成器</string>
+   </property>
+  </action>
+  <action name="PluginCvtDate">
+   <property name="text">
+    <string>日期时间转换器</string>
+   </property>
+  </action>
+  <action name="PluginCvtInt">
+   <property name="text">
+    <string>整数基转换器</string>
+   </property>
+  </action>
+  <action name="PluginCvtRoma">
+   <property name="text">
+    <string>罗马数字转换器</string>
+   </property>
+  </action>
+  <action name="PluginCvtColor">
+   <property name="text">
+    <string>Color 选择器</string>
+   </property>
+  </action>
+  <action name="PluginCvtUpLow">
+   <property name="text">
+    <string>大小写转换</string>
+   </property>
+  </action>
+  <action name="PluginCvtASCII">
+   <property name="text">
+    <string>文本到 ASCII 二进制</string>
+   </property>
+  </action>
+  <action name="PluginCvtUnicode">
+   <property name="text">
+    <string>文本转 Unicode</string>
+   </property>
+  </action>
+  <action name="PluginCvtYAML_JSON">
+   <property name="text">
+    <string>YAML◀▶JSON</string>
+   </property>
+  </action>
+  <action name="PluginCvtYAML_TOML">
+   <property name="text">
+    <string>YAML◀▶TOML</string>
+   </property>
+  </action>
+  <action name="PluginCvtJSONTOML">
+   <property name="text">
+    <string>JSON◀▶TOML</string>
+   </property>
+  </action>
+  <action name="PluginCvtJSONCSV">
+   <property name="text">
+    <string>JSON◀▶CSV</string>
+   </property>
+  </action>
+  <action name="PluginCvtList">
+   <property name="text">
+    <string>List 转换器</string>
+   </property>
+  </action>
+  <action name="PluginCvtJSON">
+   <property name="text">
+    <string>JSON格式化</string>
+   </property>
+  </action>
+  <action name="PluginCvtSQL">
+   <property name="text">
+    <string>SQL格式化</string>
+   </property>
+  </action>
+  <action name="PluginCvtXML">
+   <property name="text">
+    <string>XML格式化</string>
+   </property>
+  </action>
+  <action name="PluginCvtYAML">
+   <property name="text">
+    <string>YAML格式化</string>
+   </property>
+  </action>
+  <action name="PluginCvtHTML">
+   <property name="text">
+    <string>HTML格式化</string>
+   </property>
+  </action>
+  <action name="PluginNetIPv4SubNet">
+   <property name="text">
+    <string>IPv4子网计算器</string>
+   </property>
+  </action>
+  <action name="PluginNetIpv4Addr">
+   <property name="text">
+    <string>Ipv4地址转换器</string>
+   </property>
+  </action>
+  <action name="PluginNetMACLookup">
+   <property name="text">
+    <string>MAC 地址查找</string>
+   </property>
+  </action>
+  <action name="PluginNetMACCvt">
+   <property name="text">
+    <string>MAC 地址生成器</string>
+   </property>
+  </action>
+  <action name="PluginNetIPv6_ULA">
+   <property name="text">
+    <string>IPv6 ULA生成器</string>
+   </property>
+  </action>
+  <action name="PluginNetWiFi">
+   <property name="text">
+    <string>WiFi 二维码生成器</string>
+   </property>
+  </action>
+  <action name="PluginNetQrcode">
+   <property name="text">
+    <string>二维码生成器</string>
+   </property>
+  </action>
+  <action name="PluginInfoASCII">
+   <property name="text">
+    <string>ASCII对照表</string>
+   </property>
+  </action>
+  <action name="PluginInfoHTML">
+   <property name="text">
+    <string>HTML特殊字符查询</string>
+   </property>
+  </action>
+  <action name="PluginInfoFormula">
+   <property name="text">
+    <string>数学公式符号</string>
+   </property>
+  </action>
+  <action name="PluginInfoPhysical">
+   <property name="text">
+    <string>物理符号常数</string>
+   </property>
+  </action>
+  <action name="PluginInfoSubNetMask">
+   <property name="text">
+    <string>子网掩码对照表</string>
+   </property>
+  </action>
+  <action name="PluginInfoHTTP">
+   <property name="text">
+    <string>HTTP状态码查询</string>
+   </property>
+  </action>
+  <action name="PluginInfoNumCase">
+   <property name="text">
+    <string>数字大小写</string>
+   </property>
+  </action>
+  <action name="PluginInfoNormalFont">
+   <property name="text">
+    <string>常用字体对照</string>
+   </property>
+  </action>
+  <action name="PluginInfoMIME">
+   <property name="text">
+    <string>文件类型（MIME头）</string>
+   </property>
+  </action>
+  <action name="PluginInfoGreece">
+   <property name="text">
+    <string>希腊字母对照</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolCSV_HTML">
+   <property name="text">
+    <string>CSV转HTML</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolSQL">
+   <property name="text">
+    <string>SQL格式化</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolFullHalfCode">
+   <property name="text">
+    <string>全角/半角转换工具</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolCheckList">
+   <property name="text">
+    <string>常用对照表</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolYAML_Lint">
+   <property name="text">
+    <string>YAML Lint</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolHTMLValid">
+   <property name="text">
+    <string>HTML在线验证</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolIpCalc">
+   <property name="text">
+    <string>网络计算器</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolExcel_CSV_JSON">
+   <property name="text">
+    <string>Excel/CSV转JSON</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolXML_JSON">
+   <property name="text">
+    <string>XML JSON互转</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolXML">
+   <property name="text">
+    <string>XML格式化工具</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolTexPaiBan">
+   <property name="text">
+    <string>文本美化排版</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolHtmlCpicker">
+   <property name="text">
+    <string>HTML 拾色器</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolColorPicker">
+   <property name="text">
+    <string>ColorPicker</string>
+   </property>
+  </action>
+  <action name="LinkW3SchoolWEB">
+   <property name="text">
+    <string>WEB安全色查询</string>
+   </property>
+  </action>
+  <action name="LinkEncDecQrcodeEnc">
+   <property name="text">
+    <string>二维码在线生成工具</string>
+   </property>
+  </action>
+  <action name="LinkEncDecQrcodeDec">
+   <property name="text">
+    <string>二维码在线解码</string>
+   </property>
+  </action>
+  <action name="LinkEncDecUrlEncDec">
+   <property name="text">
+    <string>在线编码转换</string>
+   </property>
+  </action>
+  <action name="LinkEncDecBASE64">
+   <property name="text">
+    <string>BASE64编解码</string>
+   </property>
+  </action>
+  <action name="LinkEncDecUTF_8">
+   <property name="text">
+    <string>UTF-8编码转换</string>
+   </property>
+  </action>
+  <action name="LinkEncDecNative_ASCII">
+   <property name="text">
+    <string>Native/ASCII转换</string>
+   </property>
+  </action>
+  <action name="LinkEncDecUnicode">
+   <property name="text">
+    <string>Unicode/中文</string>
+   </property>
+  </action>
+  <action name="LinkEncDecFileHash">
+   <property name="text">
+    <string>文件Hash计算</string>
+   </property>
+  </action>
+  <action name="LinkEncDecJSON">
+   <property name="text">
+    <string>JSON格式化</string>
+   </property>
+  </action>
+  <action name="LinkEncDecEscape">
+   <property name="text">
+    <string>Escape加密/解密</string>
+   </property>
+  </action>
+  <action name="LinkEncDecMD5">
+   <property name="text">
+    <string>MD5在线加密</string>
+   </property>
+  </action>
+  <action name="LinkEncDecStrongPwd">
+   <property name="text">
+    <string>高强度密码生成</string>
+   </property>
+  </action>
+  <action name="LinkEncDecMorse">
+   <property name="text">
+    <string>摩尔斯密码</string>
+   </property>
+  </action>
+  <action name="LinkEncDecHashMd5Sha">
+   <property name="text">
+    <string>在线算法加密</string>
+   </property>
+  </action>
+  <action name="LinkEncDecHtpasswd">
+   <property name="text">
+    <string>生成htpasswd</string>
+   </property>
+  </action>
+  <action name="LinkEncDecURL_16">
+   <property name="text">
+    <string>URL网址16进制加密</string>
+   </property>
+  </action>
+  <action name="LinkEncDecRandom">
+   <property name="text">
+    <string>随机字符串生成</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEWebIDE_Online">
+   <property name="text">
+    <string>WebIDE Online</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEHtml">
+   <property name="text">
+    <string>HTML语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEPython">
+   <property name="text">
+    <string>Python语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEClang">
+   <property name="text">
+    <string>C语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEGo">
+   <property name="text">
+    <string>Go语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDECpp">
+   <property name="text">
+    <string>C++语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDERuby">
+   <property name="text">
+    <string>Ruby语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDELua">
+   <property name="text">
+    <string>Lua语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDECShap">
+   <property name="text">
+    <string>C#语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDER">
+   <property name="text">
+    <string>R语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEJavaScript">
+   <property name="text">
+    <string>JavaScript语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEPascal">
+   <property name="text">
+    <string>Pascal语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEAWK">
+   <property name="text">
+    <string>AWK语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDEEmoji">
+   <property name="text">
+    <string>Emoji语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDENodeJs">
+   <property name="text">
+    <string>NodeJs语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDETCL">
+   <property name="text">
+    <string>TCL语言</string>
+   </property>
+  </action>
+  <action name="LinkOnlineIDETypeScript">
+   <property name="text">
+    <string>TypeScript语言</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsQrcode">
+   <property name="text">
+    <string>漂亮二维码生成</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsQrcodeDec">
+   <property name="text">
+    <string>二维码解码器</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsImgCvt">
+   <property name="text">
+    <string>图片格式转换</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsLinux_Crontab">
+   <property name="text">
+    <string>Linux Crontab</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsJWT_JSON_Web_Tokens">
+   <property name="text">
+    <string>JWT（JSON Web Tokens）在线解码</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsEscape_UnEscape">
+   <property name="text">
+    <string>Escape / UnEscape</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsAES_128_AES_256">
+   <property name="text">
+    <string>在线 AES-128,AES-256 加密</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsAES_128_AES_257">
+   <property name="text">
+    <string>在线 AES-128,AES-256 解密</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsREgular">
+   <property name="text">
+    <string>正则表达式在线测试</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsHTML_JS_CSS">
+   <property name="text">
+    <string>HTML/JS/CSS代码调试预览</string>
+   </property>
+  </action>
+  <action name="LinkDevOpsTsfh">
+   <property name="text">
+    <string>特殊符号大全</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebFED">
+   <property name="text">
+    <string>淘系前端团队（FED）</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebTmallfe">
+   <property name="text">
+    <string>天猫前端</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebTHX_from_Alimama_FE">
+   <property name="text">
+    <string>THX from Alimama FE</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebNode_js">
+   <property name="text">
+    <string>阿里Node.js 性能平台</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebFEX">
+   <property name="text">
+    <string>百度 FEX</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebAlloyTeam">
+   <property name="text">
+    <string>腾讯前端 AlloyTeam</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebElemeFE">
+   <property name="text">
+    <string>饿了么前端</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebMeiTuan">
+   <property name="text">
+    <string>美团技术团队</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebAuto">
+   <property name="text">
+    <string>京东凹凸实验室</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebQiniu">
+   <property name="text">
+    <string>七牛技术团队</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebYouzan">
+   <property name="text">
+    <string>有赞技术团队</string>
+   </property>
+  </action>
+  <action name="LinkChinaWeb75Team">
+   <property name="text">
+    <string>奇舞团（奇虎360）</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebYMFE">
+   <property name="text">
+    <string>去哪儿网大前端技术中心（YMFE）</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebUED">
+   <property name="text">
+    <string>携程UED</string>
+   </property>
+  </action>
+  <action name="LinkChinaWebAlipay">
+   <property name="text">
+    <string>蚂蚁体验科技</string>
+   </property>
+  </action>
+  <action name="LinkCloudAliyun">
+   <property name="text">
+    <string>阿里云</string>
+   </property>
+  </action>
+  <action name="LinkCloudTencent">
+   <property name="text">
+    <string>腾讯云</string>
+   </property>
+  </action>
+  <action name="LinkCloudHuawei">
+   <property name="text">
+    <string>华为云</string>
+   </property>
+  </action>
+  <action name="LinkCloudCtyun">
+   <property name="text">
+    <string>天翼云</string>
+   </property>
+  </action>
+  <action name="LinkCloudKsyun">
+   <property name="text">
+    <string>金山云</string>
+   </property>
+  </action>
+  <action name="LinkCloudBaidu">
+   <property name="text">
+    <string>百度智能云</string>
+   </property>
+  </action>
+  <action name="LinkCloudUCLOUD">
+   <property name="text">
+    <string>UCLOUD优刻得</string>
+   </property>
+  </action>
+  <action name="LinkCloudQingCloud">
+   <property name="text">
+    <string>QingCloud青云科技</string>
+   </property>
+  </action>
+  <action name="LinkCloudBoCloud">
+   <property name="text">
+    <string>博云云计算</string>
+   </property>
+  </action>
+  <action name="LinkCloudAkamai">
+   <property name="text">
+    <string>Akamai阿卡迈</string>
+   </property>
+  </action>
+  <action name="LinkCloudYunXin">
+   <property name="text">
+    <string>网易云信</string>
+   </property>
+  </action>
+  <action name="LinkCloudAWS">
+   <property name="text">
+    <string>AWS 亚马逊</string>
+   </property>
+  </action>
+  <action name="LinkCloudWorkday">
+   <property name="text">
+    <string>Workday</string>
+   </property>
+  </action>
+  <action name="LinkCloudBlsc">
+   <property name="text">
+    <string>北京超级云计算中心</string>
+   </property>
+  </action>
+  <action name="LinkCloudAzure">
+   <property name="text">
+    <string>微软Azure</string>
+   </property>
+  </action>
+  <action name="AIWenXinYiYan">
+   <property name="text">
+    <string>文心一言</string>
+   </property>
+  </action>
+  <action name="AIDeepSeek">
+   <property name="text">
+    <string>DeepSeek</string>
+   </property>
+  </action>
+  <action name="AIDevmate">
+   <property name="text">
+    <string>DevMate</string>
+   </property>
+  </action>
+  <action name="AIDouBao">
+   <property name="text">
+    <string>豆包</string>
+   </property>
+  </action>
+  <action name="AIXingHuo">
+   <property name="text">
+    <string>星火大模型</string>
+   </property>
+  </action>
+  <action name="AITongyi">
+   <property name="text">
+    <string>通义千问</string>
+   </property>
+  </action>
+  <action name="AITenCentYuanBao">
+   <property name="text">
+    <string>腾讯元宝</string>
+   </property>
+  </action>
+  <action name="AIZiDongTaiChu">
+   <property name="text">
+    <string>紫东太初</string>
+   </property>
+  </action>
+  <action name="HelpVerRel">
+   <property name="text">
+    <string>版本发布</string>
+   </property>
+  </action>
+  <action name="HelpKeyQuick">
+   <property name="text">
+    <string>键盘快捷方式</string>
+   </property>
+  </action>
+  <action name="HelpDoc">
+   <property name="text">
+    <string>使用文档</string>
+   </property>
+  </action>
+  <action name="HelpIssue">
+   <property name="text">
+    <string>提交创意/意见</string>
+   </property>
+  </action>
+  <action name="HelpAbort">
+   <property name="text">
+    <string>关于</string>
+   </property>
+  </action>
+  <action name="HelpMainPage">
+   <property name="text">
+    <string>主页</string>
+   </property>
+  </action>
+  <action name="HelpThanks">
+   <property name="text">
+    <string>致谢</string>
+   </property>
+  </action>
+  <action name="HelpUpdate">
+   <property name="text">
+    <string>检查更新</string>
+   </property>
+  </action>
+  <action name="HelpContactUs">
+   <property name="text">
+    <string>联系我们</string>
+   </property>
+  </action>
+  <action name="LinkOnlineJyshare">
+   <property name="text">
+    <string>菜鸟工具</string>
+   </property>
+  </action>
+  <action name="LinkOnlineW3CSchool">
+   <property name="text">
+    <string>W3CSchool工具</string>
+   </property>
+  </action>
+  <action name="LinkOnlineBox3">
+   <property name="text">
+    <string>百宝箱</string>
+   </property>
+  </action>
+  <action name="LinkOnlineToolFK">
+   <property name="text">
+    <string>ToolFK</string>
+   </property>
+  </action>
+  <action name="LinkOnlineJSON_BeJson">
+   <property name="text">
+    <string>JSON工具箱BeJson</string>
+   </property>
+  </action>
+  <action name="LinkOnline67tool">
+   <property name="text">
+    <string>即时工具67tool</string>
+   </property>
+  </action>
+  <action name="LinkOnlineToolLu">
+   <property name="text">
+    <string>在线工具ToolLu</string>
+   </property>
+  </action>
+  <action name="LinkOnlineSoJSON">
+   <property name="text">
+    <string>SoJSON在线解析</string>
+   </property>
+  </action>
+  <action name="LinkOnlineLatex">
+   <property name="text">
+    <string>Latex公式编辑器</string>
+   </property>
+  </action>
+  <action name="LinkOnlineMermaid">
+   <property name="text">
+    <string>Mermaid在线编辑器</string>
+   </property>
+  </action>
+  <action name="LinkOnlinePlantText">
+   <property name="text">
+    <string>PlantText编辑器</string>
+   </property>
+  </action>
+  <action name="LinkOnlineMindLine">
+   <property name="text">
+    <string>在线思维导图工具</string>
+   </property>
+  </action>
+  <action name="LinkOnlineDiagrams">
+   <property name="text">
+    <string>在线流程图绘制</string>
+   </property>
+  </action>
+  <action name="LinkOnlinePlantUml">
+   <property name="text">
+    <string>PlantUml 网页服务器</string>
+   </property>
+  </action>
+  <action name="LinkJyShareSvgEditor">
+   <property name="text">
+    <string>菜鸟SVG图片编辑器</string>
+   </property>
+  </action>
+  <action name="LinkJyShareShapeFly">
+   <property name="text">
+    <string>菜鸟绘图工具</string>
+   </property>
+  </action>
+  <action name="LinkJyShareOffice">
+   <property name="text">
+    <string>菜鸟在线办公工具大全</string>
+   </property>
+  </action>
+  <action name="LinkJyShareFront">
+   <property name="text">
+    <string>菜鸟在线表格生成</string>
+   </property>
+  </action>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
