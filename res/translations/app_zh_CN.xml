@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE TS>
+<TS version="2.1" language="zh_CN">
+    <context>
+    <name>MainWindow</name>
+<message>
+    <source>Qt Internationalization Demo</source>
+    <translation>Qt 国际化演示</translation>
+</message>
+<message>
+    <source>English</source>
+    <translation>英文</translation>
+</message>
+<message>
+    <source>中文</source>
+    <translation>中文</translation>
+</message>
+<message>
+    <source>Language</source>
+    <translation>语言</translation>
+</message>
+</context>
+<context>
+    <name>HMenuFile</name>
+    <message>
+        <source>&amp;File</source>
+        <translation>文件(&amp;F)</translation>
+    </message>
+    <message>
+        <source>New File</source>
+        <translation>新建文件</translation>
+    </message>
+    <message>
+        <source>New Folder</source>
+        <translation>新建文件夹</translation>
+    </message>
+    <message>
+        <source>&amp;Save</source>
+        <translation>保存(&amp;S)</translation>
+    </message>
+    <message>
+        <source>Save &amp;As</source>
+        <translation>另存为(&amp;A)</translation>
+    </message>
+    <message>
+        <source>E&amp;xit</source>
+        <translation>退出(&amp;X)</translation>
+    </message>
+</context>
+<context>
+    <name>HMenuImport</name>
+    <message>
+        <source>Import</source>
+        <translation>导入</translation>
+    </message>
+    <message>
+        <source>From Word</source>
+        <translation>从Word导入</translation>
+    </message>
+    <message>
+        <source>From HTML</source>
+        <translation>从HTML导入</translation>
+    </message>
+    <message>
+        <source>From JSON</source>
+        <translation>从JSON导入</translation>
+    </message>
+    <message>
+        <source>From YAML</source>
+        <translation>从YAML导入</translation>
+    </message>
+    <message>
+        <source>From Text</source>
+        <translation>从文本导入</translation>
+    </message>
+</context>
+<context>
+    <name>HMenuExport</name>
+    <message>
+        <source>Export</source>
+        <translation>导出</translation>
+    </message>
+    <message>
+        <source>To Word</source>
+        <translation>导出到Word</translation>
+    </message>
+    <message>
+        <source>To HTML</source>
+        <translation>导出到HTML</translation>
+    </message>
+    <message>
+        <source>To PDF</source>
+        <translation>导出到PDF</translation>
+    </message>
+</context>
+</TS>

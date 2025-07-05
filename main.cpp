@@ -1,17 +1,18 @@
-#include <QGuiApplication>
-#include <QQmlApplicationEngine>
+#include <QApplication>
+#include <QPushButton>
+#include "hmain_window.h"
+#include "const_def.h"
+#include "qt_style.h"
 
-int main(int argc, char *argv[]) {
-    QGuiApplication app(argc, argv);
+int main(int argc, char* argv[])
+{
+    QApplication app(argc, argv);
+    // 设置应用程序属性
+    QApplication::setApplicationName(ConstMainWin::TITLE);
+    QApplication::setApplicationDisplayName("HemyEdit");
+    QApplication::setWindowIcon(QIcon(":/icons/app_icon.png")); // 如果有图标
 
-    QQmlApplicationEngine engine;
-    // 加载QML文件（确保路径正确）
-    //engine.load(QUrl("qrc:/main.qml"));  // 或使用绝对路径
-    // 改用绝对路径（调试用）
-    engine.load(QUrl::fromLocalFile("res/HelloQml.qml"));
-
-    if (engine.rootObjects().isEmpty())
-        return -1;
-
-    return app.exec();
+    HemyUi::HMainWindow w;
+    w.ShowWindow();
+    return QApplication::exec();
 }

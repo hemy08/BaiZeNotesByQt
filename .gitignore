@@ -1,4 +1,2 @@
-/cmake-build-debug-qt69_mingw1310_64_32
-/cmake-build-release-qt69_mingw1310_64_32
-/deploy
 /.idea
+/cmake-build-**
