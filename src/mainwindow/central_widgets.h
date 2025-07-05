@@ -7,13 +7,13 @@
 #include <QMainWindow>
 #include <QWidget>
 
-namespace HemyUi {
+namespace HemyUI {
 
 class CentralWidgets : public QWidget {
 public:
     static QWidget* CreateCentralWidgets(QMainWindow* window);
 };
 
-} // HEMYUI
+} // HemyUI
 
 #endif //CENTRALWIDGETS_H

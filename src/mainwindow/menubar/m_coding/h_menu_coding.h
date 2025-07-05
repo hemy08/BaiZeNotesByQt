@@ -5,10 +5,11 @@
 #ifndef HEMY_MAIN_WIN_MENU_CODE_H
 #define HEMY_MAIN_WIN_MENU_CODE_H
 #include <QMenu>
-#include "const_def.h"
+#include "menu_base.h"
+#include "common.h"
 
 namespace HemyMenu {
-    class HMenuCoding final : public QMenu {
+    class HMenuCoding final : public MenuBase {
     public:
         explicit HMenuCoding(QWidget *parent = nullptr);
         ~HMenuCoding() override = default;

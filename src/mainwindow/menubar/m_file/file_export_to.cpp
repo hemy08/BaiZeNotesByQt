@@ -6,59 +6,18 @@
 #include "const_def.h"
 
 namespace HemyMenu {
-    HemyFileSubMenuExport::HemyFileSubMenuExport(QWidget *parent): QMenu("导出", parent) {
+    HemyFileSubMenuExport::HemyFileSubMenuExport(QWidget *parent): MenuBase(parent) {
         CreateFileSubMenuExport();
+        this->setTitle(getMenuAttr(MenuItemType::M_FILE_EXPORT).label);
+        this->setObjectName(getMenuAttr(MenuItemType::M_FILE_EXPORT).obj_name);
     }
     void HemyFileSubMenuExport::CreateFileSubMenuExport()
     {
-        ActionToWord();
-        ActionToHtml();
-        ActionToTxt();
-        ActionToXml();
-        ActionToYaml();
-        ActionToJson();
-        ActionToPdf();
-    }
-
-    void HemyFileSubMenuExport::ActionToWord() {
-        actionToWord = addAction(ConstMenuFile::EXPORT_WORD.label);
-        actionToWord->setObjectName(ConstMenuFile::EXPORT_WORD.obj_name);
-        actionToWord->setShortcut(ConstMenuFile::EXPORT_WORD.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToHtml() {
-        actionToHtml = addAction(ConstMenuFile::EXPORT_HTML.label);
-        actionToHtml->setObjectName(ConstMenuFile::EXPORT_HTML.obj_name);
-        actionToHtml->setShortcut(ConstMenuFile::EXPORT_HTML.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToTxt() {
-        actionToTxt = addAction(ConstMenuFile::EXPORT_TXT.label);
-        actionToTxt->setObjectName(ConstMenuFile::EXPORT_TXT.obj_name);
-        actionToTxt->setShortcut(ConstMenuFile::EXPORT_TXT.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToXml() {
-        actionToXml = addAction(ConstMenuFile::EXPORT_XML.label);
-        actionToXml->setObjectName(ConstMenuFile::EXPORT_XML.obj_name);
-        actionToXml->setShortcut(ConstMenuFile::EXPORT_XML.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToYaml() {
-        actionToYaml = addAction(ConstMenuFile::EXPORT_YAML.label);
-        actionToYaml->setObjectName(ConstMenuFile::EXPORT_YAML.obj_name);
-        actionToYaml->setShortcut(ConstMenuFile::EXPORT_YAML.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToJson() {
-        actionToJson = addAction(ConstMenuFile::EXPORT_JSON.label);
-        actionToJson->setObjectName(ConstMenuFile::EXPORT_JSON.obj_name);
-        actionToJson->setShortcut(ConstMenuFile::EXPORT_JSON.shortcut);
-    }
-
-    void HemyFileSubMenuExport::ActionToPdf() {
-        actionToPdf = addAction(ConstMenuFile::EXPORT_PDF.label);
-        actionToPdf->setObjectName(ConstMenuFile::EXPORT_PDF.obj_name);
-        actionToPdf->setShortcut(ConstMenuFile::EXPORT_PDF.shortcut);
+        actionToWord = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_WORD));
+        actionToHtml = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_HTML));
+        actionToXml = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_XML));
+        actionToYaml = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_YAML));
+        actionToJson = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_JSON));
+        actionToPdf = createAction(getMenuAttr(MenuItemType::M_FILE_EXPORT_PDF));
     }
 }

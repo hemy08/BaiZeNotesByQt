@@ -6,9 +6,8 @@
 
 namespace HemyMenu
 {
-    HMenuOnlineTool::HMenuOnlineTool(QWidget *parent): QMenu(parent) {
+    HMenuOnlineTool::HMenuOnlineTool(QWidget *parent): MenuBase(parent) {
         CreateMenuOnlineTool();
-
     }
     void HMenuOnlineTool::CreateMenuOnlineTool()
     {

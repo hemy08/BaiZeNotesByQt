@@ -5,11 +5,12 @@
 #ifndef HEMY_MAIN_WIN_MENU_INSERT_H
 #define HEMY_MAIN_WIN_MENU_INSERT_H
 #include <QMenu>
-#include "const_def.h"
+#include "menu_base.h"
+#include "common.h"
 
 namespace HemyMenu
 {
-    class HMenuInsert final : public QMenu {
+    class HMenuInsert final : public MenuBase {
     public:
         explicit HMenuInsert(QWidget *parent = nullptr);
         ~HMenuInsert() override = default;

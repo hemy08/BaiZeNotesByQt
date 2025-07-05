@@ -17,7 +17,7 @@
 #include "h_menu_bar.h"
 #include "h_status_bar.h"
 
-namespace HemyUi
+namespace HemyUI
 {
     class HMainWindow : public QMainWindow {
         Q_OBJECT

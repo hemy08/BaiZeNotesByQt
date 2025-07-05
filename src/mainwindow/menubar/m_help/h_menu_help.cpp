@@ -7,7 +7,7 @@
 
 namespace HemyMenu
 {
-    HMenuHelp::HMenuHelp(QWidget *parent): QMenu(parent) {
+    HMenuHelp::HMenuHelp(QWidget *parent): MenuBase(parent) {
         CreateMenuHelp();
     }
     void HMenuHelp::CreateMenuHelp()

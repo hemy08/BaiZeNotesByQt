@@ -13,6 +13,7 @@ namespace HemyStyle
             #HMainWindow {
                 background-color: #2D2D30;
                 font-family: 'Segoe UI';
+                font-size: 12pt;
             }
         )";
 
@@ -25,13 +26,13 @@ namespace HemyStyle
                 border-bottom: 2px solid #00B7FF;  /* 与菜单栏边框一致 */
                 height: 28px;
                 font-family: 'Segoe UI';
-                font-size: 14pt; /* 减小字体大小 */
+                font-size: 12pt; /* 减小字体大小 */
             }
 
             #CustomMenuBar::item {
                 background: transparent;
-                padding: 0px 4px;
-                margin: 0 4px;; /* 减小水平内边距 */
+                padding: 0px 10px;
+                margin: 0 4px; /* 减小水平内边距 */
                 border-radius: 4px;
                 min-width: 60px;  /* 设置最小宽度 */
                 text-align: center; /* 文本居中 */
@@ -61,7 +62,7 @@ namespace HemyStyle
                 border: 1px solid #3F3F46;
                 padding: 6px 0;
                 font-family: 'Segoe UI';
-                font-size: 10pt;
+                font-size: 12pt;
             }
 
             QMenu::item {

@@ -6,7 +6,7 @@
 
 namespace HemyMenu
 {
-    HMenuEdit::HMenuEdit(QWidget *parent): QMenu(parent) {
+    HMenuEdit::HMenuEdit(QWidget *parent): MenuBase(parent) {
         CreateMenuEdit();
 
     }

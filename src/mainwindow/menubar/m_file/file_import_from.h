@@ -2,12 +2,14 @@
 // Created by Administrator on 25-7-5.
 //
 
-#ifndef HEMY_MENU_FILE_SUB__IMPORT_FROM_H
-#define HEMY_MENU_FILE_SUB__IMPORT_FROM_H
+#ifndef HEMY_MENU_FILE_SUB_IMPORT_FROM_H
+#define HEMY_MENU_FILE_SUB_IMPORT_FROM_H
 #include <QMenu>
+#include "common.h"
+#include "menu_base.h"
 
 namespace HemyMenu {
-    class HemyFileSubMenuImport final : public QMenu {
+class HemyFileSubMenuImport final : public MenuBase {
     public:
         explicit HemyFileSubMenuImport(QWidget *parent = nullptr);
         ~HemyFileSubMenuImport() override = default;
@@ -28,13 +30,7 @@ namespace HemyMenu {
         QAction* actionFromTxt{};
 
         void CreateFileSubMenuImport();
-        void ActionFormWord();
-        void ActionFormHtml();
-        void ActionFormJson();
-        void ActionFormYaml();
-        void ActionFormXml();
-        void ActionFormTxt();
     };
 }
 
-#endif //HEMY_MENU_FILE_SUB__IMPORT_FROM_H
+#endif //HEMY_MENU_FILE_SUB_IMPORT_FROM_H

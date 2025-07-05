@@ -18,6 +18,7 @@ include_directories(
         src/mainwindow
         src/common/
         src/mainwindow/menubar
+        src/mainwindow/menubar/base
         src/mainwindow/menubar/m_file
         src/mainwindow/menubar/m_edit
         src/mainwindow/menubar/m_coding

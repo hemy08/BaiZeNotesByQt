@@ -14,7 +14,7 @@
 #include "hemy_style.h"
 
 
-namespace HemyUi
+namespace HemyUI
 {
     HMainWindow::HMainWindow(QWidget *parent) :
         QMainWindow(parent) {
@@ -26,17 +26,17 @@ namespace HemyUi
     void HMainWindow::CreateMainWindow()
     {
         if (objectName().isEmpty()) {
-            setObjectName(ConstMainWin::OBJ_NAME);
+            setObjectName(MAIN_WIN_OBJ_NAME);
         }
 
         // 设置初始语言为系统语言
-        if (QLocale::system().language() == QLocale::Chinese) {
+        /*if (QLocale::system().language() == QLocale::Chinese) {
             switchToChinese();
         } else {
             switchToEnglish();
-        }
-        setWindowTitle(ConstMainWin::TITLE);
-        resize(ConstMainWin::MAIN_DEFAULT_WIDTH, ConstMainWin::MAIN_DEFAULT_HEIGHT);
+        }*/
+        setWindowTitle(WIN_TITLE);
+        resize(MAIN_DEFAULT_WIDTH, MAIN_DEFAULT_HEIGHT);
     }
 
     void HMainWindow::setupUi()
@@ -69,7 +69,7 @@ namespace HemyUi
 
     void HMainWindow::changeEvent(QEvent *event)
     {
-        if (event->type() == QEvent::LanguageChange) {
+        /*if (event->type() == QEvent::LanguageChange) {
             // 重新翻译UI
             retranslateUi();
             setWindowTitle(tr("Qt Internationalization Demo"));
@@ -77,7 +77,7 @@ namespace HemyUi
             // 重新翻译自定义菜单
             //fileMenu->retranslateMenu();
         }
-        QMainWindow::changeEvent(event);
+        QMainWindow::changeEvent(event);*/
     }
 
     void HMainWindow::loadLanguage(const QString& language) {

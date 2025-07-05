@@ -4,11 +4,11 @@
 
 #include "central_widgets.h"
 
-namespace HemyUi {
+namespace HemyUI {
     QWidget* CentralWidgets::CreateCentralWidgets(QMainWindow *window)
     {
         QWidget*  centralWidget = new QWidget(window);
         centralWidget->setObjectName("central widget");
         return centralWidget;
     }
-} // HEMYUI
+} // HemyUI

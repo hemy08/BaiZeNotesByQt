@@ -5,13 +5,14 @@
 #ifndef HEMY_MAIN_WIN_MENU_FILE_H
 #define HEMY_MAIN_WIN_MENU_FILE_H
 #include <QMenu>
-#include "const_def.h"
+#include "menu_base.h"
+#include "common.h"
 #include "file_export_to.h"
 #include "file_import_from.h"
 
 namespace HemyMenu
 {
-    class HMenuFile final : public QMenu{
+    class HMenuFile final : public MenuBase {
     public:
         explicit HMenuFile(QWidget *parent = nullptr);
         ~HMenuFile() override = default;

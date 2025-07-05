@@ -14,41 +14,34 @@
 #include "h_menu_online_tools.h"
 #include "h_menu_links.h"
 #include "h_menu_help.h"
+#include "common.h"
 #include "default.h"
 
-
 namespace HemyMenu {
-    struct MenuCreator {
-        QMenu** varPtr;
-        std::function<QMenu*()> create;
-        QString title;
-    };
-
     HMenuBar::HMenuBar(QWidget *parent): QMenuBar(parent) {
         setMenuBarSheetStyle();
         CreateHemyMenus();
     }
 
     void HMenuBar::CreateHemyMenus() {
-        const QList<MenuCreator> creators = {
-            { &menuFile_,[this]{ return new HMenuFile(this); },ConstMenuBar::MENU_FILE },
-            { &menuEdit_,[this]{ return new HMenuEdit(this); },ConstMenuBar::MENU_EDIT},
-            { &menuView_,[this]{ return new HMenuView(this); },ConstMenuBar::MENU_VIEW },
-            { &menuCoding_,[this]{ return new HMenuCoding(this); },ConstMenuBar::MENU_CODING },
-            { &menuInsert_,[this]{ return new HMenuInsert(this); },ConstMenuBar::MENU_INSERT },
-            { &menuSettings_,[this]{ return new HMenuSetting(this); },ConstMenuBar::MENU_SETTING },
-            { &menuTools_,[this]{ return new HMenuTools(this); },ConstMenuBar::MENU_TOOLS },
-            { &menuPlugins_,[this]{ return new HMenuPlugin(this); },ConstMenuBar::MENU_PLUGIN },
-            { &menuOnlineTools_,[this]{ return new HMenuOnlineTool(this); },ConstMenuBar::MENU_ONLINE_TOOL },
-            { &menuLinks_,[this]{ return new HMenuLinks(this); },ConstMenuBar::MENU_LINK },
-            { &menuHelp_,[this]{ return new HMenuHelp(this); },ConstMenuBar::MENU_HELP },
+        static const MenuCreator menus[] = {
+            {&menuFile_,        [](QWidget *p) { return new HMenuFile(p); },       getMenuAttr(MenuItemType::MENU_FILE)},
+            {&menuEdit_,        [](QWidget *p) { return new HMenuEdit(p); },       getMenuAttr(MenuItemType::MENU_EDIT)},
+            {&menuView_,        [](QWidget *p) { return new HMenuView(p); },       getMenuAttr(MenuItemType::MENU_VIEW)},
+            {&menuCoding_,      [](QWidget *p) { return new HMenuCoding(p); },     getMenuAttr(MenuItemType::MENU_CODING)},
+            {&menuInsert_,      [](QWidget *p) { return new HMenuInsert(p); },     getMenuAttr(MenuItemType::MENU_INSERT)},
+            {&menuSettings_,    [](QWidget *p) { return new HMenuSetting(p); },    getMenuAttr(MenuItemType::MENU_SETTING)},
+            {&menuTools_,       [](QWidget *p) { return new HMenuTools(p); },      getMenuAttr(MenuItemType::MENU_TOOLS)},
+            {&menuPlugins_,     [](QWidget *p) { return new HMenuPlugin(p); },     getMenuAttr(MenuItemType::MENU_PLUGIN)},
+            {&menuOnlineTools_, [](QWidget *p) { return new HMenuOnlineTool(p); }, getMenuAttr(MenuItemType::MENU_ONLINE_TOOL)},
+            {&menuLinks_,       [](QWidget *p) { return new HMenuLinks(p); },      getMenuAttr(MenuItemType::MENU_LINK)},
+            {&menuHelp_,        [](QWidget *p) { return new HMenuHelp(p); },       getMenuAttr(MenuItemType::MENU_HELP)},
         };
-
         // 循环创建并添加菜单
-        for (const auto& creator : creators) {
-            *creator.varPtr = creator.create();
-            (*creator.varPtr)->setTitle(creator.title); // 设置标题
-            addMenu(*creator.varPtr);
+        for (const auto& info : menus) {
+            *info.target = info.create(this);
+            (*info.target)->setTitle(info.attr.label); // 设置标题
+            addMenu(*info.target);
         }
     }
 

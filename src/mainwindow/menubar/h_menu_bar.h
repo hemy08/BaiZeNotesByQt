@@ -5,6 +5,8 @@
 #ifndef HQMENUBAR_H
 #define HQMENUBAR_H
 #include <QMenuBar>
+#include "menu_base.h"
+#include "common.h"
 
 namespace HemyMenu {
 

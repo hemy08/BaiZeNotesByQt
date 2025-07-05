@@ -6,9 +6,8 @@
 
 namespace HemyMenu
 {
-    HMenuCoding::HMenuCoding(QWidget *parent): QMenu(parent) {
+    HMenuCoding::HMenuCoding(QWidget *parent): MenuBase(parent) {
         CreateMenuCoding();
-
     }
     void HMenuCoding::CreateMenuCoding()
     {
