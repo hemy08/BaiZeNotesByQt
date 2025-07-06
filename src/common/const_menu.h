@@ -7,9 +7,29 @@
 #include <QString>
 #include "common_base.h"
 
+enum class MenuItem
+{
+    MAIN,
+    MENU_BEGIN,
+    MENU_FILE,
+    MENU_EDIT,
+    MENU_VIEW,
+    MENU_CODING,
+    MENU_INSERT,
+    MENU_SETTING,
+    MENU_TOOLS,
+    MENU_PLUGIN,
+    MENU_ONLINE_TOOL,
+    MENU_LINK,
+    MENU_HELP,
+    MENU_END,
+    MENU_BUTT
+};
+
 enum class MenuItemType {
     MENU_NONE,
     OBJ_NAME_MENU_BAR,
+
     // 文件菜单
     OBJ_NAME_FILE,
     MENU_FILE,
@@ -37,27 +57,102 @@ enum class MenuItemType {
     M_FILE_EXPORT_PDF,
 
     // 编辑菜单
+    OBJ_NAME_EDIT,
     MENU_EDIT,
+    M_EDIT_UNDO,
+    M_EDIT_REDO,
+    M_EDIT_COPY,
+    M_EDIT_CUT,
+    M_EDIT_PASTE,
+    M_EDIT_GO_LINE,
+    M_EDIT_FIND_FILE,
+    M_EDIT_REPLACE_FILE,
+    M_EDIT_FIND_DIR,
+    M_EDIT_REPLACE_DIR,
     // 视图菜单
+    OBJ_NAME_VIEW,
     MENU_VIEW,
+    M_VIEW_EDIT_MOD,
+    M_VIEW_PREVIEW_MOD,
+    M_VIEW_EDIT_PREVIEW,
+    M_VIEW_SHOW_EXPLORER,
+    M_VIEW_SHOW_TOC,
+    M_VIEW_SHOW_LINE_NO,
+    M_VIEW_SHOW_SPACE,
+    M_VIEW_SHOW_LINE_BREAK,
+    M_VIEW_SHOW_ALL,
+    M_VIEW_FOLD_ALL,
+    M_VIEW_EXPAND_ALL,
+    M_VIEW_FOLD_CUR,
+    M_VIEW_EXPAND_CUR,
+    M_VIEW_FOLD,
+    M_VIEW_FOLD_1,
+    M_VIEW_FOLD_2,
+    M_VIEW_FOLD_3,
+    M_VIEW_FOLD_4,
+    M_VIEW_FOLD_5,
+    M_VIEW_FOLD_6,
+    M_VIEW_EXPAND,
+    M_VIEW_EXPAND_1,
+    M_VIEW_EXPAND_2,
+    M_VIEW_EXPAND_3,
+    M_VIEW_EXPAND_4,
+    M_VIEW_EXPAND_5,
+    M_VIEW_EXPAND_6,
+
     // 文件编码菜单
+    OBJ_NAME_CODING,
     MENU_CODING,
+    M_CODING_OPEN,
+    M_CODING_OPEN_ANSI,
+    M_CODING_OPEN_UTF8,
+    M_CODING_OPEN_UTF16LE,
+    M_CODING_OPEN_UTF16BE,
+    M_CODING_OPEN_GBK,
+    M_CODING_OPEN_GB2312,
+    M_CODING_OPEN_GB18030,
+    M_CODING_OPEN_BG5,
+    M_CODING_OPEN_BG5_HKSCS,
+    M_CODING_OPEN_HEX,
+    M_CODING_CONVERT,
+    M_CODING_CVT_ANSI,
+    M_CODING_CVT_UTF8,
+    M_CODING_CVT_UTF16LE,
+    M_CODING_CVT_UTF16BE,
+    M_CODING_CVT_GBK,
+    M_CODING_CVT_GB2312,
+    M_CODING_CVT_GB18030,
+    M_CODING_CVT_BG5,
+    M_CODING_CVT_BG5_HKSCS,
+    M_CODING_CVT_HEX,
+    M_CODING_NOTIFY,
     // 插入菜单
+    OBJ_NAME_INSERT,
     MENU_INSERT,
     // 设置菜单
+    OBJ_NAME_SETTING,
     MENU_SETTING,
     // 工具菜单
+    OBJ_NAME_TOOLS,
     MENU_TOOLS,
     // 插件菜单
+    OBJ_NAME_PLUGIN,
     MENU_PLUGIN,
     // 在线工具菜单
+    OBJ_NAME_ONLINE_TOOL,
     MENU_ONLINE_TOOL,
     // 链接菜单
+    OBJ_NAME_LINK,
     MENU_LINK,
     // 帮助菜单
-    MENU_HELP
+    OBJ_NAME_HELP,
+    MENU_HELP,
+
+    //
+    MENU_BUTT
 };
 
+MenuItemAttr getMenuItemAttr(MenuItem item, MenuItemType type);
 MenuItemAttr getMenuAttr(MenuItemType type);
 QString getMenuLabel(MenuItemType type);
 QString getMenuShortcut(MenuItemType type);

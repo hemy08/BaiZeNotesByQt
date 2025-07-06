@@ -22,12 +22,12 @@ class HemyFileSubMenuImport final : public MenuBase {
         QAction* fromXmlAction() const { return actionFromXml; }
         QAction* fromTxtAction() const { return actionFromTxt; }
     private:
-        QAction* actionFromWord{};
-        QAction* actionFromHtml{};
-        QAction* actionFromJson{};
-        QAction* actionFromYaml{};
-        QAction* actionFromXml{};
-        QAction* actionFromTxt{};
+        QAction* actionFromWord = nullptr;
+        QAction* actionFromHtml = nullptr;
+        QAction* actionFromJson = nullptr;
+        QAction* actionFromYaml = nullptr;
+        QAction* actionFromXml = nullptr;
+        QAction* actionFromTxt = nullptr;
 
         void CreateFileSubMenuImport();
     };

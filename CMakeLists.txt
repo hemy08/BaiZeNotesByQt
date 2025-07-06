@@ -58,7 +58,7 @@ file(GLOB_RECURSE  PLG_TOOL_HEAD src/mainwindow/menubar/plugins/*.h src/mainwind
 list(APPEND HEAD_FILES ${MENU_HEAD} ${MAIN_WINDOW_HEAD} ${COMMON_HEAD} ${PLG_TOOL_HEAD})
 message("HEAD_FILES ${HEAD_FILES}")
 
-add_executable(MdEditorByQt main.cpp ${SRC_FILES} ${HEAD_FILES})
+add_executable(MdEditorByQt WIN32 main.cpp ${SRC_FILES} ${HEAD_FILES})
 
 target_link_libraries(MdEditorByQt
         Qt::Core

@@ -66,7 +66,7 @@ namespace HemyStyle
             }
 
             QMenu::item {
-                padding: 6px 40px 6px 30px;
+                padding: 4px 30px 4px 30px;
                 min-height: 24px;
             }
 

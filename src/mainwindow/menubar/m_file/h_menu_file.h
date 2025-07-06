@@ -21,26 +21,18 @@ namespace HemyMenu
         [[nodiscard]] HemyFileSubMenuImport* fileSubMenuImport() const { return m_import_; }
         [[nodiscard]] HemyFileSubMenuExport* fileSubMenuExport() const { return m_export_; }
     private:
-        HemyFileSubMenuExport *m_export_{};
-        HemyFileSubMenuImport *m_import_{};
-        QAction *actionNewFile;
-        QAction *actionNewDir;
-        QAction *actionOpenFile;
-        QAction *actionOpenDir;
-        QAction *actionSave;
-        QAction *actionSaveAs;
-        QAction *actionReloadDisk;
-        QAction *actionExit;
+        HemyFileSubMenuExport *m_export_ = nullptr;;
+        HemyFileSubMenuImport *m_import_ = nullptr;;
+        QAction *actionNewFile = nullptr;;
+        QAction *actionNewDir = nullptr;;
+        QAction *actionOpenFile = nullptr;;
+        QAction *actionOpenDir = nullptr;;
+        QAction *actionSave = nullptr;;
+        QAction *actionSaveAs = nullptr;;
+        QAction *actionReloadDisk = nullptr;;
+        QAction *actionExit = nullptr;;
 
         void CreateMenuFile();
-        void ActionNewFile();
-        void ActionNewDir();
-        void ActionOpenFile();
-        void ActionOpenDir();
-        void ActionSave();
-        void ActionSaveAs();
-        void ActionReloadDisk();
-        void ActionExit();
     };
 }
 

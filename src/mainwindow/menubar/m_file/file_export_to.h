@@ -22,12 +22,12 @@ namespace HemyMenu {
         QAction* toXmlAction() const { return actionToXml; }
         QAction* toYamlAction() const { return actionToYaml; }
     private:
-        QAction* actionToWord;
-        QAction* actionToHtml;
-        QAction* actionToJson;
-        QAction* actionToYaml;
-        QAction* actionToXml;
-        QAction* actionToPdf;
+        QAction* actionToWord = nullptr;
+        QAction* actionToHtml = nullptr;
+        QAction* actionToJson = nullptr;
+        QAction* actionToYaml = nullptr;
+        QAction* actionToXml = nullptr;
+        QAction* actionToPdf = nullptr;
 
         void CreateFileSubMenuExport();
     };

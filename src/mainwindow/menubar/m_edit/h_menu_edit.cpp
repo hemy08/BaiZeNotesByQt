@@ -12,12 +12,21 @@ namespace HemyMenu
     }
     void HMenuEdit::CreateMenuEdit()
     {
-        // 添加编辑菜单项
-        QAction* undoAction = addAction(tr("&Undo"));
-        QAction* redoAction = addAction(tr("&Redo"));
+        actionRedo = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_REDO));
+        actionUndo = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_UNDO));
         addSeparator();
-        QAction* cutAction = addAction(tr("Cu&t"));
-        QAction* copyAction = addAction(tr("&Copy"));
-        QAction* pasteAction = addAction(tr("&Paste"));
+
+        actionCopy = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_COPY));
+        actionCut = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_COPY));
+        actionPaste = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_PASTE));
+        addSeparator();
+
+        actionGoLine = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_GO_LINE));
+        addSeparator();
+        // 保存
+        actionFind = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_FIND_FILE));
+        actionReplace = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_REPLACE_FILE));
+        actionFindDir = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_FIND_DIR));
+        actionReplaceDir = createAction(getMenuItemAttr(MenuItem::MENU_EDIT, MenuItemType::M_EDIT_REPLACE_DIR));
     }
 }

@@ -15,6 +15,17 @@ namespace HemyMenu
         explicit HMenuEdit(QWidget *parent = nullptr);
         ~HMenuEdit() override = default;
     private:
+        QAction* actionRedo = nullptr;
+        QAction* actionUndo = nullptr;
+        QAction* actionCopy = nullptr;
+        QAction* actionCut = nullptr;
+        QAction* actionPaste = nullptr;
+        QAction* actionGoLine = nullptr;
+        QAction* actionFind = nullptr;
+        QAction* actionReplace = nullptr;
+        QAction* actionFindDir = nullptr;
+        QAction* actionReplaceDir = nullptr;
+
         void CreateMenuEdit();
     };
 }

@@ -10,13 +10,15 @@ namespace HemyMenu {
     }
 
     MenuBase::MenuBase(const QString &title, QWidget *parent): QMenu(title, parent) {
-
+        setTitle(title);
     }
 
     QAction* MenuBase::createAction(const MenuItemAttr& menuItem) {
         QAction* action = addAction(menuItem.label);
         action->setObjectName(menuItem.obj_name);
-        action->setShortcut(menuItem.shortcut);
+        if (!(menuItem.shortcut.isEmpty() || menuItem.shortcut.length() == 0)) {
+            action->setShortcut(menuItem.shortcut);
+        }
         return action;
     }
 }
