@@ -4,14 +4,13 @@
 
 #ifndef MD_EDITOR_BY_QT_MENU_BASE_H
 #define MD_EDITOR_BY_QT_MENU_BASE_H
-#include <QMenu>
-#include <QFile>
 #include <QDomDocument>
-#include "common.h"
 #include <QString>
-#include <QList>
 #include <functional>
 #include <utility>  // 包含 std::move
+#include <QUrl>
+#include <QMessageBox>
+#include "common.h"
 
 namespace HemyMenu {
     enum MenuItemType
@@ -28,6 +27,9 @@ namespace HemyMenu {
         ~MenuBase() override = default;
 
         QAction* createAction(const MenuItemAttr& menuItem);
+        static void openWebPage(const QString &url);
+
+
         static void ParserMenuItems(const QString &fileName, QList<MenuItem>& menuItems);
         static void openXmlWithDom(QDomElement &element, const QString &fileName);
         static void parserXmlElement(const QDomElement &root, QList<MenuItem>& menuItems);
@@ -78,7 +80,6 @@ namespace HemyMenu {
 
     private:
         static MenuItemType getMenuItemType(const QString &type);
-
     };
 }
 

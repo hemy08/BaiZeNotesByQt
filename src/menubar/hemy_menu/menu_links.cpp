@@ -24,5 +24,6 @@ namespace HemyMenu
     void HMenuLinks::onLinksMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url)
     {
         HDEBUG("ITEM_ID: " + std::to_string(static_cast<int>(itemId))+ ", OBJ: " + objName.toStdString() + ", url: " + url.toStdString());
+        openWebPage(url);
     }
 }

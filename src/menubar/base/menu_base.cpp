@@ -6,6 +6,11 @@
 #include <QMessageBox>
 #include <QFile>
 #include <QDebug>
+#include <QDesktopServices>
+#include <QUrl>
+#include <QMessageBox>
+#include <QProcess>
+#include <QRegularExpression>
 
 namespace HemyMenu {
     MenuBase::MenuBase(QWidget *parent): QMenu(parent) {
@@ -145,6 +150,47 @@ namespace HemyMenu {
                     break;
                 }
             }
+        }
+    }
+
+    void MenuBase::openWebPage(const QString &url) {
+        // 验证URL格式
+        QRegularExpression urlRegex(
+            R"(^(https?|ftp)://[^\s/$.?#].[^\s]*$)",
+            QRegularExpression::CaseInsensitiveOption
+        );
+
+        if (!urlRegex.match(url).hasMatch()) {
+            QMessageBox::warning(nullptr, "Invalid URL",
+                                 "The provided URL is invalid:\n" + url);
+            return;
+        }
+
+        QUrl qurl(url);
+        if (qurl.scheme().isEmpty()) {
+            // 添加默认的http协议
+            qurl = QUrl("http://" + url);
+        }
+
+        if (!qurl.isValid()) {
+            QMessageBox::warning(nullptr, "Invalid URL",
+                                 "The provided URL is invalid:\n" + url);
+            return;
+        }
+
+        // 尝试打开URL
+        if (!QDesktopServices::openUrl(qurl)) {
+            // 尝试使用系统命令作为后备
+#if defined(Q_OS_WIN)
+            QProcess::startDetached("cmd", {"/c", "start", "", url});
+#elif defined(Q_OS_MAC)
+            QProcess::startDetached("open", {url});
+#elif defined(Q_OS_LINUX)
+            QProcess::startDetached("xdg-open", {url});
+#endif
+
+            QMessageBox::warning(nullptr, "Open Failed",
+                                 "Could not open the URL:\n" + url);
         }
     }
 }
