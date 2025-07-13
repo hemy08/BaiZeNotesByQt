@@ -7,7 +7,7 @@
 namespace HemyUI {
     QWidget* CentralWidgets::CreateCentralWidgets(QMainWindow *window)
     {
-        QWidget*  centralWidget = new QWidget(window);
+        auto*  centralWidget = new QWidget(window);
         centralWidget->setObjectName("central widget");
         return centralWidget;
     }

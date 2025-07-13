@@ -14,6 +14,7 @@
 #include "hemy_style.h"
 #include "main_spitter.h"
 #include "sidebar_widget.h"
+#include "../navigation/navigation.h"
 
 
 namespace HemyUI
@@ -23,6 +24,12 @@ namespace HemyUI
         CreateMainWindow();
         setupUi();
         applyStyles();
+    }
+
+    HMainWindow::~HMainWindow()
+    {
+        delete m_main_splitter;
+        delete mainLayout;
     }
 
     void HMainWindow::CreateMainWindow()
@@ -58,7 +65,7 @@ namespace HemyUI
         mainLayout->setContentsMargins(0, 0, 0, 0);
 
         // 创建分割布局
-        m_main_splitter = new HMainLayOut::HemyMainSpitter();
+        m_main_splitter = new HMainLayOut::HemyMainSpitter(central);
         mainLayout->addWidget(m_main_splitter);
 
         // 添加导航按钮
@@ -78,22 +85,7 @@ namespace HemyUI
 
         // 连接按钮点击信号
         connect(sidebar, &HMainLayOut::HemySidebarWidget::buttonClicked, this, [this](const QString &buttonText) {
-            HMainLayOut::HemyExplorerWidget *explorer = m_main_splitter->explorer();
-            explorer->setTitle(buttonText);
-
-            // 添加动态内容
-            QLabel *dynamicLabel = new QLabel(QString("你点击了: <b>%1</b>").arg(buttonText));
-            dynamicLabel->setStyleSheet("font-size: 16pt; color: #2c3e50;");
-
-            // 清除旧内容（保留标题）
-            QLayoutItem *child;
-            while ((child = explorer->layout()->takeAt(1)) != nullptr) {
-                delete child->widget();
-                delete child;
-            }
-
-            // 添加新内容
-            explorer->addExplorer(dynamicLabel);
+            HemyNav::HNavigation::onHandleTriggeredButton(*m_main_splitter, buttonText);
         });
     }
 
@@ -109,9 +101,9 @@ namespace HemyUI
             "   padding: 15px;"
             "}"
         );
-        QLabel *sampleLabel = new QLabel("尝试拖动左侧的分隔条来调整边栏宽度", sampleFrame);
+        auto *sampleLabel = new QLabel("尝试拖动左侧的分隔条来调整边栏宽度", sampleFrame);
         sampleLabel->setAlignment(Qt::AlignCenter);
-        QVBoxLayout *frameLayout = new QVBoxLayout(sampleFrame);
+        auto *frameLayout = new QVBoxLayout(sampleFrame);
         frameLayout->addWidget(sampleLabel);
 
         explorer->addExplorer(sampleFrame);

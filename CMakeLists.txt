@@ -14,14 +14,23 @@ find_package(Qt6 COMPONENTS ${QT_LIBS} REQUIRED)
 
 include_directories(
         src/common/
-        src/common/log
+        src/log
         src/mainwindow
-        src/mainwindow/main_layout
-        src/mainwindow/menubar
-        src/mainwindow/menubar/base
-        src/mainwindow/menubar/hemy_menu
-        src/mainwindow/status_bar
+        src/mainwindow/window_widget
+        src/menubar
+        src/menubar/base
+        src/menubar/hemy_menu
+        src/menubar/menu_file
+        src/menubar/menu_edit
+        src/menubar/menu_view
+        src/menubar/menu_coding
+        src/menubar/menu_insert
+        src/menubar/menu_model
+        src/menubar/menu_setting
+        src/menubar/menu_tools
         src/model
+        src/navigation
+        src/status_bar
         src/style_def
         src/tools/local
         src/tools/online
@@ -34,18 +43,18 @@ include_directories(
 )
 
 set(SRC_FILES "")
-file(GLOB_RECURSE  MENU_SRCS src/mainwindow/main_layout/*.cpp src/mainwindow/menubar/*.cpp src/mainwindow/status_bar/*.cpp)
+file(GLOB_RECURSE  MENU_SRCS src/mainwindow/window_widget/*.cpp src/menubar/*.cpp src/status_bar/*.cpp src/model/*.cpp src/navigation/*.cpp)
 file(GLOB_RECURSE  MAIN_WINDOW_SRCS src/mainwindow/*.cpp src/workbench/*.cpp)
-file(GLOB_RECURSE  COMMON_SRCS src/common/*.cpp src/style_def/*.cpp)
-file(GLOB_RECURSE  PLG_TOOL_SRCS src/mainwindow/menubar/plugins/*.cpp src/tools/*.cpp)
+file(GLOB_RECURSE  COMMON_SRCS src/common/*.cpp src/style_def/*.cpp src/log/*.cpp)
+file(GLOB_RECURSE  PLG_TOOL_SRCS src/menubar/plugins/*.cpp src/tools/*.cpp)
 list(APPEND SRC_FILES ${MENU_SRCS} ${MAIN_WINDOW_SRCS} ${COMMON_SRCS} ${PLG_TOOL_SRCS})
 message("SRC_FILES ${SRC_FILES}")
 
 set(HEAD_FILES "")
-file(GLOB_RECURSE  MENU_HEAD src/mainwindow/menubar/*.h src/mainwindow/status_bar/*.h)
+file(GLOB_RECURSE  MENU_HEAD src/menubar/*.h src/status_bar/*.h)
 file(GLOB_RECURSE  MAIN_WINDOW_HEAD src/mainwindow/*.h src/workbench/*.h)
 file(GLOB_RECURSE  COMMON_HEAD src/common/*.h src/style_def/*.h)
-file(GLOB_RECURSE  PLG_TOOL_HEAD src/mainwindow/menubar/plugins/*.h src/tools/*.h)
+file(GLOB_RECURSE  PLG_TOOL_HEAD src/menubar/plugins/*.h src/tools/*.h)
 list(APPEND HEAD_FILES ${MENU_HEAD} ${MAIN_WINDOW_HEAD} ${COMMON_HEAD} ${PLG_TOOL_HEAD})
 message("HEAD_FILES ${HEAD_FILES}")
 

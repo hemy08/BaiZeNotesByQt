@@ -20,6 +20,7 @@ namespace HemyUI
 
     public:
         explicit HMainWindow(QWidget *parent = nullptr);
+        ~HMainWindow() override;
         void CreateMainWindow(); // setupUi
         void setupUi(); // setupUi
         void ShowWindow();

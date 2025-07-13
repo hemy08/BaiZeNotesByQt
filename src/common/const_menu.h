@@ -5,6 +5,7 @@
 #ifndef MD_EDITOR_BY_QT_CONST_MENU_H
 #define MD_EDITOR_BY_QT_CONST_MENU_H
 #include <QString>
+#include <utility>
 #include "common_base.h"
 
 enum class MenuType
@@ -28,7 +29,7 @@ enum class MenuType
     MENU_BUTT
 };
 
-enum class SubMenuType {
+enum class MenuItemID {
     MENU_NONE,
     OBJ_NAME_MENU_BAR,
 
@@ -240,6 +241,48 @@ enum class SubMenuType {
     // 插件菜单
     OBJ_NAME_PLUGIN,
     MENU_PLUGIN,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_ED_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_CV_,
+    M_PLUGIN_FM_,
+    M_PLUGIN_FM_,
+    M_PLUGIN_FM_,
+    M_PLUGIN_FM_,
+    M_PLUGIN_FM_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_NC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,
+
 
     // 插件菜单
     OBJ_NAME_CUSTOM,
@@ -271,58 +314,101 @@ enum class SubMenuType {
     MENU_BUTT
 };
 
-MenuItemAttr getMenuItemAttr(MenuType item, SubMenuType type);
-MenuItemAttr getMenuAttr(SubMenuType type);
-QString getMenuLabel(SubMenuType type);
-QString getMenuShortcut(SubMenuType type);
-/*
-namespace CONST_MENU{
-    class BAR {
-    public:
-        inline static const QString OBJ_NAME = "CustomMenuBar";
-        inline static MenuItemAttr MENU_FILE = {"MenuFile", "文件(&F)", "Alt+F"};
-        inline static MenuItemAttr MENU_EDIT = {"MenuEdit", "编辑(&E)", "Alt+E"};
-        inline static MenuItemAttr MENU_VIEW = {"MenuView", "视图(&V)", "Alt+V"};
-        inline static MenuItemAttr MENU_CODING = {"MenuCoding", "文件编码(&C)", "Alt+C"};
-        inline static MenuItemAttr MENU_INSERT = {"MenuInsert", "插入(&I)", "Alt+I"};
-        inline static MenuItemAttr MENU_SETTING = {"MenuSetting", "设置(&S)", "Alt+S"};
-        inline static MenuItemAttr MENU_TOOLS = {"MenuTools", "工具(&T)", "Alt+T"};
-        inline static MenuItemAttr MENU_PLUGIN = {"MenuPlugins", "插件(&P)", "Alt+P"};
-        inline static MenuItemAttr MENU_ONLINE_TOOL = {"MenuOnlineTool", "在线工具(&O)", "Alt+O"};
-        inline static MenuItemAttr MENU_LINK = {"MenuLinks", "链接(&L)", "Alt+L"};
-        inline static MenuItemAttr MENU_HELP = {"MenuHelp", "帮助(&H)", "Alt+H"};
-
+struct MenuItem {
+    enum ItemType {
+        Action,     // 可操作菜单项
+        Separator,  // 分隔符
+        SubMenu     // 子菜单
     };
+
+    QString label = "";
+    QString objName = "";
+    QString shortcut = "";
+    ItemType itemType = Action;  // 使用枚举类型替代布尔值
+    MenuItemID menuId = MenuItemID::MENU_BUTT;
+    QString qmlFile = "";        // QML 文件路径
+    QString iconPath = "";       // 图标路径
+    QString url = "";            // URL
+    bool enabled = true;         // 是否启用
+    QList<MenuItem> subItems;    // 子菜单项
+
+    // 基础构造函数（必需参数）
+    MenuItem(const MenuItemID menuId, QString label, QString  objName)
+        : label(std::move(label)), objName(std::move(objName)),menuId(menuId)
+    {}
+
+    // 带类型的构造函数
+    MenuItem(const MenuItemID menuId, QString label,QString objName, const ItemType type)
+        : label(std::move(label)),objName(std::move(objName)),itemType(type),menuId(menuId)
+    {}
+
+    // 带快捷键的构造函数
+    MenuItem(const MenuItemID menuId, QString label,QString objName, QString shortcut)
+        : label(std::move(label)),objName(std::move(objName)),shortcut(std::move(shortcut)),menuId(menuId)
+    {}
+
+    // 带子菜单的构造函数
+    MenuItem(const MenuItemID menuId, QString label,QString objName, QList<MenuItem> items)
+        : label(std::move(label)),objName(std::move(objName)),itemType(SubMenu), menuId(menuId),subItems(std::move(items))
+    {}
+
+    // 带URL的构造函数
+    MenuItem(const MenuItemID menuId, QString label,QString objName, const ItemType type, QString url_addr)
+        : label(std::move(label)), objName(std::move(objName)), itemType(type), menuId(menuId),url(std::move(url_addr))
+    {}
+
+    // 完整参数构造函数（所有可选参数）
+    MenuItem(const MenuItemID menuId, QString label,QString objName, ItemType type,
+             QString shortcut, QString qml, QString icon,
+             QString url_addr, const bool enabled,
+             const std::function<void()>& callback,
+             QList<MenuItem> items)
+        : label(std::move(label)),
+          objName(std::move(objName)),
+          shortcut(std::move(shortcut)),
+          itemType(type),
+          menuId(menuId),
+          qmlFile(std::move(qml)),
+          iconPath(std::move(icon)),
+          url(std::move(url_addr)),
+          enabled(enabled),
+          subItems(std::move(items))
+    {}
+
+    // 默认构造函数
+    MenuItem() = default;
+
+    // 分隔符的便捷构造函数（静态工厂方法）
+    static MenuItem createSeparator() {
+        return MenuItem(MenuItemID::MENU_BUTT, "", "", Separator);
+    }
+
+    // 重载 == 运算符
+    bool operator == (const MenuItem& other) const {
+        return objName == other.objName &&
+               label == other.label &&
+               itemType == other.itemType &&
+               shortcut == other.shortcut &&
+               qmlFile == other.qmlFile &&
+               iconPath == other.iconPath &&
+               url == other.url &&
+               enabled == other.enabled &&
+               menuId == other.menuId &&
+               subItems == other.subItems;
+    }
+
+    // 重载 != 运算符
+    bool operator!=(const MenuItem& other) const {
+        return !(*this == other);
+    }
 };
 
-namespace CONST_MENU {
-    class FILE {
-    public:
-        inline static const QString OBJ_NAME_FILE = "MenuFile";
-        inline static MenuItemAttr MENU_FILE;
-        inline static MenuItemAttr NEW_File = {"ActionNewFile", "新建文件", "Ctrl+N"};
-        inline static MenuItemAttr NEW_DIR = {"ActionNewDir", "新建文件夹", "Ctrl+D"};
-        inline static MenuItemAttr OPEN_File = {"ActionOpenFile", "打开文件", "Ctrl+Alt+N"};
-        inline static MenuItemAttr OPEN_DIR = {"ActionOpenDir", "打开文件夹", "Ctrl+Alt+D"};
-        inline static MenuItemAttr SAVE = {"ActionSave", "保存", "Ctrl+S"};
-        inline static MenuItemAttr SAVE_AS = {"ActionSaveAs", "另存为", "Ctrl+Shift+S"};
-        inline static MenuItemAttr RELOAD = {"ActionReloadFromDisk", "从磁盘重新加载", "Ctrl+Alt+Y"};
-        inline static MenuItemAttr EXIT = {"ActionExit", "退出", "Alt+F4"};
-        inline static MenuItemAttr IMPORT = {"FileSubMenuImport", "导入", ""};
-        inline static MenuItemAttr IMPORT_WORD = {"FromWord", "从 Word 导入", ""};
-        inline static MenuItemAttr IMPORT_HTML = {"FromHtml", "从 Html 导入", ""};
-        inline static MenuItemAttr IMPORT_JSON = {"FromJson", "从 Json 导入", ""};
-        inline static MenuItemAttr IMPORT_YAML = {"FromYaml", "从 Yaml 导入", ""};
-        inline static MenuItemAttr IMPORT_XML = {"FromXml", "从 XML 导入", ""};
-        inline static MenuItemAttr IMPORT_TXT = {"FromTxt", "从文本文件导入", ""};
-        inline static MenuItemAttr EXPORT = {"FileSubMenuExport", "导出", ""};
-        inline static MenuItemAttr EXPORT_WORD = {"ToWord", "导出到 Word", ""};
-        inline static MenuItemAttr EXPORT_JSON = {"ToJson", "导出到 Json", ""};
-        inline static MenuItemAttr EXPORT_XML = {"ToXml", "导出到 XML", ""};
-        inline static MenuItemAttr EXPORT_YAML = {"ToYaml", "导出到 Yaml", ""};
-        inline static MenuItemAttr EXPORT_HTML = {"ToHtml", "导出到 Html", ""};
-        inline static MenuItemAttr EXPORT_PDF = {"ToPdf", "导出到 Pdf", ""};
-    };
-};*/
+MenuItemAttr getMenuItemAttr(MenuType item, MenuItemID type);
+MenuItemAttr getMenuAttr(MenuItemID type);
+QString getMenuLabel(MenuItemID type);
+QString getMenuShortcut(MenuItemID type);
+MenuItem createMenuItem(MenuType item, MenuItemID type);
+MenuItem createMenuItems(MenuType item, MenuItemID type, const QList<MenuItem>& menuItems);
+
 
 #endif //MD_EDITOR_BY_QT_CONST_MENU_H

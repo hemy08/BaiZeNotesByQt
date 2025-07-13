@@ -7,5 +7,6 @@
 #include "common_base.h"
 #include "const_menu.h"
 #include "const_def.h"
+#include "hemy_debug.h"
 
 #endif //MD_EDITOR_BY_QT_COMMON_H

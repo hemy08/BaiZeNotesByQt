@@ -3,7 +3,7 @@
 #include <QFile>
 #include <QPushButton>
 #include <QMessageBox>
-#include "hmain_window.h"
+#include "src/mainwindow/hmain_window.h"
 #include "common.h"
 
 #ifdef _WIN32
@@ -16,6 +16,7 @@ int main(int argc, char* argv[])
     FreeConsole();   // 隐藏控制台窗口
 #endif
 
+    Logger::getInstance().initialize("run.log", LogLevel::DEBUG);
     QApplication app(argc, argv);
     // 设置应用程序属性
     QApplication::setApplicationName(WIN_TITLE);
