@@ -1,0 +1,39 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionNewFile</ObjName><Label>新建文件</Label><Url/><ShortCut>Ctrl+N</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionNewDir</ObjName><Label>新建文件夹</Label><Url/><ShortCut>Ctrl+D</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOpenFile</ObjName><Label>打开文件</Label><Url/><ShortCut>Ctrl+Alt+N</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOpenDir</ObjName><Label>打开文件夹</Label><Url/><ShortCut>Ctrl+Alt+D</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="menu">
+        <Label>从文件导入</Label><Url/>
+        <ObjName>FileSubMenuImport</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionFromWord</ObjName><Label>从 Word 导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFromHtml</ObjName><Label>从 Html 导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFromJson</ObjName><Label>从 Json 导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFromYaml</ObjName><Label>从 Yaml 导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFromXml</ObjName><Label>从 XML 导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFromTxt</ObjName><Label>从文本文件导入</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>导出到文件</Label><Url/>
+        <ObjName>FileSubMenuExport</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionToWord</ObjName><Label>导出到 Word</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionToJson</ObjName><Label>导出到 Json</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionToXml</ObjName><Label>导出到 XML</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionToYaml</ObjName><Label>导出到 Yaml</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionToHtml</ObjName><Label>导出到 Html</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionToPdf</ObjName><Label>导出到 Pdf</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionSave</ObjName><Label>保存</Label><Url/><ShortCut>Ctrl+S</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSaveAs</ObjName><Label>另存为</Label><Url/><ShortCut>Ctrl+Shift+S</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionReloadFromDisk</ObjName><Label>从磁盘重新加载</Label><Url/><ShortCut>Ctrl+Alt+Y</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionExit</ObjName><Label>退出</Label><Url/><ShortCut>Alt+F4</ShortCut><QmlFile/><Icon/></menuItem>
+</Menu>

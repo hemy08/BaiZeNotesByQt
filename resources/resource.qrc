@@ -1,0 +1,18 @@
+<RCC>
+    <qresource prefix="/">
+        <!-- 菜单定义文件 -->
+        <file>main_menu/file.xml</file>
+        <file>main_menu/edit.xml</file>
+        <file>main_menu/view.xml</file>
+        <file>main_menu/coding.xml</file>
+        <file>main_menu/insert.xml</file>
+        <file>main_menu/settings.xml</file>
+        <file>main_menu/model.xml</file>
+        <file>main_menu/plugins.xml</file>
+        <file>main_menu/tools.xml</file>
+        <file>main_menu/online.xml</file>
+        <file>main_menu/custom_tools.xml</file>
+        <file>main_menu/links.xml</file>
+        <file>main_menu/help.xml</file>
+    </qresource>
+</RCC>

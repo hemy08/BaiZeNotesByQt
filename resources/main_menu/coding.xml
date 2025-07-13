@@ -1,0 +1,37 @@
+<Menu>
+    <menuItem type="menu">
+        <Label>使用......编码打开</Label><Url/>
+        <ObjName>CodingSubMenuOpen</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionCodingOpenAnsi</ObjName><Label>ANSI</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenUtf8</ObjName><Label>UTF-8</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenUtf16LE</ObjName><Label>UTF-16 Little Endian</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenUtf16BE</ObjName><Label>UTF-16 Big Endian</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenBig5</ObjName><Label>Big5(繁体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenBig5Hkscs</ObjName><Label>Big5-HKSCS(繁体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenGbk</ObjName><Label>GBK(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenGbk2313</ObjName><Label>GBK2312(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenGbk18030</ObjName><Label>GBK18030(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingOpenHex</ObjName><Label>Hex(十六进制)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>转为......编码</Label><Url/>
+        <ObjName>CodingSubMenuConvert</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionCodingCvtAnsi</ObjName><Label>ANSI</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtUtf8</ObjName><Label>UTF-8</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtUtf16LE</ObjName><Label>UTF-16 Little Endian</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtUtf16BE</ObjName><Label>UTF-16 Big Endian</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtBig5</ObjName><Label>Big5(繁体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtBig5Hkscs</ObjName><Label>Big5-HKSCS(繁体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtGbk</ObjName><Label>GBK(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtGbk2313</ObjName><Label>GBK2312(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtGbk18030</ObjName><Label>GBK18030(简体中文)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionCodingCvtHex</ObjName><Label>Hex(十六进制)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="action"><ObjName>actionCodingNotify</ObjName><Label>注意：请勿直接编辑乱码文件</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

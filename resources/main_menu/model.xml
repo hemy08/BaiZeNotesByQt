@@ -1,0 +1,101 @@
+<Menu>
+    <menuItem type="menu">
+        <Label>Material模块</Label><Url/>
+        <ObjName>ModelSubMenuMaterial</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><Label>Admonition</Label><Url/><ObjName>actionModelAdmonition</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>Mermaid绘图</Label><Url/>
+        <ObjName>ModelSubMenuMermaid</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionModelMermaidBase</ObjName><Label>基础框架</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidFlowChat</ObjName><Label>流程图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidSequence</ObjName><Label>时序图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidClass</ObjName><Label>类图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidState</ObjName><Label>状态图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidEntity</ObjName><Label>实体关系图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidUserJourney</ObjName><Label>用户旅程图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidGantt</ObjName><Label>甘特图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidPie</ObjName><Label>饼图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidQuadrant</ObjName><Label>象限图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidRequirement</ObjName><Label>需求图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidGit</ObjName><Label>GitGraph(Git)图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidC4</ObjName><Label>C4图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidMindmap</ObjName><Label>思维导图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidTimeLine</ObjName><Label>时间线图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidZenUml</ObjName><Label>ZenUML</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidSanKey</ObjName><Label>桑基图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidXYChart</ObjName><Label>XY图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidBlock</ObjName><Label>框图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidPacket</ObjName><Label>数据包图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidKanBan</ObjName><Label>看板图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidArchitecture</ObjName><Label>架构图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidRadar</ObjName><Label>雷达图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelMermaidTreeMap</ObjName><Label>树形图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>PlantUml绘图</Label><Url/>
+        <ObjName>ModelSubMenuPlantUml</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionModelPltUmlBase</ObjName><Label>基础框架</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlSequence</ObjName><Label>序列图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlUseCase</ObjName><Label>用例图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlClass</ObjName><Label>类图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlActivity</ObjName><Label>活动图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlComponent</ObjName><Label>组件图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlState</ObjName><Label>状态图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlObject</ObjName><Label>对象图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlDeploy</ObjName><Label>部署图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlTiming</ObjName><Label>定时图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlRegex</ObjName><Label>Regex图表</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlNWDiag</ObjName><Label>使用nwdiag的网络图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlSlat</ObjName><Label>Salt (Wireframe)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlArchiMate</ObjName><Label>架构图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlGantt</ObjName><Label>甘特图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlChronology</ObjName><Label>时序图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlMindmap</ObjName><Label>思维导图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlWBS</ObjName><Label>WBS 图表</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlEBNF</ObjName><Label>EBNF图表</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlJson</ObjName><Label>JSON数据</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlYaml</ObjName><Label>YAML数据</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlSdl</ObjName><Label>规范和描述语言(SDL)</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlAsciiMath</ObjName><Label>AsciiMath</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlDitaa</ObjName><Label>Ditaa图表</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlEntity</ObjName><Label>实体关系图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelPltUmlInfoEng</ObjName><Label>信息工程图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="menu">
+        <Label>写作模板</Label><Url/>
+        <ObjName>ModelSubMenuWriteModel</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionModelWLeetCode</ObjName><Label>力扣解题模板</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelWQuestion</ObjName><Label>问题处理模板</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelWCover</ObjName><Label>文章封面</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionModelWPaper</ObjName><Label>论文模板</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action">
+        <Label>自定义模板</Label><Url/>
+        <ObjName>actionModelCustomModel</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+    </menuItem>
+    <menuItem type="action">
+        <Label>自定义模板管理</Label><Url/>
+        <ObjName>actionModelCustomMange</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+    </menuItem>
+</Menu>

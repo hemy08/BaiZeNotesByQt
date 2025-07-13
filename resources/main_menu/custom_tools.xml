@@ -1,0 +1,5 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionCustomConfig</ObjName><Label>配置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionCustFirst</ObjName><Label>第一个菜单</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

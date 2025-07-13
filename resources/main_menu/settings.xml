@@ -1,0 +1,8 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionSettingSystem</ObjName><Label>系统设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSettingTheme</ObjName><Label>主题设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSettingQuickLink</ObjName><Label>快速链接设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSettingEditor</ObjName><Label>编辑器设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSettingMdParse</ObjName><Label>Markdown解析设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionSettingShortCut</ObjName><Label>快捷键设置</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

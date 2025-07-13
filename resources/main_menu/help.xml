@@ -1,0 +1,14 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionHelpRelease</ObjName><Label>版本发布</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpShortKey</ObjName><Label>键盘快捷方式</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpDocs</ObjName><Label>使用文档</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionHelpIssue</ObjName><Label>提交创意/意见</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpAbort</ObjName><Label>关于</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpContactUs</ObjName><Label>联系我们</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionHelpHomePage</ObjName><Label>主页</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpThanks</ObjName><Label>致谢</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpUpdate</ObjName><Label>检查更新</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionHelpOpenSource</ObjName><Label>开源软件</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

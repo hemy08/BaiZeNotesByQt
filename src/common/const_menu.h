@@ -7,7 +7,7 @@
 #include <QString>
 #include "common_base.h"
 
-enum class MenuItem
+enum class MenuType
 {
     MAIN,
     MENU_BEGIN,
@@ -16,9 +16,11 @@ enum class MenuItem
     MENU_VIEW,
     MENU_CODING,
     MENU_INSERT,
+    MENU_MODEL,
     MENU_SETTING,
     MENU_TOOLS,
     MENU_PLUGIN,
+    MENU_CUSTOM,
     MENU_ONLINE_TOOL,
     MENU_LINK,
     MENU_HELP,
@@ -26,7 +28,7 @@ enum class MenuItem
     MENU_BUTT
 };
 
-enum class MenuItemType {
+enum class SubMenuType {
     MENU_NONE,
     OBJ_NAME_MENU_BAR,
 
@@ -69,6 +71,8 @@ enum class MenuItemType {
     M_EDIT_REPLACE_FILE,
     M_EDIT_FIND_DIR,
     M_EDIT_REPLACE_DIR,
+
+
     // 视图菜单
     OBJ_NAME_VIEW,
     MENU_VIEW,
@@ -126,36 +130,151 @@ enum class MenuItemType {
     M_CODING_CVT_BG5_HKSCS,
     M_CODING_CVT_HEX,
     M_CODING_NOTIFY,
+
     // 插入菜单
     OBJ_NAME_INSERT,
     MENU_INSERT,
+    M_INSERT_FONT,
+    M_INSERT_KATEX,
+    M_INSERT_MD_TABLE,
+    M_INSERT_WEB_LINK,
+    M_INSERT_TXT,
+    M_INSERT_T_IMAGES,
+    M_INSERT_T_CODEBLOCK,
+    M_INSERT_T_MD_LIST,
+    M_INSERT_T_UPDATE_TIME,
+    M_INSERT_FROM_FILE,
+    M_INSERT_F_TXT,
+    M_INSERT_F_JSON,
+    M_INSERT_F_INI,
+    M_INSERT_F_YAML,
+    M_INSERT_F_XML,
+    M_INSERT_F_CSV,
+    M_INSERT_F_XLS,
+
+    // 模板菜单
+    OBJ_NAME_MODEL,
+    MENU_MODEL,
+    M_MODEL_CUSTOM_MODEL,
+    M_MODEL_CUSTOM_MANAGE,
+    M_MODEL_WRITE_MODEL,
+    M_MODEL_W_LEETCODE,
+    M_MODEL_W_QUESTION,
+    M_MODEL_W_COVER,
+    M_MODEL_W_PAPER,
+    M_MODEL_MATERIAL,
+    M_MODEL_M_ADMONITION,
+    M_MODEL_MERMAID,
+    M_MODEL_ME_BASE,
+    M_MODEL_ME_FLOWCHAT,
+    M_MODEL_ME_SEQUENCE,
+    M_MODEL_ME_CLASS,
+    M_MODEL_ME_STATE,
+    M_MODEL_ME_ENTITY,
+    M_MODEL_ME_USER_JOURNEY,
+    M_MODEL_ME_GANTT,
+    M_MODEL_ME_PIE,
+    M_MODEL_ME_QUADRANT,
+    M_MODEL_ME_REQUIREMENT,
+    M_MODEL_ME_GIT,
+    M_MODEL_ME_C4,
+    M_MODEL_ME_MINDMAP,
+    M_MODEL_ME_TIMELINE,
+    M_MODEL_ME_ZEN_UML,
+    M_MODEL_ME_SANKEY,
+    M_MODEL_ME_XY_CHART,
+    M_MODEL_ME_BLOCK,
+    M_MODEL_ME_PACKET,
+    M_MODEL_ME_KANBAN,
+    M_MODEL_ME_ARCHITECTURE,
+    M_MODEL_ME_RADAR,
+    M_MODEL_ME_TREEMAP,
+    // PlantUML
+    M_MODEL_PLANTUML,
+    M_MODEL_PL_BASE,
+    M_MODEL_PL_SEQUENCE,
+    M_MODEL_PL_USE_CASE,
+    M_MODEL_PL_CLASS,
+    M_MODEL_PL_ACTIVITY,
+    M_MODEL_PL_COMP,
+    M_MODEL_PL_STATE,
+    M_MODEL_PL_OBJECT,
+    M_MODEL_PL_DEPLOY,
+    M_MODEL_PL_TIMING,
+    M_MODEL_PL_REGEX,
+    M_MODEL_PL_NWDIAG,
+    M_MODEL_PL_SALT,
+    M_MODEL_PL_ARCHI_MATE,
+    M_MODEL_PL_GANTT,
+    M_MODEL_PL_CHRONOLOGY,
+    M_MODEL_PL_MINDMAP,
+    M_MODEL_PL_WBS,
+    M_MODEL_PL_EBNF,
+    M_MODEL_PL_JSON,
+    M_MODEL_PL_YAML,
+    M_MODEL_PL_SDL,
+    M_MODEL_PL_ASCII_MATH,
+    M_MODEL_PL_DITAA,
+    M_MODEL_PL_ENTITY,
+    M_MODEL_PL_INFO_ENG,
+
     // 设置菜单
     OBJ_NAME_SETTING,
     MENU_SETTING,
+    M_SETTING_SYSTEM,
+    M_SETTING_THEME,
+    M_SETTING_QUICK,
+    M_SETTING_EDITOR,
+    M_SETTING_MD_PARSE,
+    M_SETTING_SHORTCUT,
+
     // 工具菜单
     OBJ_NAME_TOOLS,
     MENU_TOOLS,
+    M_TOOL_KATEX,
+    M_TOOL_MERMAID,
+    M_TOOL_PLANTUML,
+    M_TOOL_DRAW,
+    M_TOOL_EXECL,
+
     // 插件菜单
     OBJ_NAME_PLUGIN,
     MENU_PLUGIN,
+
+    // 插件菜单
+    OBJ_NAME_CUSTOM,
+    MENU_CUSTOM_TOOLS,
+
     // 在线工具菜单
     OBJ_NAME_ONLINE_TOOL,
     MENU_ONLINE_TOOL,
+
     // 链接菜单
     OBJ_NAME_LINK,
     MENU_LINK,
+
     // 帮助菜单
     OBJ_NAME_HELP,
     MENU_HELP,
+    M_HELP_RELEASE,
+    M_HELP_SHORTCUT,
+    M_HELP_DOCS,
+    M_HELP_ISSUE,
+    M_HELP_ABORT,
+    M_HELP_HOMEPAGE,
+    M_HELP_THANKS,
+    M_HELP_UPDATE,
+    M_HELP_CONTACT_US,
+    M_HELP_OPEN_SRC,
 
     //
     MENU_BUTT
 };
 
-MenuItemAttr getMenuItemAttr(MenuItem item, MenuItemType type);
-MenuItemAttr getMenuAttr(MenuItemType type);
-QString getMenuLabel(MenuItemType type);
-QString getMenuShortcut(MenuItemType type);
+MenuItemAttr getMenuItemAttr(MenuType item, SubMenuType type);
+MenuItemAttr getMenuAttr(SubMenuType type);
+QString getMenuLabel(SubMenuType type);
+QString getMenuShortcut(SubMenuType type);
 /*
 namespace CONST_MENU{
     class BAR {

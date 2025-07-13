@@ -1,0 +1,14 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionUndo</ObjName><Label>撤销</Label><Url/><ShortCut>Ctrl+Z</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionRedo</ObjName><Label>重做</Label><Url/><ShortCut>Ctrl+Y</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionCopy</ObjName><Label>拷贝</Label><Url/><ShortCut>Ctrl+C</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionCut</ObjName><Label>剪切</Label><Url/><ShortCut>Ctrl+X</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionPaste</ObjName><Label>粘贴</Label><Url/><ShortCut>Ctrl+V</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionFind</ObjName><Label>在文件中查找</Label><Url/><ShortCut>Ctrl+F</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionReplace</ObjName><Label>在文件中替换</Label><Url/><ShortCut>Ctrl+R</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionFindDir</ObjName><Label>在目录中查找</Label><Url/><ShortCut>Ctrl+Shift+F</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionReplaceDir</ObjName><Label>在目录中替换</Label><Url/><ShortCut>Ctrl+Shift+R</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionGoToLine</ObjName><Label>跳转到行</Label><Url/><ShortCut>Alt+G</ShortCut><QmlFile/><Icon/></menuItem>
+</Menu>

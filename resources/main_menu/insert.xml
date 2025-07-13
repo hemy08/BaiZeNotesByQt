@@ -1,0 +1,32 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionInsFonts</ObjName><Label>特殊字体</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionInsKatex</ObjName><Label>Katex公式</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionInsMdTable</ObjName><Label>Markdown表格</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionInsWebLink</ObjName><Label>网页链接</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="menu">
+        <Label>文本</Label><Url/>
+        <ObjName>InsSubMenuTxt</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionInsImages</ObjName><Label>图片链接</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsCodeBlock</ObjName><Label>折叠代码块</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsMdList</ObjName><Label>有序列表</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsUpdateTime</ObjName><Label>更新时间</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>来自文件</Label><Url/>
+        <ObjName>InsSubMenuFromFile</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionInsFromTxt</ObjName><Label>*.txt;*.log</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromJson</ObjName><Label>*.json</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromIni</ObjName><Label>*.ini</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromYaml</ObjName><Label>*.yaml;*.yml</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromXml</ObjName><Label>*.xml</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromCsv</ObjName><Label>*.csv</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionInsFromXls</ObjName><Label>*.xls;*.xlsx</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+</Menu>

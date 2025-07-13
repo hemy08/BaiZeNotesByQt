@@ -1,5 +1,8 @@
+#include <iostream>
 #include <QApplication>
+#include <QFile>
 #include <QPushButton>
+#include <QMessageBox>
 #include "hmain_window.h"
 #include "common.h"
 

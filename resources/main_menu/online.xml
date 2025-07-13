@@ -1,0 +1,16 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionOnlineJyShare</ObjName><Label>菜鸟工具</Label><Url>https://www.jyshare.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineW3School</ObjName><Label>W3CSchool工具</Label><Url>https://tools.w3cschool.cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineBox3</ObjName><Label>百宝箱</Label><Url>https://www.box3.cn/#</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineToolFK</ObjName><Label>ToolFK</Label><Url>https://www.toolfk.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineBeJson</ObjName><Label>JSON工具箱BeJson</Label><Url>https://www.bejson.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnline67Tool</ObjName><Label>即时工具67tool</Label><Url>https://www.67tool.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineToolLu</ObjName><Label>在线工具ToolLu</Label><Url>https://tool.lu/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineSoJson</ObjName><Label>SoJSON在线解析</Label><Url>https://www.sojson.com/jshtml.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineLatexLive</ObjName><Label>Latex公式编辑器</Label><Url>https://www.latexlive.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineMermaidLive</ObjName><Label>Mermaid在线编辑器</Label><Url>https://mermaid.live/edit</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlinePlantText</ObjName><Label>PlantText编辑器</Label><Url>https://www.planttext.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineMindLine</ObjName><Label>在线思维导图工具</Label><Url>https://www.mindline.cn/webapp</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlineDiagrams</ObjName><Label>在线流程图绘制</Label><Url>https://app.diagrams.net/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionOnlinePlantUml</ObjName><Label>PlantUml 网页服务器</Label><Url>http://www.plantuml.com/plantuml/uml/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

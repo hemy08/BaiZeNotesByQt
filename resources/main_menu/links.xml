@@ -1,0 +1,144 @@
+<Menu>
+    <menuItem type="menu">
+        <Label>菜鸟在线工具</Label>
+        <ObjName>SueMenuJYShare</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkSvgEditor</ObjName><Label>菜鸟SVG图片编辑器</Label><Url>https://www.jyshare.com/more/svgeditor/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkShapeFlyDiagram</ObjName><Label>菜鸟绘图工具</Label><Url>https://www.jyshare.com/more/shapefly-diagram/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkOffice</ObjName><Label>菜鸟在线办公工具大全</Label><Url>https://www.jyshare.com/office/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkFrontEnd</ObjName><Label>菜鸟在线表格生成</Label><Url>https://www.jyshare.com/front-end/7688/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>编程狮在线工具</Label>
+        <ObjName>SueMenuW3School</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkCsv2tb</ObjName><Label>CSV转HTML</Label><Url>https://www.w3cschool.cn/tools/index?name=csv2tb</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkSqlFormatter</ObjName><Label>SQL格式化</Label><Url>https://www.w3cschool.cn/tools/index?name=sql_formatter</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkFullHalfCode</ObjName><Label>全角/半角转换工具</Label><Url>https://www.w3cschool.cn/tools/index?name=fullhalfcode</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkcheckList</ObjName><Label>常用对照表</Label><Url>https://www.w3cschool.cn/tools/index?name=checkList</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkYamlLint</ObjName><Label>YAML Lint</Label><Url>https://www.yamllint.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkHtmlValidate</ObjName><Label>HTML在线验证</Label><Url>https://validator.w3.org/#validate_by_uri+with_options</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkIpCalc</ObjName><Label>网络计算器</Label><Url>https://www.w3cschool.cn/tools/index?name=ipcalc</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkExcelCol2Json</ObjName><Label>Excel/CSV转JSON</Label><Url>https://www.w3cschool.cn/tools/index?name=excel_col2json</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkXmlJson</ObjName><Label>XML JSON互转</Label><Url>https://www.w3cschool.cn/tools/index?name=xmljson</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkXmlFormat</ObjName><Label>XML格式化工具</Label><Url>https://www.w3cschool.cn/tools/index?name=xmlformat</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkTxtPaiban</ObjName><Label>文本美化排版</Label><Url>https://www.w3cschool.cn/tools/index?name=txt_paiban</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCPicker</ObjName><Label>HTML 拾色器</Label><Url>https://www.w3cschool.cn/tools/index?name=cpicker</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkColorPicker</ObjName><Label>ColorPicker</Label><Url>https://www.w3cschool.cn/tools/index?name=ColorPicker</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkSafeColor</ObjName><Label>WEB安全色查询</Label><Url>https://www.w3cschool.cn/tools/index?name=safe_color</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>在线编解码工具</Label>
+        <ObjName>SueMenuEncodeDecode</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkQrcode</ObjName><Label>二维码在线生成工具</Label><Url>https://www.w3cschool.cn/tools/index?name=qrcode</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkQrdecode</ObjName><Label>二维码在线解码</Label><Url>https://www.w3cschool.cn/tools/index?name=qrdecode</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkUrlEncodeDecode</ObjName><Label>在线编码转换</Label><Url>https://www.w3cschool.cn/tools/index?name=urlencode_decode</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkBase64</ObjName><Label>BASE64编解码</Label><Url>https://www.w3cschool.cn/tools/index?name=base64</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkConvUtf</ObjName><Label>UTF-8编码转换</Label><Url>https://www.w3cschool.cn/tools/index?name=convutf</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkNative2Ascii</ObjName><Label>Native/ASCII转换</Label><Url>https://www.w3cschool.cn/tools/index?name=native2ascii</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkUnicodeChinese</ObjName><Label>Unicode/中文</Label><Url>https://www.w3cschool.cn/tools/index?name=unicode_chinese</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkFilehash</ObjName><Label>文件Hash计算</Label><Url>https://www.w3cschool.cn/tools/index?name=filehash</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkJsonparse</ObjName><Label>JSON格式化</Label><Url>https://www.w3cschool.cn/tools/index?name=jsonparse</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkEscapePwd</ObjName><Label>Escape加密/解密</Label><Url>https://www.w3cschool.cn/tools/index?name=escapepwd</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCreateMD5Password</ObjName><Label>MD5在线加密</Label><Url>https://www.w3cschool.cn/tools/index?name=CreateMD5Password</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCreateStrongPassword</ObjName><Label>高强度密码生成</Label><Url>https://www.w3cschool.cn/tools/index?name=CreateStrongPassword</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkMorse</ObjName><Label>摩尔斯密码</Label><Url>https://www.w3cschool.cn/tools/index?name=morse</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkHashMd5Sha</ObjName><Label>在线算法加密</Label><Url>https://www.w3cschool.cn/tools/index?name=hash_md5_sha</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkHtpasswd</ObjName><Label>生成htpasswd</Label><Url>https://www.w3cschool.cn/tools/index?name=htpasswd</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkUrlEncodePwd</ObjName><Label>URL网址16进制加密</Label><Url>https://www.w3cschool.cn/tools/index?name=urlencodepwd</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkRandom</ObjName><Label>随机字符串生成</Label><Url>https://www.w3cschool.cn/tools/index?name=random</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>在线IDE编辑器</Label>
+        <ObjName>SueMenuOnlineIDE</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkWebide</ObjName><Label>WebIDE Online</Label><Url>https://www.w3cschool.cn/webide</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkHtml</ObjName><Label>HTML语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkPython3</ObjName><Label>Python语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=python3</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkClang</ObjName><Label>C语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=c-clang</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkGo</ObjName><Label>Go语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=go</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCppGcc</ObjName><Label>C++语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=cpp-gcc</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkRuby</ObjName><Label>Ruby语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=ruby</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkLua</ObjName><Label>Lua语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=lua</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCsMono</ObjName><Label>C#语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=cs-mono</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkR</ObjName><Label>R语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=r</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkJavaScript</ObjName><Label>JavaScript语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=javascript</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkPascal</ObjName><Label>Pascal语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=fpc</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAWK</ObjName><Label>AWK语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=awk</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkEmoji</ObjName><Label>Emoji语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=emoji</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkNodeJs</ObjName><Label>NodeJs语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=javascript-node</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkTcl</ObjName><Label>TCL语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=tcl</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkTypeScript</ObjName><Label>TypeScript语言</Label><Url>https://www.w3cschool.cn/tryrun/runcode?lang=typescript</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>开发者工具</Label>
+        <ObjName>SueMenuDevOpsTool</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkQrcode</ObjName><Label>漂亮二维码生成</Label><Url>https://tool.box3.cn/qrcode.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkQrcodeDecode</ObjName><Label>二维码解码器</Label><Url>https://www.box3.cn/tool/qrcode/decode.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkImgConvert</ObjName><Label>图片格式转换</Label><Url>https://www.box3.cn/tool/img/convert.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCrontab</ObjName><Label>Linux Crontab</Label><Url>https://tool.box3.cn/crontab.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkJwt</ObjName><Label>JWT（JSON Web Tokens）在线解码</Label><Url>https://tool.box3.cn/jwt.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkEscape</ObjName><Label>Escape / UnEscape</Label><Url>https://tool.box3.cn/escape-unescape.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAesEncrypt</ObjName><Label>在线 AES-128,AES-256 加密</Label><Url>https://tool.box3.cn/aes-encrypt-128-256.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAesDecrypt</ObjName><Label>在线 AES-128,AES-256 解密</Label><Url>https://tool.box3.cn/aes-decrypt-128-256.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkRegular</ObjName><Label>正则表达式在线测试</Label><Url>https://tool.box3.cn/regular.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkDebug</ObjName><Label>HTML/JS/CSS代码调试预览</Label><Url>https://tool.box3.cn/debug.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkSpecialChart</ObjName><Label>特殊符号大全</Label><Url>https://tool.box3.cn/teshufuhaodaquan.html</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>国内知名前端团队</Label>
+        <ObjName>SueMenuOpenWebTeam</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkTaoBao</ObjName><Label>淘系前端团队（FED）</Label><Url>https://fed.taobao.org/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkTmallfe</ObjName><Label>天猫前端</Label><Url>https://tmallfe.github.io/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkThx</ObjName><Label>THX from Alimama FE</Label><Url>https://thx.github.io/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAliYunNodeJs</ObjName><Label>阿里Node.js 性能平台</Label><Url>https://www.aliyun.com/product/nodejs</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkFexTeam</ObjName><Label>百度 FEX</Label><Url>https://fex-team.github.io/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAlloyTeam</ObjName><Label>腾讯前端 AlloyTeam</Label><Url>https://www.alloyteam.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkElemeFE</ObjName><Label>饿了么前端</Label><Url>https://www.zhihu.com/column/ElemeFE</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkMeiTuan</ObjName><Label>美团技术团队</Label><Url>https://tech.meituan.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAuto</ObjName><Label>京东凹凸实验室</Label><Url>https://aotu.io/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkQiNiu</ObjName><Label>七牛技术团队</Label><Url>https://blog.qiniu.com/archives/all</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkYouZan</ObjName><Label>有赞技术团队</Label><Url>https://tech.youzan.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLink75Team</ObjName><Label>奇舞团（奇虎360）</Label><Url>http://www.75team.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkYmfe</ObjName><Label>去哪儿网大前端技术中心（YMFE）</Label><Url>https://ww1.ymfe.org/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCtrip</ObjName><Label>携程UED</Label><Url>http://ued.ctrip.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkAlipy</ObjName><Label>蚂蚁体验科技</Label><Url>https://xcloud.alipay.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>云计算平台</Label>
+        <ObjName>SueMenuCloudCommunity</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionLinkAliYun</ObjName><Label>阿里云</Label><Url>https://www.aliyun.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudTencent</ObjName><Label>腾讯云</Label><Url>https://cloud.tencent.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudHuawei</ObjName><Label>华为云</Label><Url>https://activity.huaweicloud.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudCtyun</ObjName><Label>天翼云</Label><Url>https://www.ctyun.cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudKsyun</ObjName><Label>金山云</Label><Url>https://www.ksyun.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudBaidu</ObjName><Label>百度智能云</Label><Url>https://cloud.baidu.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudUCloud</ObjName><Label>UCLOUD优刻得</Label><Url>https://www.ucloud.cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudQingYun</ObjName><Label>QingCloud青云科技</Label><Url>https://www.qingcloud.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudBoYun</ObjName><Label>博云云计算</Label><Url>https://www.bocloud.com.cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudLinode</ObjName><Label>Akamai阿卡迈</Label><Url>https://www.linode.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudYunXin</ObjName><Label>网易云信</Label><Url>https://yunxin.163.com/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudAmazon</ObjName><Label>AWS 亚马逊</Label><Url>https://aws.amazon.com/cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudWorkday</ObjName><Label>Workday</Label><Url>http://workday.github.io/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudBlsc</ObjName><Label>北京超级云计算中心</Label><Url>http://www.blsc.cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionLinkCloudAzure</ObjName><Label>微软Azure</Label><Url>https://azure.microsoft.com/zh-cn/</Url><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+</Menu>

@@ -1,0 +1,43 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionEditView</ObjName><Label>编辑视图</Label><Url/><ShortCut>F9</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionPreview</ObjName><Label>预览视图</Label><Url/><ShortCut>F10</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionEditPreview</ObjName><Label>编辑/预览视图</Label><Url/><ShortCut>F11</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionDisplayExplorer</ObjName><Label>显示/隐藏资源管理器</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionDisplayToc</ObjName><Label>显示/隐藏大纲</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionDisplayLineNo</ObjName><Label>显示/隐藏行号</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionDisplayLineBreak</ObjName><Label>显示/隐藏换行</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionDisplaySpace</ObjName><Label>显示/隐藏空格</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionDisplayAllChart</ObjName><Label>显示/隐藏所有符号</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="separator"/>
+    <menuItem type="action"><ObjName>actionExpandAll</ObjName><Label>展开所有层次</Label><Url/><ShortCut>Alt+0</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionFoldAll</ObjName><Label>折叠所有层次</Label><Url/><ShortCut>Alt+Shift+0</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionExpandCurrent</ObjName><Label>展开当前层次</Label><Url/><ShortCut>Ctrl+Alt+F</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionFoldCurrent</ObjName><Label>折叠当前层次</Label><Url/><ShortCut>Ctrl+Alt+Shift+F</ShortCut><QmlFile/><Icon/></menuItem>
+    <menuItem type="menu">
+        <Label>展开层次</Label><Url/>
+        <ObjName>ViewSubMenuExpand</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionExpand_1</ObjName><Label>1</Label><Url/><ShortCut>Alt+1</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionExpand_2</ObjName><Label>2</Label><Url/><ShortCut>Alt+2</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionExpand_3</ObjName><Label>3</Label><Url/><ShortCut>Alt+3</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionExpand_4</ObjName><Label>4</Label><Url/><ShortCut>Alt+4</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionExpand_5</ObjName><Label>5</Label><Url/><ShortCut>Alt+5</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionExpand_6</ObjName><Label>6</Label><Url/><ShortCut>Alt+6</ShortCut><QmlFile/><Icon/></menuItem>
+    </menuItem>
+    <menuItem type="menu">
+        <Label>折叠层次</Label><Url/>
+        <ObjName>ViewSubMenuFold</ObjName>
+        <ShortCut/>
+        <QmlFile/>
+        <Icon/>
+        <menuItem type="action"><ObjName>actionFold_1</ObjName><Label>1</Label><Url/><ShortCut>Alt+Shift+1</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFold_2</ObjName><Label>2</Label><Url/><ShortCut>Alt+Shift+2</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFold_3</ObjName><Label>3</Label><Url/><ShortCut>Alt+Shift+3</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFold_4</ObjName><Label>4</Label><Url/><ShortCut>Alt+Shift+4</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFold_5</ObjName><Label>5</Label><Url/><ShortCut>Alt+Shift+5</ShortCut><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><ObjName>actionFold_6</ObjName><Label>6</Label><Url/><ShortCut>Alt+Shift+6</ShortCut><QmlFile/><Icon/></menuItem>
+    </menuItem>
+</Menu>

@@ -1,0 +1,50 @@
+<Menu>
+    <menuItem type="menu"><Label>加解密插件</Label><Url/><ObjName>SubMenuEncryptDecrypt</ObjName><ShortCut/><Icon/>
+        <menuItem type="action"><Label>Token生成工具</Label><Url/><ObjName>actionTokenGenerator</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>生成哈希文本</Label><Url/><ObjName>actionHashText</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>UUIDS生成器</Label><Url/><ObjName>actionUuidsGenerator</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>ULID生成器</Label><Url/><ObjName>actionUlidGenerator</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>加密/解密文本</Label><Url/><ObjName>actionTextEncryptDecrypt</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>Crypto 加密/解密文本</Label><Url/><ObjName>actionCryptoEncryptDecrypt</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>Hmac生成器</Label><Url/><ObjName>actionHMACGenerator</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>Rsa密钥对生成器</Label><Url/><ObjName>actionRsaGenerator</ObjName><ShortCut/><QmlFile/><Icon/></menuItem></menuItem>
+    <menuItem type="menu"><Label>各类格式转换器</Label><Url/><ObjName>SubMenuConvertTool</ObjName><ShortCut/><Icon/>
+        <menuItem type="action"><Label>日期时间转换器</Label><Url/><ObjName>actionDataConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>整数基转换器</Label><Url/><ObjName>actionBaseConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>罗马数字转换器</Label><Url/><ObjName>actionRomanNumConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>Color 选择器</Label><Url/><ObjName>actionColorConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>大小写转换</Label><Url/><ObjName>actionCaseConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="separator"/><menuItem type="action"><Label>文本到 ASCII 二进制</Label><Url/><ObjName>actionTextToBinary</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>文本转 Unicode</Label><Url/><ObjName>actionTextToUnicode</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>YAML◀▶JSON</Label><Url/><ObjName>actionYamlJsonConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>YAML◀▶TOML</Label><Url/><ObjName>actionYamlTomlConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>JSON◀▶TOML</Label><Url/><ObjName>actionJsonTomlConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>JSON◀▶CSV</Label><Url/><ObjName>actionJsonCsvConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>List 转换器</Label><Url/><ObjName>actionListConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem></menuItem>
+    <menuItem type="menu"><Label>格式化工具</Label><Url/><ObjName>SubMenuFormatterTools</ObjName><ShortCut/><Icon/>
+        <menuItem type="action"><Label>JSON格式化</Label><Url/><ObjName>actionJsonFormatter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>SQL格式化</Label><Url/><ObjName>actionSqlFormatter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>XML格式化</Label><Url/><ObjName>actionXmlFormatter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>YAML格式化</Label><Url/><ObjName>actionYamlFormatter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>HTML格式化</Label><Url/><ObjName>actionHtmlFormatter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem></menuItem>
+    <menuItem type="menu"><Label>网络计算工具</Label><Url/><ObjName>SubMenuNetworkTools</ObjName><ShortCut/><Icon/>
+        <menuItem type="action"><Label>IPv4 子网计算器</Label><Url/><ObjName>actionIpv4SubNetCalc</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>Ipv4 地址转换器</Label><Url/><ObjName>actionIpv4AddrConverter</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>MAC 地址查找</Label><Url/><ObjName>actionMacAddrLookup</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>MAC 地址生成器</Label><Url/><ObjName>actionMacAddrGen</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>IPv6 ULA生成器</Label><Url/><ObjName>actionIpv6UlaGen</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>WiFi 二维码生成器</Label><Url/><ObjName>actionWifiQrcodeGem</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>二维码生成器</Label><Url/><ObjName>actionQrcodeGen</ObjName><ShortCut/><QmlFile/><Icon/></menuItem></menuItem>
+    <menuItem type="menu"><Label>信息对照表</Label><Url/><ObjName>SubMenuInfoComparison</ObjName><ShortCut/><Icon/>
+        <menuItem type="action"><Label>ASCII对照表</Label><Url/><ObjName>actionAsciiTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>HTML特殊字符查询</Label><Url/><ObjName>actionHtmlCharTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>数学公式符号</Label><Url/><ObjName>actionFormulaTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>物理符号常数</Label><Url/><ObjName>actionPhysicalConstant</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>子网掩码对照表</Label><Url/><ObjName>actionSubnetMaskTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>HTTP状态码查询</Label><Url/><ObjName>actionHttpStatusCodeTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>数字大小写</Label><Url/><ObjName>actionNumericCaseTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>常用字体对照</Label><Url/><ObjName>actionNormalFontStyleTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>文件类型（MIME头）</Label><Url/><ObjName>actionFileNameExtensionTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+        <menuItem type="action"><Label>希腊字母对照</Label><Url/><ObjName>actionGreeceLetterTable</ObjName><ShortCut/><QmlFile/><Icon/></menuItem>
+    </menuItem>
+</Menu>

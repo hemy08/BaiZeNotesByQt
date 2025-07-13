@@ -3,6 +3,9 @@
 //
 
 #include "menu_base.h"
+#include <QMessageBox>
+#include <QFile>
+#include <QDebug>
 
 namespace HemyMenu {
     MenuBase::MenuBase(QWidget *parent): QMenu(parent) {
@@ -21,4 +24,119 @@ namespace HemyMenu {
         }
         return action;
     }
+
+    void MenuBase::ParserMenuItems(const QString &fileName, QList<MenuItem>& menuItems)
+    {
+        QDomElement xmlDom;
+        openXmlWithDom(xmlDom, fileName);
+        parserXmlElement(xmlDom, menuItems);
+    }
+
+    void MenuBase::openXmlWithDom(QDomElement &element, const QString &fileName)
+    {
+        QFile file(fileName);
+        if (!file.open(QIODevice::ReadOnly)) {
+            QMessageBox::critical(nullptr,
+            tr("文件错误"),
+            tr("读取 %1 文件失败，请确认文件是否存在").arg(fileName));
+            return;
+        }
+        QDomDocument doc;
+        if (const auto result = doc.setContent(&file, QDomDocument::ParseOption::Default);!result) {
+            QMessageBox::critical(nullptr,
+            tr("XML 解析错误"),
+            tr("行: %1, 列: %2\n错误: %3").arg(result.errorLine).arg(result.errorColumn).arg(result.errorMessage));
+            file.close();
+            return;
+        }
+
+        file.close();
+
+        // 获取根元素
+        element = doc.documentElement();
+        if (element.tagName() != "Menu") {
+            QMessageBox::warning(nullptr,
+                tr("XML 结构错误"),
+                tr("根元素不是 'library'"));
+            return;
+        }
+    }
+
+    MenuItemType MenuBase::getMenuItemType(const QString &type)
+    {
+        if (type.toLower() == "menu") {
+            return ITEM_MENU;
+        } else if (type.toLower() == "action") {
+            return ITEM_ACTION;
+        } else if (type.toLower() == "separator") {
+            return ITEM_SEPARATOR;
+        }
+
+        return ITEM_MENU;
+    }
+
+    void MenuBase::parserXmlElement(const QDomElement &root, QList<MenuItem>& menuItems) {
+        const QDomNodeList menuNodes = root.childNodes();
+        for (int i = 0; i < menuNodes.count(); i++) {
+            // 只处理元素节点且标签名为 menuItem
+            if (QDomNode childNode = menuNodes.item(i); childNode.isElement() && childNode.nodeName() == "menuItem") {
+                QDomElement menuElement = childNode.toElement();
+                MenuItem menuItem;
+                menuItem.type = getMenuItemType(menuElement.attribute("type"));
+                // 解析主菜单项
+                menuItem.objName = menuElement.firstChildElement("objName").text();
+                menuItem.label = menuElement.firstChildElement("Label").text();
+                menuItem.shortcut = menuElement.firstChildElement("ShortCut").text();
+                menuItem.qmlFile = menuElement.firstChildElement("QmlFile").text();
+                menuItem.iconPath = menuElement.firstChildElement("Icon").text();
+                menuItem.url = menuElement.firstChildElement("Url").text();
+
+                if (menuItem.type == ITEM_MENU) {
+                    parserXmlElement(menuElement, menuItem.subItems);
+                }
+                menuItems.append(menuItem);
+            }
+        }
+    }
+
+    void MenuBase::buildMenuSystem(QMenu* menu, const QList<MenuItem>& menuItems)
+    {
+        for (const MenuItem& item : menuItems) {
+            switch (item.type) {
+            case ITEM_SEPARATOR: {
+                    menu->addSeparator();
+                    break;
+                }
+            case ITEM_ACTION:
+                {
+                    QAction* action = menu->addAction(item.label);
+                    action->setObjectName(item.objName);
+                    if (!(item.iconPath.isEmpty() || item.iconPath.length() == 0)) {
+                        action->setIcon(QIcon(item.iconPath));
+                    }
+
+                    if (!(item.shortcut.isEmpty() || item.shortcut.length() == 0)) {
+                        action->setShortcut(QKeySequence(item.shortcut));
+                    }
+
+                    // 连接信号槽
+                    /*connect(action, &QAction::triggered, this, [this, subItem]() {
+                        handleMenuAction(subItem.objName);
+                    });*/
+                    break;
+                }
+            case ITEM_MENU: {
+                    QMenu* subMenu = menu->addMenu(item.label);
+                    subMenu->setObjectName(item.objName);
+                    buildMenuSystem(subMenu, item.subItems);
+                    break;
+                }
+            default: {
+                    qWarning() << "未知的菜单项类型:" << item.type;
+                    break;
+                }
+            }
+        }
+    }
+
 }

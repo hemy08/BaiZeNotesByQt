@@ -9,9 +9,11 @@
 #include <QStyle>
 #include "hmain_window.h"
 #include "central_widgets.h"
-#include "h_menu_bar.h"
+#include "menu_bar.h"
 #include "const_def.h"
 #include "hemy_style.h"
+#include "main_spitter.h"
+#include "sidebar_widget.h"
 
 
 namespace HemyUI
@@ -37,18 +39,86 @@ namespace HemyUI
         }*/
         setWindowTitle(WIN_TITLE);
         resize(MAIN_DEFAULT_WIDTH, MAIN_DEFAULT_HEIGHT);
+
+        central = CentralWidgets::CreateCentralWidgets(this);
+        setCentralWidget(central);
+        menuBar = new HemyMenu::HMenuBar(this);
+        setMenuBar(menuBar);
+        statusBar = new HemyStatus::HStatusBar(this);
+        setStatusBar(statusBar);
+
+        createMainLayout();
+    }
+
+    void HMainWindow::createMainLayout()
+    {
+        // 主布局
+        mainLayout = new QHBoxLayout(central);
+        mainLayout->setSpacing(0);
+        mainLayout->setContentsMargins(0, 0, 0, 0);
+
+        // 创建分割布局
+        m_main_splitter = new HMainLayOut::HemyMainSpitter();
+        mainLayout->addWidget(m_main_splitter);
+
+        // 添加导航按钮
+        setupNavigation();
+
+        // 添加示例内容
+        addSampleContent();
+    }
+
+    void HMainWindow::setupNavigation() {
+        HMainLayOut::HemySidebarWidget *sidebar = m_main_splitter->sidebar();
+
+        sidebar->addNavigationButton("🔍");
+        sidebar->addNavigationButton("📖");
+        sidebar->addNavigationButton("💾");
+        sidebar->addNavigationButton("☎");
+
+        // 连接按钮点击信号
+        connect(sidebar, &HMainLayOut::HemySidebarWidget::buttonClicked, this, [this](const QString &buttonText) {
+            HMainLayOut::HemyExplorerWidget *explorer = m_main_splitter->explorer();
+            explorer->setTitle(buttonText);
+
+            // 添加动态内容
+            QLabel *dynamicLabel = new QLabel(QString("你点击了: <b>%1</b>").arg(buttonText));
+            dynamicLabel->setStyleSheet("font-size: 16pt; color: #2c3e50;");
+
+            // 清除旧内容（保留标题）
+            QLayoutItem *child;
+            while ((child = explorer->layout()->takeAt(1)) != nullptr) {
+                delete child->widget();
+                delete child;
+            }
+
+            // 添加新内容
+            explorer->addExplorer(dynamicLabel);
+        });
+    }
+
+    void HMainWindow::addSampleContent() {
+        HMainLayOut::HemyExplorerWidget *explorer = m_main_splitter->explorer();
+
+        // 添加示例控件
+        QFrame *sampleFrame = new QFrame();
+        sampleFrame->setStyleSheet(
+            "QFrame {"
+            "   background-color: #bdc3c7;"
+            "   border-radius: 8px;"
+            "   padding: 15px;"
+            "}"
+        );
+        QLabel *sampleLabel = new QLabel("尝试拖动左侧的分隔条来调整边栏宽度", sampleFrame);
+        sampleLabel->setAlignment(Qt::AlignCenter);
+        QVBoxLayout *frameLayout = new QVBoxLayout(sampleFrame);
+        frameLayout->addWidget(sampleLabel);
+
+        explorer->addExplorer(sampleFrame);
     }
 
     void HMainWindow::setupUi()
     {
-
-        central_ = CentralWidgets::CreateCentralWidgets(this);
-        setCentralWidget(central_);
-        menuBar_ = new HemyMenu::HMenuBar(this);
-        setMenuBar(menuBar_);
-        statusBar_ = new HemyStatus::HStatusBar(this);
-        setStatusBar(statusBar_);
-
         retranslateUi();
 
         QMetaObject::connectSlotsByName(this);

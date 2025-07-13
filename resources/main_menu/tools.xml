@@ -1,0 +1,7 @@
+<Menu>
+    <menuItem type="action"><ObjName>actionToolMermaid</ObjName><Label>Mermaid绘图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionToolPlantUML</ObjName><Label>PlantUML绘图</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionToolExecl</ObjName><Label>表格制作</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionToolDraw</ObjName><Label>绘图制作</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+    <menuItem type="action"><ObjName>actionToolKatex</ObjName><Label>编辑数学公式</Label><Url/><ShortCut/><QmlFile/><Icon/></menuItem>
+</Menu>

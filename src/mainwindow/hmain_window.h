@@ -5,17 +5,13 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
-#include <QMainWindow>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QWidget>
-#include <QtWidgets/QMenuBar>
-#include <QtWidgets/QStatusBar>
-#include <QtCore/QVariant>
 #include <QTranslator>
-
-#include "h_menu_bar.h"
-#include "h_status_bar.h"
+#include "menu_bar.h"
+#include "status_bar.h"
+#include "main_spitter.h"
 
 namespace HemyUI
 {
@@ -36,11 +32,16 @@ namespace HemyUI
         void switchToChinese();
 
     private:
-        HemyMenu::HMenuBar *menuBar_{};
-        HemyStatus::HStatusBar *statusBar_{}; // 改为自定义类
-        QWidget *central_{};
+        HemyMenu::HMenuBar *menuBar = nullptr;
+        HemyStatus::HStatusBar *statusBar = nullptr; // 改为自定义类
+        HMainLayOut::HemyMainSpitter *m_main_splitter = nullptr;
+        QHBoxLayout *mainLayout = nullptr;
+        QWidget *central = nullptr;
         QTranslator appTranslator;
 
+        void createMainLayout();
+        void setupNavigation();
+        void addSampleContent();
         void applyStyles();
         void loadLanguage(const QString& language);
         void retranslateUi();

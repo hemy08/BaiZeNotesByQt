@@ -92,6 +92,41 @@ namespace HemyStyle
                 min-height: 24px;
             }
         )";
+
+    const QString DefaultBlack_SideBarQFrame = R"(
+            QFrame {
+                background-color: #2c3e50;
+                border-right: 1px solid #34495e;
+            }
+        )";
+
+    const QString DefaultBlack_SideBarLabel = R"(
+            QLabel {
+                color: #ecf0f1;
+                font-weight: bold;
+                font-size: 14pt;
+                margin-bottom: 15px;
+            }
+        )";
+
+    const QString DefaultBlack_SideBarButton = R"(
+            QPushButton {
+                text-align: left;
+                padding: 10px 15px;
+                background-color: #e74c3c;
+                color: #ecf0f1;
+                border-radius: 4px;
+                padding: 8px;
+            }
+
+            QPushButton:hover {
+                background-color: #c0392b;
+            }
+
+            QPushButton:pressed {
+               background-color: #1abc9c;
+            }
+        )";
 }
 
 #endif //DEFAULT_H
