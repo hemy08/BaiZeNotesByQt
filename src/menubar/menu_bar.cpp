@@ -14,6 +14,8 @@
 #include "menu_model.h"
 #include "menu_setting.h"
 #include "menu_tools.h"
+#include "menu_plugin.h"
+#include "menu_help.h"
 
 namespace HemyMenu {
     HMenuBar::HMenuBar(QWidget *parent): QMenuBar(parent) {

@@ -9,23 +9,15 @@
 
 namespace HemyMenu
 {
-    // 9. 插件菜单映射
-    class HMenuPlugin final : public MenuBase {
-    public:
-        explicit HMenuPlugin(QWidget *parent = nullptr);
-        ~HMenuPlugin() override = default;
-    private:
-        void InitialMenuItems();
-    };
-
     // 10. 自定义工具菜单映射
     class HMenuCustom final : public MenuBase {
     public:
         explicit HMenuCustom(QWidget *parent = nullptr);
         ~HMenuCustom() override = default;
-    private:
 
-        void InitialMenuItems();
+        static void onCustomMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url, const QString& qml);
+    private:
+        void InitialCustomMenuItems();
     };
 
     // 11. 在线工具菜单映射
@@ -33,8 +25,10 @@ namespace HemyMenu
     public:
         explicit HMenuOnlineTool(QWidget *parent = nullptr);
         ~HMenuOnlineTool() override = default;
+
+        static void onOnlineMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url);
     private:
-        void InitialMenuItems();
+        void InitialOnlineMenuItems();
     };
 
     // 12. 链接菜单映射
@@ -42,17 +36,10 @@ namespace HemyMenu
     public:
         explicit HMenuLinks(QWidget *parent = nullptr);
         ~HMenuLinks() override = default;
-    private:
-        void InitialMenuItems();
-    };
 
-    // 13. 帮助菜单映射
-    class HMenuHelp final : public MenuBase {
-    public:
-        explicit HMenuHelp(QWidget *parent = nullptr);
-        ~HMenuHelp() override = default;
+        static void onLinksMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url);
     private:
-        void InitialMenuItems();
+        void InitialLinksMenuItems();
     };
 }
 

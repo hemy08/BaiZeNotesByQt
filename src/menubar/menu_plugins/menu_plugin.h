@@ -15,7 +15,7 @@ namespace HemyMenu
         explicit HMenuPlugin(QWidget *parent = nullptr);
         ~HMenuPlugin() override = default;
 
-        static void onPluginMenuActionHandler(const MenuItemID& itemId, const QString& objName);
+        static void onPluginMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url);
     private:
         void InitialPluginMenuItems();
     };

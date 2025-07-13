@@ -28,6 +28,8 @@ include_directories(
         src/menubar/menu_model
         src/menubar/menu_setting
         src/menubar/menu_tools
+        src/menubar/menu_plugins
+        src/menubar/menu_help
         src/model
         src/navigation
         src/status_bar

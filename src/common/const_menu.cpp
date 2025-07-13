@@ -5,277 +5,305 @@
 
 #include <utility>
 
-static const std::unordered_map<MenuItemID, MenuItem>& fileMenuItemMap = {
-    {MenuItemID::OBJ_NAME_FILE,},
+QList<MenuItem> getFileMenuItems(){
+    return  {
+        MenuItem(MenuItemID::M_FILE_NEW_File,"新建文件", "actionNewFile","Ctrl+N"),
+        MenuItem(MenuItemID::M_FILE_NEW_DIR,"新建文件夹", "actionNewDir","Ctrl+D"),
+        MenuItem(MenuItemID::M_FILE_OPEN_File,"打开文件", "actionOpenFile","Ctrl+Alt+N"),
+        MenuItem(MenuItemID::M_FILE_OPEN_DIR,"打开文件夹", "actionOpenDir","Ctrl+Alt+D"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_FILE_IMPORT,"从文件导入", "FileSubMenuImport",{
+            MenuItem(MenuItemID::M_FILE_IMPORT_WORD,"从 Word 导入", "FromWord",""),
+            MenuItem(MenuItemID::M_FILE_IMPORT_HTML,"从 Html 导入","FromHtml",""),
+            MenuItem(MenuItemID::M_FILE_IMPORT_JSON,"从 Json 导入", "FromJson",""),
+            MenuItem(MenuItemID::M_FILE_IMPORT_YAML,"从 Yaml 导入", "FromYaml",""),
+            MenuItem(MenuItemID::M_FILE_IMPORT_XML,"从 XML 导入", "FromXml",""),
+            MenuItem(MenuItemID::M_FILE_IMPORT_TXT,"从文本文件导入", "FromTxt","")
+        }),
+        MenuItem(MenuItemID::M_FILE_EXPORT,"导出到文件", "FileSubMenuExport",{
+            MenuItem(MenuItemID::M_FILE_EXPORT_WORD,"导出到 Word", "ToWord",""),
+            MenuItem(MenuItemID::M_FILE_EXPORT_JSON,"导出到 Json", "ToJson",""),
+            MenuItem(MenuItemID::M_FILE_EXPORT_XML,"导出到 XML", "ToXml",""),
+            MenuItem(MenuItemID::M_FILE_EXPORT_YAML,"导出到 Yaml", "ToYaml",""),
+            MenuItem(MenuItemID::M_FILE_EXPORT_HTML,"导出到 Html", "ToHtml",""),
+            MenuItem(MenuItemID::M_FILE_EXPORT_PDF,"导出到 Pdf", "ToPdf","")
+        }),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_FILE_SAVE,"保存", "actionSave","Ctrl+S"),
+        MenuItem(MenuItemID::M_FILE_SAVE_AS,"另存为", "actionSaveAs","Ctrl+Shift+S"),
+        MenuItem(MenuItemID::M_FILE_RELOAD,"从磁盘重新加载", "actionReloadFromDisk","Ctrl+Alt+Y"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_FILE_EXIT,"退出", "actionExit","Alt+F4"),
+    };
 }
-// 1. 文件菜单映射
-static const std::unordered_map<MenuItemID, MenuItem>& fileMenuMap = {
-    {MenuItemID::OBJ_NAME_FILE, MenuItem{MenuItemID::OBJ_NAME_FILE, "MenuFile", "文件", "Alt+F"}},
+
+QList<MenuItem> getEditMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_EDIT_UNDO, "撤销", "actionUndo", "Ctrl+Z"),
+        MenuItem(MenuItemID::M_EDIT_REDO, "重做", "actionRedo", "Ctrl+Y"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_EDIT_COPY, "拷贝", "actionCopy", "Ctrl+C"),
+        MenuItem(MenuItemID::M_EDIT_CUT, "剪切", "actionCut", "Ctrl+X"),
+        MenuItem(MenuItemID::M_EDIT_PASTE, "粘贴", "actionPaste", "Ctrl+V"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_EDIT_FIND_FILE, "在文件中查找", "actionFind", "Ctrl+F"),
+        MenuItem(MenuItemID::M_EDIT_REPLACE_FILE, "在文件中替换", "actionReplace", "Ctrl+R"),
+        MenuItem(MenuItemID::M_EDIT_FIND_DIR, "在目录中查找", "actionFindDir", "Ctrl+Shift+F"),
+        MenuItem(MenuItemID::M_EDIT_REPLACE_DIR, "在目录中替换", "actionReplaceDir", "Ctrl+Shift+R"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_EDIT_GO_LINE, "跳转到行", "actionGoToLine", "Alt+G"),
+    };
+}
+
+QList<MenuItem> getViewMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_VIEW_EDIT_MOD, "编辑视图", "actionEditView", "F9"),
+        MenuItem(MenuItemID::M_VIEW_PREVIEW_MOD, "预览视图", "actionPreview", "F10"),
+        MenuItem(MenuItemID::M_VIEW_EDIT_PREVIEW, "编辑/预览视图", "actionEditPreview", "F11"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_VIEW_SHOW_EXPLORER, "显示/隐藏资源管理器", "actionDisplayExplorer", ""),
+        MenuItem(MenuItemID::M_VIEW_SHOW_TOC, "显示/隐藏大纲", "actionDisplayToc", ""),
+        MenuItem(MenuItemID::M_VIEW_SHOW_LINE_NO, "显示/隐藏行号", "actionDisplayLineNo", ""),
+        MenuItem(MenuItemID::M_VIEW_SHOW_LINE_BREAK, "显示/隐藏换行", "actionDisplayLineBreak", ""),
+        MenuItem(MenuItemID::M_VIEW_SHOW_SPACE, "显示/隐藏空格", "actionDisplaySpace", ""),
+        MenuItem(MenuItemID::M_VIEW_SHOW_ALL, "显示/隐藏所有符号", "actionDisplayAllChart", ""),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_VIEW_EXPAND_ALL, "展开所有层次", "actionExpandAll", "Alt+0"),
+        MenuItem(MenuItemID::M_VIEW_FOLD_ALL, "折叠所有层次", "actionFoldAll", "Alt+Shift+0"),
+        MenuItem(MenuItemID::M_VIEW_EXPAND_CUR, "展开当前层次", "actionExpandCurrent", "Ctrl+Alt+F"),
+        MenuItem(MenuItemID::M_VIEW_FOLD_CUR, "折叠当前层次", "actionFoldCurrent", "Ctrl+Alt+Shift+F"),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_VIEW_FOLD, "展开层次", "ViewSubMenuFold", {
+            MenuItem(MenuItemID::M_VIEW_FOLD_1, "1", "actionFold_1", "Alt+1"),
+            MenuItem(MenuItemID::M_VIEW_FOLD_2, "2", "actionFold_2", "Alt+2"),
+            MenuItem(MenuItemID::M_VIEW_FOLD_3, "3", "actionFold_3", "Alt+3"),
+            MenuItem(MenuItemID::M_VIEW_FOLD_4, "4", "actionFold_4", "Alt+4"),
+            MenuItem(MenuItemID::M_VIEW_FOLD_5, "5", "actionFold_5", "Alt+5"),
+            MenuItem(MenuItemID::M_VIEW_FOLD_6, "6", "actionFold_6", "Alt+6"),
+        }),
+        MenuItem(MenuItemID::M_VIEW_EXPAND, "折叠层次", "ViewSubMenuExpand", {
+            MenuItem(MenuItemID::M_VIEW_EXPAND_1, "1", "actionExpand_1", "Alt+Shift+1"),
+            MenuItem(MenuItemID::M_VIEW_EXPAND_2, "2", "actionExpand_2", "Alt+Shift+2"),
+            MenuItem(MenuItemID::M_VIEW_EXPAND_3, "3", "actionExpand_3", "Alt+Shift+3"),
+            MenuItem(MenuItemID::M_VIEW_EXPAND_4, "4", "actionExpand_4", "Alt+Shift+4"),
+            MenuItem(MenuItemID::M_VIEW_EXPAND_5, "5", "actionExpand_5", "Alt+Shift+5"),
+            MenuItem(MenuItemID::M_VIEW_EXPAND_6, "6", "actionExpand_6", "Alt+Shift+6"),
+        }),
+    };
+}
+
+QList<MenuItem> getCodingMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_CODING_OPEN, "使用......编码打开", "actionEditView", {
+            MenuItem(MenuItemID::M_CODING_OPEN_ANSI, "ANSI", "actionPreview", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_UTF8, "UTF-8", "actionEditPreview", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_UTF16LE, "UTF-16 Little Endian", "actionDisplayExplorer", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_UTF16BE, "UTF-16 Big Endian", "actionDisplayToc", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_BG5, "Big5(繁体中文)", "actionDisplayLineNo", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_BG5_HKSCS, "Big5-HKSCS(繁体中文)", "actionDisplayLineBreak", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_GBK, "GBK(简体中文)", "actionDisplaySpace", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_GB2312, "GBK2312(简体中文)", "actionDisplayAllChart", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_GB18030, "GBK18030(简体中文)", "actionExpandAll", ""),
+            MenuItem(MenuItemID::M_CODING_OPEN_HEX, "Hex(十六进制)", "actionFoldAll", ""),
+        }),
+        MenuItem(MenuItemID::M_CODING_CONVERT, "转为......编码", "actionExpandCurrent", {
+            MenuItem(MenuItemID::M_CODING_CVT_ANSI, "ANSI", "actionFoldCurrent", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_UTF8, "UTF-8", "ViewSubMenuFold", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_UTF16LE, "UTF-16 Little Endian", "actionFold_1", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_UTF16BE, "UTF-16 Big Endian", "actionFold_2", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_BG5, "Big5(繁体中文)", "actionFold_3", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_BG5_HKSCS, "Big5-HKSCS(繁体中文)", "actionFold_4", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_GBK, "GBK(简体中文)", "actionFold_5", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_GB2312, "GBK2312(简体中文)", "actionFold_6", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_GB18030, "GBK18030(简体中文)", "ViewSubMenuExpand", ""),
+            MenuItem(MenuItemID::M_CODING_CVT_HEX, "Hex(十六进制)", "actionExpand_1", ""),
+        }),
+        MenuItem(MenuItemID::M_CODING_NOTIFY, "注意：请勿直接编辑乱码文件", "actionExpand_6", ""),
+    };
+}
+
+QList<MenuItem> getInsertMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_INSERT_FONT, "特殊字体", "actionInsFonts", ""),
+        MenuItem(MenuItemID::M_INSERT_KATEX, "Katex公式", "actionInsKatex", ""),
+        MenuItem(MenuItemID::M_INSERT_MD_TABLE, "Markdown表格", "actionInsMdTable", ""),
+        MenuItem(MenuItemID::M_INSERT_WEB_LINK, "网页链接", "actionInsWebLink", ""),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_INSERT_TXT, "文本", "InsSubMenuTxt", {
+            MenuItem(MenuItemID::M_INSERT_T_IMAGES, "图片链接", "actionInsImages", ""),
+            MenuItem(MenuItemID::M_INSERT_T_CODEBLOCK, "折叠代码块", "actionInsCodeBlock", ""),
+            MenuItem(MenuItemID::M_INSERT_T_MD_LIST, "有序列表", "actionInsMdList", ""),
+            MenuItem(MenuItemID::M_INSERT_T_UPDATE_TIME, "更新时间", "actionInsUpdateTime", ""),
+        }),
+        MenuItem(MenuItemID::M_INSERT_FROM_FILE, "来自文件", "InsSubMenuFromFile", {
+            MenuItem(MenuItemID::M_INSERT_F_TXT, "*.txt;*.log", "actionInsFromTxt", ""),
+            MenuItem(MenuItemID::M_INSERT_F_JSON, "*.json", "actionInsFromJson", ""),
+            MenuItem(MenuItemID::M_INSERT_F_INI, "*.ini", "actionInsFromIni", ""),
+            MenuItem(MenuItemID::M_INSERT_F_YAML, "*.yaml;*.yml", "actionInsFromYaml", ""),
+            MenuItem(MenuItemID::M_INSERT_F_XML, "*.xml", "actionInsFromXml", ""),
+            MenuItem(MenuItemID::M_INSERT_F_CSV, "*.csv", "actionInsFromCsv", ""),
+            MenuItem(MenuItemID::M_INSERT_F_XLS, "*.xls;*.xlsx", "actionInsFromXls", ""),
+        }),
+    };
+}
+
+QList<MenuItem> getModelMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_MODEL_MATERIAL, "Material模块", "ModelSubMenuMaterial", {
+            MenuItem(MenuItemID::M_MODEL_M_ADMONITION, "Admonition", "actionModelAdmonition", ""),
+        }),
+        MenuItem(MenuItemID::M_MODEL_MERMAID, "Mermaid绘图", "ModelSubMenuMermaid", {
+            MenuItem(MenuItemID::M_MODEL_ME_BASE, "基础框架", "actionModelMermaidBase", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_FLOWCHAT, "流程图", "actionModelMermaidFlowChat", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_SEQUENCE, "时序图", "actionModelMermaidSequence", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_CLASS, "类图", "actionModelMermaidClass", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_STATE, "状态图", "actionModelMermaidState", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_ENTITY, "实体关系图", "actionModelMermaidEntity", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_USER_JOURNEY, "用户旅程图", "actionModelMermaidUserJourney", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_GANTT, "甘特图", "actionModelMermaidGantt", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_PIE, "饼图", "actionModelMermaidPie", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_QUADRANT, "象限图", "actionModelMermaidQuadrant", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_REQUIREMENT, "需求图", "actionModelMermaidRequirement", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_GIT, "GitGraph(Git)图", "actionModelMermaidGit", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_C4, "C4图", "actionModelMermaidC4", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_MINDMAP, "思维导图", "actionModelMermaidMindmap", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_TIMELINE, "时间线图", "actionModelMermaidTimeLine", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_ZEN_UML, "ZenUML", "actionModelMermaidZenUml", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_SANKEY, "桑基图", "actionModelMermaidSanKey", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_XY_CHART, "XY图", "actionModelMermaidXYChart", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_BLOCK, "框图", "actionModelMermaidBlock", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_PACKET, "数据包图", "actionModelMermaidPacket", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_KANBAN, "看板图", "actionModelMermaidKanBan", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_ARCHITECTURE, "架构图", "actionModelMermaidArchitecture", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_RADAR, "雷达图", "actionModelMermaidRadar", ""),
+            MenuItem(MenuItemID::M_MODEL_ME_TREEMAP, "树形图", "actionModelMermaidTreeMap", ""),
+        }),
+        MenuItem(MenuItemID::M_MODEL_PLANTUML, "PlantUml绘图", "ModelSubMenuPlantUml", {
+            MenuItem(MenuItemID::M_MODEL_PL_BASE, "基础框架", "actionModelPltUmlBase", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_SEQUENCE, "序列图", "actionModelPltUmlSequence", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_USE_CASE, "用例图", "actionModelPltUmlUseCase", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_CLASS, "类图", "actionModelPltUmlClass", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_ACTIVITY, "活动图", "actionModelPltUmlActivity", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_COMP, "组件图", "actionModelPltUmlComponent", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_STATE, "状态图", "actionModelPltUmlState", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_OBJECT, "对象图", "actionModelPltUmlObject", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_DEPLOY, "部署图", "actionModelPltUmlDeploy", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_TIMING, "定时图", "actionModelPltUmlTiming", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_REGEX, "Regex图表", "actionModelPltUmlRegex", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_NWDIAG, "使用nwdiag的网络图", "actionModelPltUmlNWDiag", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_SALT, "Salt (Wireframe)", "actionModelPltUmlSlat", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_ARCHI_MATE, "架构图", "actionModelPltUmlArchiMate", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_GANTT, "甘特图", "actionModelPltUmlGantt", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_CHRONOLOGY, "时序图", "actionModelPltUmlChronology", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_MINDMAP, "思维导图", "actionModelPltUmlMindmap", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_WBS, "WBS 图表", "actionModelPltUmlWBS", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_EBNF, "EBNF图表", "actionModelPltUmlEBNF", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_JSON, "JSON数据", "actionModelPltUmlJson", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_YAML, "YAML数据", "actionModelPltUmlYaml", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_SDL, "规范和描述语言(SDL)", "actionModelPltUmlSdl", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_ASCII_MATH, "AsciiMath", "actionModelPltUmlAsciiMath", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_DITAA, "Ditaa图表", "actionModelPltUmlDitaa", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_ENTITY, "实体关系图", "actionModelPltUmlEntity", ""),
+            MenuItem(MenuItemID::M_MODEL_PL_INFO_ENG, "信息工程图", "actionModelPltUmlInfoEng", ""),
+        }),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_MODEL_WRITE_MODEL, "写作模板", "ModelSubMenuWriteModel", {
+            MenuItem(MenuItemID::M_MODEL_W_LEETCODE, "力扣解题模板", "actionModelWLeetCode", ""),
+            MenuItem(MenuItemID::M_MODEL_W_QUESTION, "问题处理模板", "actionModelWQuestion", ""),
+            MenuItem(MenuItemID::M_MODEL_W_COVER, "文章封面", "actionModelWCover", ""),
+            MenuItem(MenuItemID::M_MODEL_W_PAPER, "论文模板", "actionModelWPaper", ""),
+        }),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_MODEL_CUSTOM_MODEL, "自定义模板", "actionModelCustomModel", ""),
+        MenuItem(MenuItemID::M_MODEL_CUSTOM_MANAGE, "自定义模板管理", "actionModelCustomMange", ""),
+    };
+}
+
+QList<MenuItem> getSettingMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_SETTING_SYSTEM, "系统设置", "actionSettingSystem", ""),
+        MenuItem(MenuItemID::M_SETTING_THEME, "主题设置", "actionSettingTheme", ""),
+        MenuItem(MenuItemID::M_SETTING_QUICK, "快速链接设置", "actionSettingQuickLink", ""),
+        MenuItem(MenuItemID::M_SETTING_EDITOR, "编辑器设置", "actionSettingEditor", ""),
+        MenuItem(MenuItemID::M_SETTING_MD_PARSE, "Markdown解析设置", "actionSettingMdParse", ""),
+        MenuItem(MenuItemID::M_SETTING_SHORTCUT, "快捷键设置", "actionSettingShortCut", ""),
+    };
+}
+
+QList<MenuItem> getToolsMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_TOOL_MERMAID, "Mermaid绘图", "actionToolMermaid", ""),
+        MenuItem(MenuItemID::M_TOOL_PLANTUML, "PlantUML绘图", "actionToolPlantUML", ""),
+        MenuItem(MenuItemID::M_TOOL_EXECL, "表格制作", "actionToolExecl", ""),
+        MenuItem(MenuItemID::M_TOOL_DRAW, "绘图制作", "actionToolDraw", ""),
+        MenuItem(MenuItemID::M_TOOL_KATEX, "编辑数学公式", "actionToolKatex", ""),
+    };
+}
+
+QList<MenuItem> getHelpMenuItems()
+{
+    return  {
+        MenuItem(MenuItemID::M_HELP_RELEASE, "版本发布", "actionHelpRelease", ""),
+        MenuItem(MenuItemID::M_HELP_SHORTCUT, "键盘快捷方式", "actionHelpShortKey", ""),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_HELP_DOCS, "使用文档", "actionHelpDocs", ""),
+        MenuItem(MenuItemID::M_HELP_ISSUE, "提交创意/意见", "actionHelpIssue", ""),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_HELP_ABORT, "关于", "actionHelpAbort", ""),
+        MenuItem(MenuItemID::M_HELP_HOMEPAGE, "主页", "actionHelpHomePage", ""),
+        MenuItem(MenuItemID::M_HELP_THANKS, "致谢", "actionHelpThanks", ""),
+        MenuItem(MenuItemID::M_HELP_UPDATE, "检查更新", "actionHelpUpdate", ""),
+        MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
+        MenuItem(MenuItemID::M_HELP_CONTACT_US, "联系我们", "actionHelpContactUs", ""),
+        MenuItem(MenuItemID::M_HELP_OPEN_SRC, "开源软件", "actionHelpOpenSource", ""),
+    };
+}
+
+static const std::unordered_map<MenuItemID, MenuItemAttr>& menuBarMap = {
     {MenuItemID::MENU_FILE, {"MenuFile", "文件(&F)", "Alt+F"}},
-    {MenuItemID::M_FILE_NEW_File, {"actionNewFile", "新建文件", "Ctrl+N"}},
-    {MenuItemID::M_FILE_NEW_DIR, {"actionNewDir", "新建文件夹", "Ctrl+D"}},
-    {MenuItemID::M_FILE_OPEN_File, {"actionOpenFile", "打开文件", "Ctrl+Alt+N"}},
-    {MenuItemID::M_FILE_OPEN_DIR, {"actionOpenDir", "打开文件夹", "Ctrl+Alt+D"}},
-    {MenuItemID::M_FILE_SAVE, {"actionSave", "保存", "Ctrl+S"}},
-    {MenuItemID::M_FILE_SAVE_AS, {"actionSaveAs", "另存为", "Ctrl+Shift+S"}},
-    {MenuItemID::M_FILE_RELOAD, {"actionReloadFromDisk", "从磁盘重新加载", "Ctrl+Alt+Y"}},
-    {MenuItemID::M_FILE_EXIT, {"actionExit", "退出", "Alt+F4"}},
-    {MenuItemID::M_FILE_IMPORT, {"FileSubMenuImport", "从文件导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_WORD, {"FromWord", "从 Word 导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_HTML, {"FromHtml", "从 Html 导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_JSON, {"FromJson", "从 Json 导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_YAML, {"FromYaml", "从 Yaml 导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_XML, {"FromXml", "从 XML 导入", ""}},
-    {MenuItemID::M_FILE_IMPORT_TXT, {"FromTxt", "从文本文件导入", ""}},
-    {MenuItemID::M_FILE_EXPORT, {"FileSubMenuExport", "导出到文件", ""}},
-    {MenuItemID::M_FILE_EXPORT_WORD, {"ToWord", "导出到 Word", ""}},
-    {MenuItemID::M_FILE_EXPORT_JSON, {"ToJson", "导出到 Json", ""}},
-    {MenuItemID::M_FILE_EXPORT_XML, {"ToXml", "导出到 XML", ""}},
-    {MenuItemID::M_FILE_EXPORT_YAML, {"ToYaml", "导出到 Yaml", ""}},
-    {MenuItemID::M_FILE_EXPORT_HTML, {"ToHtml", "导出到 Html", ""}},
-    {MenuItemID::M_FILE_EXPORT_PDF, {"ToPdf", "导出到 Pdf", ""}}
-};
 
-// 2. 编辑菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& editMenuMap = {
-    {MenuItemID::OBJ_NAME_EDIT, {"MenuEdit", "编辑(&E)", "Alt+E"}},
+    // 2. 编辑菜单映射
     {MenuItemID::MENU_EDIT, {"MenuEdit", "编辑(&E)", "Alt+E"}},
-    {MenuItemID::M_EDIT_UNDO, {"actionUndo", "撤销", "Ctrl+Z"}},
-    {MenuItemID::M_EDIT_REDO, {"actionRedo", "重做", "Ctrl+Y"}},
-    {MenuItemID::M_EDIT_COPY, {"actionCopy", "拷贝", "Ctrl+C"}},
-    {MenuItemID::M_EDIT_CUT, {"actionCut", "剪切", "Ctrl+X"}},
-    {MenuItemID::M_EDIT_PASTE, {"actionPaste", "粘贴", "Ctrl+V"}},
-    {MenuItemID::M_EDIT_FIND_FILE, {"actionFind", "在文件中查找", "Ctrl+F"}},
-    {MenuItemID::M_EDIT_REPLACE_FILE, {"actionReplace", "在文件中替换", "Ctrl+R"}},
-    {MenuItemID::M_EDIT_FIND_DIR, {"actionFindDir", "在目录中查找", "Ctrl+Shift+F"}},
-    {MenuItemID::M_EDIT_REPLACE_DIR, {"actionReplaceDir", "在目录中替换", "Ctrl+Shift+R"}},
-    {MenuItemID::M_EDIT_GO_LINE, {"actionGoToLine", "跳转到行", "Alt+G"}},
-};
 
-// 3. 视图菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& viewMenuMap = {
-    {MenuItemID::OBJ_NAME_VIEW, {"MenuView", "视图(&V)", "Alt+V"}},
+    // 3. 视图菜单映射
     {MenuItemID::MENU_VIEW, {"MenuView", "视图(&V)", "Alt+V"}},
-    {MenuItemID::M_VIEW_EDIT_MOD, {"actionEditView", "编辑视图", "F9"}},
-    {MenuItemID::M_VIEW_PREVIEW_MOD, {"actionPreview", "预览视图", "F10"}},
-    {MenuItemID::M_VIEW_EDIT_PREVIEW, {"actionEditPreview", "编辑/预览视图", "F11"}},
-    {MenuItemID::M_VIEW_SHOW_EXPLORER, {"actionDisplayExplorer", "显示/隐藏资源管理器", ""}},
-    {MenuItemID::M_VIEW_SHOW_TOC, {"actionDisplayToc", "显示/隐藏大纲", ""}},
-    {MenuItemID::M_VIEW_SHOW_LINE_NO, {"actionDisplayLineNo", "显示/隐藏行号", ""}},
-    {MenuItemID::M_VIEW_SHOW_LINE_BREAK, {"actionDisplayLineBreak", "显示/隐藏换行", ""}},
-    {MenuItemID::M_VIEW_SHOW_SPACE, {"actionDisplaySpace", "显示/隐藏空格", ""}},
-    {MenuItemID::M_VIEW_SHOW_ALL, {"actionDisplayAllChart", "显示/隐藏所有符号", ""}},
-    {MenuItemID::M_VIEW_EXPAND_ALL, {"actionExpandAll", "展开所有层次", "Alt+0"}},
-    {MenuItemID::M_VIEW_FOLD_ALL, {"actionFoldAll", "折叠所有层次", "Alt+Shift+0"}},
-    {MenuItemID::M_VIEW_EXPAND_CUR, {"actionExpandCurrent", "展开当前层次", "Ctrl+Alt+F"}},
-    {MenuItemID::M_VIEW_FOLD_CUR, {"actionFoldCurrent", "折叠当前层次", "Ctrl+Alt+Shift+F"}},
-    {MenuItemID::M_VIEW_FOLD, {"ViewSubMenuFold", "展开层次", ""}},
-    {MenuItemID::M_VIEW_FOLD_1, {"actionFold_1", "1", "Alt+1"}},
-    {MenuItemID::M_VIEW_FOLD_2, {"actionFold_2", "2", "Alt+2"}},
-    {MenuItemID::M_VIEW_FOLD_3, {"actionFold_3", "3", "Alt+3"}},
-    {MenuItemID::M_VIEW_FOLD_4, {"actionFold_4", "4", "Alt+4"}},
-    {MenuItemID::M_VIEW_FOLD_5, {"actionFold_5", "5", "Alt+5"}},
-    {MenuItemID::M_VIEW_FOLD_6, {"actionFold_6", "6", "Alt+6"}},
-    {MenuItemID::M_VIEW_EXPAND, {"ViewSubMenuExpand", "折叠层次", ""}},
-    {MenuItemID::M_VIEW_EXPAND_1, {"actionExpand_1", "1", "Alt+Shift+1"}},
-    {MenuItemID::M_VIEW_EXPAND_2, {"actionExpand_2", "2", "Alt+Shift+2"}},
-    {MenuItemID::M_VIEW_EXPAND_3, {"actionExpand_3", "3", "Alt+Shift+3"}},
-    {MenuItemID::M_VIEW_EXPAND_4, {"actionExpand_4", "4", "Alt+Shift+4"}},
-    {MenuItemID::M_VIEW_EXPAND_5, {"actionExpand_5", "5", "Alt+Shift+5"}},
-    {MenuItemID::M_VIEW_EXPAND_6, {"actionExpand_6", "6", "Alt+Shift+6"}},
-};
 
-// 4. 编码菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& codingMenuMap = {
-    {MenuItemID::OBJ_NAME_CODING, {"MenuCoding", "文件编码(&C)", "Alt+C"}},
+    // 4. 编码菜单映射
     {MenuItemID::MENU_CODING, {"MenuCoding", "文件编码(&C)", "Alt+C"}},
-    {MenuItemID::M_CODING_OPEN, {"CodingSubMenuOpen", "使用......编码打开", ""}},
-    {MenuItemID::M_CODING_OPEN_ANSI, {"actionCodingOpenAnsi", "ANSI", ""}},
-    {MenuItemID::M_CODING_OPEN_UTF8, {"actionCodingOpenUtf8", "UTF-8", ""}},
-    {MenuItemID::M_CODING_OPEN_UTF16LE, {"actionCodingOpenUtf16LE", "UTF-16 Little Endian", ""}},
-    {MenuItemID::M_CODING_OPEN_UTF16BE, {"actionCodingOpenUtf16BE", "UTF-16 Big Endian", ""}},
-    {MenuItemID::M_CODING_OPEN_BG5, {"actionCodingOpenBig5", "Big5(繁体中文)", ""}},
-    {MenuItemID::M_CODING_OPEN_BG5_HKSCS, {"actionCodingOpenBig5Hkscs", "Big5-HKSCS(繁体中文)", ""}},
-    {MenuItemID::M_CODING_OPEN_GBK, {"actionCodingOpenGbk", "GBK(简体中文)", ""}},
-    {MenuItemID::M_CODING_OPEN_GB2312, {"actionCodingOpenGbk2313", "GBK2312(简体中文)", ""}},
-    {MenuItemID::M_CODING_OPEN_GB18030, {"actionCodingOpenGbk18030", "GBK18030(简体中文)", ""}},
-    {MenuItemID::M_CODING_OPEN_HEX, {"actionCodingOpenHex", "Hex(十六进制)", ""}},
-    {MenuItemID::M_CODING_CONVERT, {"CodingSubMenuConvert", "转为......编码", ""}},
-    {MenuItemID::M_CODING_CVT_ANSI, {"actionCodingCvtAnsi", "ANSI", ""}},
-    {MenuItemID::M_CODING_CVT_UTF8, {"actionCodingCvtUtf8", "UTF-8", ""}},
-    {MenuItemID::M_CODING_CVT_UTF16LE, {"actionCodingCvtUtf16LE", "UTF-16 Little Endian", ""}},
-    {MenuItemID::M_CODING_CVT_UTF16BE, {"actionCodingCvtUtf16BE", "UTF-16 Big Endian", ""}},
-    {MenuItemID::M_CODING_CVT_BG5, {"actionCodingCvtBig5", "Big5(繁体中文)", ""}},
-    {MenuItemID::M_CODING_CVT_BG5_HKSCS, {"actionCodingCvtBig5Hkscs", "Big5-HKSCS(繁体中文)", ""}},
-    {MenuItemID::M_CODING_CVT_GBK, {"actionCodingCvtGbk", "GBK(简体中文)", ""}},
-    {MenuItemID::M_CODING_CVT_GB2312, {"actionCodingCvtGbk2313", "GBK2312(简体中文)", ""}},
-    {MenuItemID::M_CODING_CVT_GB18030, {"actionCodingCvtGbk18030", "GBK18030(简体中文)", ""}},
-    {MenuItemID::M_CODING_CVT_HEX, {"actionCodingCvtHex", "Hex(十六进制)", ""}},
-    {MenuItemID::M_CODING_NOTIFY, {"actionCodingNotify", "注意：请勿直接编辑乱码文件", ""}},
-};
 
-// 5. 插入菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& insertMenuMap = {
-    {MenuItemID::OBJ_NAME_INSERT, {"MenuInsert", "插入(&I)", "Alt+I"}},
+    // 5. 插入菜单映射
     {MenuItemID::MENU_INSERT, {"MenuInsert", "插入(&I)", "Alt+I"}},
-    {MenuItemID::M_INSERT_FONT, {"actionInsFonts", "特殊字体", ""}},
-    {MenuItemID::M_INSERT_KATEX, {"actionInsKatex", "Katex公式", ""}},
-    {MenuItemID::M_INSERT_MD_TABLE, {"actionInsMdTable", "Markdown表格", ""}},
-    {MenuItemID::M_INSERT_WEB_LINK, {"actionInsWebLink", "网页链接", ""}},
-    {MenuItemID::M_INSERT_TXT, {"InsSubMenuTxt", "文本", ""}},
-    {MenuItemID::M_INSERT_T_IMAGES, {"actionInsImages", "图片链接", ""}},
-    {MenuItemID::M_INSERT_T_CODEBLOCK, {"actionInsCodeBlock", "折叠代码块", ""}},
-    {MenuItemID::M_INSERT_T_MD_LIST, {"actionInsMdList", "有序列表", ""}},
-    {MenuItemID::M_INSERT_T_UPDATE_TIME, {"actionInsUpdateTime", "更新时间", ""}},
-    {MenuItemID::M_INSERT_FROM_FILE, {"InsSubMenuFromFile", "来自文件", ""}},
-    {MenuItemID::M_INSERT_F_TXT, {"actionInsFromTxt", "*.txt;*.log", ""}},
-    {MenuItemID::M_INSERT_F_JSON, {"actionInsFromJson", "*.json", ""}},
-    {MenuItemID::M_INSERT_F_INI, {"actionInsFromIni", "*.ini", ""}},
-    {MenuItemID::M_INSERT_F_YAML, {"actionInsFromYaml", "*.yaml;*.yml", ""}},
-    {MenuItemID::M_INSERT_F_XML, {"actionInsFromXml", "*.xml", ""}},
-    {MenuItemID::M_INSERT_F_CSV, {"actionInsFromCsv", "*.csv", ""}},
-    {MenuItemID::M_INSERT_F_XLS, {"actionInsFromXls", "*.xls;*.xlsx", ""}},
-};
 
-// 6. 模板菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& modelMenuMap = {
-    // 设置菜单
-    {MenuItemID::OBJ_NAME_MODEL, {"MenuModel", "模板(&M)", "Alt+M"}},
+    // 6. 模板菜单映射
     {MenuItemID::MENU_MODEL, {"MenuModel", "模板(&M)", "Alt+M"}},
-    {MenuItemID::M_MODEL_MATERIAL, {"ModelSubMenuMaterial", "Material模块", ""}},
-    {MenuItemID::M_MODEL_M_ADMONITION, {"actionModelAdmonition", "Admonition", ""}},
-    {MenuItemID::M_MODEL_WRITE_MODEL, {"ModelSubMenuWriteModel", "写作模板", ""}},
-    {MenuItemID::M_MODEL_W_LEETCODE, {"actionModelWLeetCode", "力扣解题模板", ""}},
-    {MenuItemID::M_MODEL_W_QUESTION, {"actionModelWQuestion", "问题处理模板", ""}},
-    {MenuItemID::M_MODEL_W_COVER, {"actionModelWCover", "文章封面", ""}},
-    {MenuItemID::M_MODEL_W_PAPER, {"actionModelWPaper", "论文模板", ""}},
-    // Mermaid绘图
-    {MenuItemID::M_MODEL_MERMAID, {"ModelSubMenuMermaid", "Mermaid绘图", ""}},
-    {MenuItemID::M_MODEL_ME_BASE, {"actionModelMermaidBase", "基础框架", ""}},
-    {MenuItemID::M_MODEL_ME_FLOWCHAT, {"actionModelMermaidFlowChat", "流程图", ""}},
-    {MenuItemID::M_MODEL_ME_SEQUENCE, {"actionModelMermaidSequence", "时序图", ""}},
-    {MenuItemID::M_MODEL_ME_CLASS, {"actionModelMermaidClass", "类图", ""}},
-    {MenuItemID::M_MODEL_ME_STATE, {"actionModelMermaidState", "状态图", ""}},
-    {MenuItemID::M_MODEL_ME_ENTITY, {"actionModelMermaidEntity", "实体关系图", ""}},
-    {MenuItemID::M_MODEL_ME_USER_JOURNEY, {"actionModelMermaidUserJourney", "用户旅程图", ""}},
-    {MenuItemID::M_MODEL_ME_GANTT, {"actionModelMermaidGantt", "甘特图", ""}},
-    {MenuItemID::M_MODEL_ME_PIE, {"actionModelMermaidPie", "饼图", ""}},
-    {MenuItemID::M_MODEL_ME_QUADRANT, {"actionModelMermaidQuadrant", "象限图", ""}},
-    {MenuItemID::M_MODEL_ME_REQUIREMENT, {"actionModelMermaidRequirement", "需求图", ""}},
-    {MenuItemID::M_MODEL_ME_GIT, {"actionModelMermaidGit", "GitGraph(Git)图", ""}},
-    {MenuItemID::M_MODEL_ME_C4, {"actionModelMermaidC4", "C4图", ""}},
-    {MenuItemID::M_MODEL_ME_MINDMAP, {"actionModelMermaidMindmap", "思维导图", ""}},
-    {MenuItemID::M_MODEL_ME_TIMELINE, {"actionModelMermaidTimeLine", "时间线图", ""}},
-    {MenuItemID::M_MODEL_ME_ZEN_UML, {"actionModelMermaidZenUml", "ZenUML", ""}},
-    {MenuItemID::M_MODEL_ME_SANKEY, {"actionModelMermaidSanKey", "桑基图", ""}},
-    {MenuItemID::M_MODEL_ME_XY_CHART, {"actionModelMermaidXYChart", "XY图", ""}},
-    {MenuItemID::M_MODEL_ME_BLOCK, {"actionModelMermaidBlock", "框图", ""}},
-    {MenuItemID::M_MODEL_ME_PACKET, {"actionModelMermaidPacket", "数据包图", ""}},
-    {MenuItemID::M_MODEL_ME_KANBAN, {"actionModelMermaidKanBan", "看板图", ""}},
-    {MenuItemID::M_MODEL_ME_ARCHITECTURE, {"actionModelMermaidArchitecture", "架构图", ""}},
-    {MenuItemID::M_MODEL_ME_RADAR, {"actionModelMermaidRadar", "雷达图", ""}},
-    {MenuItemID::M_MODEL_ME_TREEMAP, {"actionModelMermaidTreeMap", "树形图", ""}},
 
-    // PlantUML绘图
-    {MenuItemID::M_MODEL_PLANTUML, {"ModelSubMenuPlantUml", "PlantUml绘图", ""}},
-    {MenuItemID::M_MODEL_PL_BASE, {"actionModelPltUmlBase", "基础框架", ""}},
-    {MenuItemID::M_MODEL_PL_SEQUENCE, {"actionModelPltUmlSequence", "序列图", ""}},
-    {MenuItemID::M_MODEL_PL_USE_CASE, {"actionModelPltUmlUseCase", "用例图", ""}},
-    {MenuItemID::M_MODEL_PL_CLASS, {"actionModelPltUmlClass", "类图", ""}},
-    {MenuItemID::M_MODEL_PL_ACTIVITY, {"actionModelPltUmlActivity", "活动图", ""}},
-    {MenuItemID::M_MODEL_PL_COMP, {"actionModelPltUmlComponent", "组件图", ""}},
-    {MenuItemID::M_MODEL_PL_STATE, {"actionModelPltUmlState", "状态图", ""}},
-    {MenuItemID::M_MODEL_PL_OBJECT, {"actionModelPltUmlObject", "对象图", ""}},
-    {MenuItemID::M_MODEL_PL_DEPLOY, {"actionModelPltUmlDeploy", "部署图", ""}},
-    {MenuItemID::M_MODEL_PL_TIMING, {"actionModelPltUmlTiming", "定时图", ""}},
-    {MenuItemID::M_MODEL_PL_REGEX, {"actionModelPltUmlRegex", "Regex图表", ""}},
-    {MenuItemID::M_MODEL_PL_NWDIAG, {"actionModelPltUmlNWDiag", "使用nwdiag的网络图", ""}},
-    {MenuItemID::M_MODEL_PL_SALT, {"actionModelPltUmlSlat", "Salt (Wireframe)", ""}},
-    {MenuItemID::M_MODEL_PL_ARCHI_MATE, {"actionModelPltUmlArchiMate", "架构图", ""}},
-    {MenuItemID::M_MODEL_PL_GANTT, {"actionModelPltUmlGantt", "甘特图", ""}},
-    {MenuItemID::M_MODEL_PL_CHRONOLOGY, {"actionModelPltUmlChronology", "时序图", ""}},
-    {MenuItemID::M_MODEL_PL_MINDMAP, {"actionModelPltUmlMindmap", "思维导图", ""}},
-    {MenuItemID::M_MODEL_PL_WBS, {"actionModelPltUmlWBS", "WBS 图表", ""}},
-    {MenuItemID::M_MODEL_PL_EBNF, {"actionModelPltUmlEBNF", "EBNF图表", ""}},
-    {MenuItemID::M_MODEL_PL_JSON, {"actionModelPltUmlJson", "JSON数据", ""}},
-    {MenuItemID::M_MODEL_PL_YAML, {"actionModelPltUmlYaml", "YAML数据", ""}},
-    {MenuItemID::M_MODEL_PL_SDL, {"actionModelPltUmlSdl", "规范和描述语言(SDL)", ""}},
-    {MenuItemID::M_MODEL_PL_ASCII_MATH, {"actionModelPltUmlAsciiMath", "AsciiMath", ""}},
-    {MenuItemID::M_MODEL_PL_DITAA, {"actionModelPltUmlDitaa", "Ditaa图表", ""}},
-    {MenuItemID::M_MODEL_PL_ENTITY, {"actionModelPltUmlEntity", "实体关系图", ""}},
-    {MenuItemID::M_MODEL_PL_INFO_ENG, {"actionModelPltUmlInfoEng", "信息工程图", ""}},
-    {MenuItemID::M_MODEL_CUSTOM_MODEL, {"actionModelCustomModel", "自定义模板", ""}},
-    {MenuItemID::M_MODEL_CUSTOM_MANAGE, {"actionModelCustomMange", "自定义模板管理", ""}},
-};
-
-// 7. 设置菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& settingMenuMap = {
-    // 设置菜单
-    {MenuItemID::OBJ_NAME_SETTING, {"MenuSetting", "设置(&S)", "Alt+S"}},
+    // 7. 设置菜单映射
     {MenuItemID::MENU_SETTING, {"MenuSetting", "设置(&S)", "Alt+S"}},
-    {MenuItemID::M_SETTING_SYSTEM, {"actionSettingSystem", "系统设置", ""}},
-    {MenuItemID::M_SETTING_THEME, {"actionSettingTheme", "主题设置", ""}},
-    {MenuItemID::M_SETTING_QUICK, {"actionSettingQuickLink", "快速链接设置", ""}},
-    {MenuItemID::M_SETTING_EDITOR, {"actionSettingEditor", "编辑器设置", ""}},
-    {MenuItemID::M_SETTING_MD_PARSE, {"actionSettingMdParse", "Markdown解析设置", ""}},
-    {MenuItemID::M_SETTING_SHORTCUT, {"actionSettingShortCut", "快捷键设置", ""}},
-};
 
-// 8. 工具菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& toolsMenuMap = {
-    // 工具菜单
-    {MenuItemID::OBJ_NAME_TOOLS, {"MenuTools", "工具(&T)", "Alt+T"}},
+    // 8. 工具菜单映射
     {MenuItemID::MENU_TOOLS, {"MenuTools", "工具(&T)", "Alt+T"}},
-    {MenuItemID::M_TOOL_MERMAID, {"actionToolMermaid", "Mermaid绘图", ""}},
-    {MenuItemID::M_TOOL_PLANTUML, {"actionToolPlantUML", "PlantUML绘图", ""}},
-    {MenuItemID::M_TOOL_EXECL, {"actionToolExecl", "表格制作", ""}},
-    {MenuItemID::M_TOOL_DRAW, {"actionToolDraw", "绘图制作", ""}},
-    {MenuItemID::M_TOOL_KATEX, {"actionToolKatex", "编辑数学公式", ""}},
-};
 
-// 9. 插件菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& pluginMenuMap = {
-    // 插件菜单
-    {MenuItemID::OBJ_NAME_PLUGIN, {"MenuPlugins", "插件(&P)", "Alt+P"}},
+    // 9. 插件菜单映射
     {MenuItemID::MENU_PLUGIN, {"MenuPlugins", "插件(&P)", "Alt+P"}},
-};
 
-// 10. 插件菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& customMenuMap = {
-    // 插件菜单
-    {MenuItemID::OBJ_NAME_CUSTOM, {"MenuCustomTools", "自定义工具(&P)", "Alt+A"}},
+    // 10. 插件菜单映射
     {MenuItemID::MENU_CUSTOM_TOOLS, {"MenuCustomTools", "自定义工具(&P)", "Alt+A"}},
-};
 
-// 11. 在线工具菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& onlineToolMenuMap = {
-    // 在线工具菜单
-    {MenuItemID::OBJ_NAME_ONLINE_TOOL, {"MenuOnlineTool", "在线工具(&O)", "Alt+O"}},
+    // 11. 在线工具菜单映射
     {MenuItemID::MENU_ONLINE_TOOL, {"MenuOnlineTool", "在线工具(&O)", "Alt+O"}},
-};
 
-// 12. 链接菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& linkMenuMap = {
-    // 链接菜单
-    {MenuItemID::OBJ_NAME_LINK, {"MenuLinks", "链接(&L)", "Alt+L"}},
+    // 12. 链接菜单映射
     {MenuItemID::MENU_LINK, {"MenuLinks", "链接(&L)", "Alt+L"}},
-};
 
-// 13. 帮助菜单映射
-static const std::unordered_map<MenuItemID, MenuItemAttr>& helpMenuMap = {
-    // 帮助菜单
-    {MenuItemID::OBJ_NAME_HELP, {"MenuHelp", "帮助(&H)", "Alt+H"}},
+    // 13. 帮助菜单映射
     {MenuItemID::MENU_HELP, {"MenuHelp", "帮助(&H)", "Alt+H"}},
-    {MenuItemID::M_HELP_RELEASE, {"actionHelpRelease", "版本发布", ""}},
-    {MenuItemID::M_HELP_SHORTCUT, {"actionHelpShortKey", "键盘快捷方式", ""}},
-    {MenuItemID::M_HELP_DOCS, {"actionHelpDocs", "使用文档", ""}},
-    {MenuItemID::M_HELP_ISSUE, {"actionHelpIssue", "提交创意/意见", ""}},
-    {MenuItemID::M_HELP_ABORT, {"actionHelpAbort", "关于", ""}},
-    {MenuItemID::M_HELP_HOMEPAGE, {"actionHelpHomePage", "主页", ""}},
-    {MenuItemID::M_HELP_THANKS, {"actionHelpThanks", "致谢", ""}},
-    {MenuItemID::M_HELP_UPDATE, {"actionHelpUpdate", "检查更新", ""}},
-    {MenuItemID::M_HELP_CONTACT_US, {"actionHelpContactUs", "联系我们", ""}},
-    {MenuItemID::M_HELP_OPEN_SRC, {"actionHelpOpenSource", "开源软件", ""}},
 };
 
 // 13. 帮助菜单映射
@@ -285,77 +313,33 @@ static const std::unordered_map<MenuItemID, MenuItemAttr>& otherMenuMap = {
     {MenuItemID::MENU_HELP, {"MenuHelp", "帮助(&H)", "Alt+H"}},
 };
 
-const std::unordered_map<MenuItemID, MenuItemAttr>& getMenuMap(const MenuItemID type) {
-    // Determine which group the type belongs to
-    if (type >= MenuItemID::OBJ_NAME_FILE && type < MenuItemID::OBJ_NAME_EDIT) return fileMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_EDIT && type < MenuItemID::OBJ_NAME_VIEW) return editMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_VIEW && type < MenuItemID::OBJ_NAME_CODING) return viewMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_CODING && type < MenuItemID::OBJ_NAME_INSERT) return codingMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_INSERT && type < MenuItemID::OBJ_NAME_MODEL) return insertMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_MODEL && type < MenuItemID::OBJ_NAME_SETTING) return modelMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_SETTING && type < MenuItemID::OBJ_NAME_TOOLS) return settingMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_TOOLS && type < MenuItemID::OBJ_NAME_PLUGIN) return toolsMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_PLUGIN && type < MenuItemID::OBJ_NAME_CUSTOM) return pluginMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_CUSTOM && type < MenuItemID::OBJ_NAME_ONLINE_TOOL) return customMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_ONLINE_TOOL && type < MenuItemID::OBJ_NAME_LINK) return onlineToolMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_LINK && type < MenuItemID::OBJ_NAME_HELP) return linkMenuMap;
-    if (type >= MenuItemID::OBJ_NAME_HELP && type < MenuItemID::MENU_HELP) return helpMenuMap;
-    return otherMenuMap;
-}
-
 MenuItemAttr getMenuAttr(MenuItemID type) {
-    // 统一查找逻辑 (按菜单分组顺序查找)
-    auto  maps = getMenuMap(type);
-
-    return maps.at(type);
+    return menuBarMap.at(type);
 }
 
-static const std::unordered_map<MenuItemID, MenuItemAttr> menuMaps[] = {
-    fileMenuMap,
-    editMenuMap,
-    viewMenuMap,
-    codingMenuMap,
-    insertMenuMap,
-    modelMenuMap,
-    settingMenuMap,
-    toolsMenuMap,
-    pluginMenuMap,
-    customMenuMap,
-    onlineToolMenuMap,
-    linkMenuMap,
-    helpMenuMap
-};
-
-MenuItemAttr getMenuItemAttr(const MenuType item, MenuItemID type) {
-    // 定义默认返回值（避免重复构造）
-    static const MenuItemAttr kDefaultAttr{};
-
-    // 检查是否在有效范围内
-    if (item <= MenuType::MENU_BEGIN || item >= MenuType::MENU_END) {
-        const auto it = otherMenuMap.find(type);
-        return it != otherMenuMap.end() ? it->second : kDefaultAttr;
+QList<MenuItem> GetMenuItems(const MenuType type)
+{
+    switch (type)
+    {
+        case MenuType::MENU_FILE:
+            return getFileMenuItems();
+        case MenuType::MENU_EDIT:
+            return getEditMenuItems();
+        case MenuType::MENU_VIEW:
+            return getViewMenuItems();
+        case MenuType::MENU_CODING:
+            return getCodingMenuItems();
+        case MenuType::MENU_INSERT:
+            return getInsertMenuItems();
+        case MenuType::MENU_MODEL:
+            return getModelMenuItems();
+        case MenuType::MENU_SETTING:
+            return getSettingMenuItems();
+        case MenuType::MENU_TOOLS:
+            return getToolsMenuItems();
+        case MenuType::MENU_HELP:
+            return getHelpMenuItems();
+        default:
+            return {};
     }
-
-    // 计算索引（确保无符号运算）
-    const size_t index = static_cast<size_t>(item) -
-                         static_cast<size_t>(MenuType::MENU_BEGIN) - 1;
-
-    // 获取对应菜单的映射
-    const auto& menuMap = menuMaps[index];
-
-    // 查找类型属性
-    const auto it = menuMap.find(type);
-    return it != menuMap.end() ? it->second : kDefaultAttr;
-}
-
-MenuItem createMenuItem(const MenuType item, const MenuItemID type)
-{
-    const MenuItemAttr attr = getMenuItemAttr(item, type);
-    return MenuItem{type, attr.label, attr.obj_name, attr.shortcut};
-}
-
-MenuItem createMenuItems(const MenuType item, const MenuItemID type, const QList<MenuItem>& menuItems)
-{
-    const MenuItemAttr attr = getMenuItemAttr(item, type);
-    return MenuItem{type, attr.label, attr.obj_name, menuItems};
 }

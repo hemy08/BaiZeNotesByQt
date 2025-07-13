@@ -84,7 +84,7 @@ namespace HemyMenu {
                 MenuItem menuItem;
                 MenuItemType itemType = getMenuItemType(menuElement.attribute("type"));
                 // 解析主菜单项
-                menuItem.objName = menuElement.firstChildElement("objName").text();
+                menuItem.objName = menuElement.firstChildElement("ObjName").text();
                 menuItem.label = menuElement.firstChildElement("Label").text();
                 menuItem.shortcut = menuElement.firstChildElement("ShortCut").text();
                 menuItem.qmlFile = menuElement.firstChildElement("QmlFile").text();
@@ -94,13 +94,18 @@ namespace HemyMenu {
                 if (itemType == ITEM_MENU) {
                     menuItem.itemType = MenuItem::SubMenu;
                     parserXmlElement(menuElement, menuItem.subItems);
+                } else if (itemType == ITEM_ACTION) {
+                    menuItem.itemType = MenuItem::Action;
+                } else {
+                    menuItem.itemType = MenuItem::Separator;
                 }
+
                 menuItems.append(menuItem);
             }
         }
     }
 
-    void MenuBase::buildMenuSystem(QMenu* menu, const QList<MenuItem>& menuItems, const MenuType itemType, const MActionCallBack& actionCallback)
+    void MenuBase::buildMenuSystem(QMenu* menu, const QList<MenuItem>& menuItems, const MenuType itemType, const actionCallBack& actionCallback)
     {
         for (const MenuItem& item : menuItems) {
             switch (item.itemType) {
@@ -139,34 +144,6 @@ namespace HemyMenu {
                     qWarning() << "未知的菜单项类型:" << item.itemType;
                     break;
                 }
-            }
-        }
-    }
-
-    void MenuBase::createMenu(QMenu* menu,  const QList<MenuItem>& menuItems, const MActionCallBack& actionCallback) {
-        for (const auto& child : menuItems) {
-            if (child.itemType == MenuItem::Separator) {
-                menu->addSeparator();
-            } else if (child.itemType == MenuItem::SubMenu) {
-                QMenu* subMenu = menu->addMenu(child.label);
-                subMenu->setObjectName(child.objName);
-                createMenu(subMenu, child.subItems, actionCallback);
-            } else {
-                QAction* action = menu->addAction(child.label);
-                if (!(child.iconPath.isEmpty() || child.iconPath.length() == 0)) {
-                    action->setIcon(QIcon(child.iconPath));
-                }
-
-                if (!(child.shortcut.isEmpty() || child.shortcut.length() == 0)) {
-                    action->setShortcut(QKeySequence(child.shortcut));
-                }
-                action->setObjectName(child.objName); // 设置对象名以便后续访问
-
-                // 使用 Lambda 捕获 objName 并传递给回调
-                connect(action, &QAction::triggered, [=] {
-                    // 或者直接调用回调函数（如果回调支持参数）
-                    actionCallback(child.menuId, child.objName);
-                });
             }
         }
     }

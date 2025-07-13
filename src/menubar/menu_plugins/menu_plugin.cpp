@@ -13,79 +13,17 @@ namespace HemyMenu
     }
     void HMenuPlugin::InitialPluginMenuItems()
     {
-        QList<MenuItem> encdecItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_E),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
+        auto actionHandler = [this](const MenuItemID& id, const QString& objName, const QString& url) {
+            onPluginMenuActionHandler(id, objName, url);
         };
 
-        QList<MenuItem> convertItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            MenuItem::createSeparator(),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-        };
-
-        QList<MenuItem> formatItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-        };
-
-        QList<MenuItem> netToolsItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-        };
-
-        QList<MenuItem> infoCompItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-        };
-
-        QList<MenuItem> menuItems = {
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-            createMenuItem(MenuType::MENU_PLUGIN, MenuItemID::M_PLUGIN_),
-        };
-
-        auto actionHandler = [this](const MenuItemID& id, const QString& objName) {
-            onPluginMenuActionHandler(id, objName);
-        };
-
+        QList<MenuItem> menuItems;
+        ParserMenuItems(":/main_menu/plugins.xml", menuItems);
         createMenu(this, menuItems, actionHandler);
     }
 
-    void HMenuPlugin::onPluginMenuActionHandler(const MenuItemID& itemId, const QString& objName)
+    void HMenuPlugin::onPluginMenuActionHandler(const MenuItemID& itemId, const QString& objName, const QString& url)
     {
-        HDEBUG("ITEM_ID: " + std::to_string(static_cast<int>(itemId))+ ", OBJ: " + objName.toStdString());
+        HDEBUG("ITEM_ID: " + std::to_string(static_cast<int>(itemId))+ ", OBJ: " + objName.toStdString() + ", url: " + url.toStdString());
     }
 }

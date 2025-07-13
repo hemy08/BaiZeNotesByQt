@@ -14,8 +14,8 @@ namespace HemyMenu
     public:
         explicit HMenuInsert(QWidget *parent = nullptr);
         ~HMenuInsert() override = default;
-        static void onInsertMenuActionHandler(const MenuItemID& itemId, const QString& objName);
 
+        static void onInsertMenuActionHandler(const MenuItemID& itemId, const QString& objName);
     private:
         void InitialInsertMenuItems();
     };

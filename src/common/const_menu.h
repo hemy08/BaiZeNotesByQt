@@ -242,7 +242,7 @@ enum class MenuItemID {
     OBJ_NAME_PLUGIN,
     MENU_PLUGIN,
     M_PLUGIN_ED_,
-    M_PLUGIN_ED_,
+    /*M_PLUGIN_ED_,
     M_PLUGIN_ED_,
     M_PLUGIN_ED_,
     M_PLUGIN_ED_,
@@ -281,7 +281,7 @@ enum class MenuItemID {
     M_PLUGIN_IC_,
     M_PLUGIN_IC_,
     M_PLUGIN_IC_,
-    M_PLUGIN_IC_,
+    M_PLUGIN_IC_,*/
 
 
     // 插件菜单
@@ -353,6 +353,14 @@ struct MenuItem {
     {}
 
     // 带URL的构造函数
+    MenuItem(const MenuItemID menuId, QString label,QString objName, QString  icon, QString url_addr)
+       : label(std::move(label)), objName(std::move(objName)), menuId(menuId), iconPath(std::move(icon)), url(std::move(url_addr))
+    {}
+
+    MenuItem(const MenuItemID menuId, QString label,QString objName, QString  icon, QString  qml, QString url_addr)
+       : label(std::move(label)), objName(std::move(objName)), menuId(menuId), qmlFile(std::move(qml)), iconPath(std::move(icon)), url(std::move(url_addr))
+    {}
+
     MenuItem(const MenuItemID menuId, QString label,QString objName, const ItemType type, QString url_addr)
         : label(std::move(label)), objName(std::move(objName)), itemType(type), menuId(menuId),url(std::move(url_addr))
     {}
@@ -405,10 +413,6 @@ struct MenuItem {
 
 MenuItemAttr getMenuItemAttr(MenuType item, MenuItemID type);
 MenuItemAttr getMenuAttr(MenuItemID type);
-QString getMenuLabel(MenuItemID type);
-QString getMenuShortcut(MenuItemID type);
-MenuItem createMenuItem(MenuType item, MenuItemID type);
-MenuItem createMenuItems(MenuType item, MenuItemID type, const QList<MenuItem>& menuItems);
-
+QList<MenuItem> GetMenuItems(const MenuType type);
 
 #endif //MD_EDITOR_BY_QT_CONST_MENU_H

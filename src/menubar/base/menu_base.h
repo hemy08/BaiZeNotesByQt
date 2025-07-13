@@ -31,10 +31,48 @@ namespace HemyMenu {
         static void ParserMenuItems(const QString &fileName, QList<MenuItem>& menuItems);
         static void openXmlWithDom(QDomElement &element, const QString &fileName);
         static void parserXmlElement(const QDomElement &root, QList<MenuItem>& menuItems);
-        using MActionCallBack = std::function<void(const MenuItemID&, const QString&)>;
-        void createMenu(QMenu* menu,  const QList<MenuItem>& menuItems, const MActionCallBack& actionCallback);
-        void buildMenuSystem(QMenu* menu, const QList<MenuItem>& menuItems, MenuType itemType, const MActionCallBack& actionCallback);
 
+        // 回调类型定义
+        using actionCallBack = std::function<void(const MenuItemID&, const QString&)>;
+        using urlCallBack = std::function<void(const MenuItemID&, const QString&, const QString&)>;
+        using qmlCallBack = std::function<void(const MenuItemID&, const QString&, const QString&)>;
+        using extendedCallBack = std::function<void(const MenuItemID&, const QString&, const QString&, const QString&)>;
+        template <typename Callback>
+        void createMenu(QMenu* menu, const QList<MenuItem>& menuItems, const Callback& actionCallback) {
+            for (const auto& child : menuItems) {
+                if (child.itemType == MenuItem::Separator) {
+                    menu->addSeparator();
+                } else if (child.itemType == MenuItem::SubMenu) {
+                    QMenu* subMenu = menu->addMenu(child.label);
+                    subMenu->setObjectName(child.objName);
+                    createMenu(subMenu, child.subItems, actionCallback);
+                } else {
+                    QAction* action = menu->addAction(child.label);
+                    if (!child.iconPath.isEmpty()) {
+                        action->setIcon(QIcon(child.iconPath));
+                    }
+
+                    if (!child.shortcut.isEmpty()) {
+                        action->setShortcut(QKeySequence(child.shortcut));
+                    }
+                    action->setObjectName(child.objName);
+
+                    connect(action, &QAction::triggered, [=] {
+                        // 根据回调函数的参数数量传递不同参数
+                        if constexpr (std::is_invocable_v<Callback, MenuItemID, QString>) {
+                            actionCallback(child.menuId, child.objName);
+                        } else if constexpr (std::is_invocable_v<Callback, MenuItemID, QString, QString>) {
+                            actionCallback(child.menuId, child.objName, child.url);
+                        } else if constexpr (std::is_invocable_v<Callback, MenuItemID, QString, QString, QString>) {
+                            actionCallback(child.menuId, child.objName, child.url, child.qmlFile);
+                        } else {
+                            static_assert(!sizeof(Callback), "Unsupported callback signature");
+                        }
+                    });
+                }
+            }
+        }
+        void buildMenuSystem(QMenu* menu, const QList<MenuItem>& menuItems, MenuType itemType, const actionCallBack& actionCallback);
     signals:
         void menuActionTriggered(MenuType itemType, const QString& objName);
 

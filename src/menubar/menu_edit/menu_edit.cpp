@@ -11,26 +11,11 @@ namespace HemyMenu
     }
     void HMenuEdit::InitialEditMenuItems()
     {
-        QList<MenuItem> menuItems = {
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_UNDO),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_REDO),
-            MenuItem::createSeparator(),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_COPY),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_CUT),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_PASTE),
-            MenuItem::createSeparator(),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_FIND_FILE),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_REPLACE_FILE),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_FIND_DIR),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_REPLACE_DIR),
-            createMenuItem(MenuType::MENU_EDIT, MenuItemID::M_EDIT_GO_LINE),
-        };
-
         auto actionHandler = [this](const MenuItemID& id, const QString& objName) {
             onEditMenuActionHandler(id, objName);
         };
 
-        createMenu(this, menuItems, actionHandler);
+        createMenu(this, GetMenuItems(MenuType::MENU_EDIT), actionHandler);
     }
 
     void HMenuEdit::onEditMenuActionHandler(const MenuItemID& itemId, const QString& objName)

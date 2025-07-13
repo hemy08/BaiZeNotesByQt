@@ -12,19 +12,11 @@ namespace HemyMenu
     }
     void HMenuTools::InitialToolsMenuItems()
     {
-        QList<MenuItem> menuItems = {
-            createMenuItem(MenuType::MENU_TOOLS, MenuItemID::M_TOOL_MERMAID),
-            createMenuItem(MenuType::MENU_TOOLS, MenuItemID::M_TOOL_PLANTUML),
-            createMenuItem(MenuType::MENU_TOOLS, MenuItemID::M_TOOL_EXECL),
-            createMenuItem(MenuType::MENU_TOOLS, MenuItemID::M_TOOL_DRAW),
-            createMenuItem(MenuType::MENU_TOOLS, MenuItemID::M_TOOL_KATEX),
-        };
-
         auto actionHandler = [this](const MenuItemID& id, const QString& objName) {
             onToolsMenuActionHandler(id, objName);
         };
 
-        createMenu(this, menuItems, actionHandler);
+        createMenu(this, GetMenuItems(MenuType::MENU_TOOLS), actionHandler);
     }
 
     void HMenuTools::onToolsMenuActionHandler(const MenuItemID& itemId, const QString& objName)
