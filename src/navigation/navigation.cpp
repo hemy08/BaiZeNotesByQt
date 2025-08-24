@@ -5,17 +5,12 @@
 #include "navigation.h"
 #include <QListWidget>
 #include <QLineEdit>
-#include <QMessageBox>
 #include <QPushButton>
 #include <QVBoxLayout>
 #include <QLabel>
 #include <QFormLayout>
-#include <QComboBox>
-#include <QCheckBox>
 #include "explorer_widget.h"
 #include "hmain_window.h"
-#include "main_spitter.h"
-#include "sidebar_widget.h"
 
 namespace HemyNav
 {
@@ -39,12 +34,10 @@ namespace HemyNav
         explorer->addExplorer(sampleFrame);
     }*/
 
-    void HNavigation::onHandleTriggeredButton(const HMainLayOut::HemyMainSpitter& mainSpliter, const QString &buttonText) {
-        const HMainLayOut::HemyExplorerWidget *explorer = mainSpliter.explorer();
-        explorer->setTitle(buttonText);
-
+    void HNavigation::onHandleTriggeredButton(const HemyUI::HExplorer& explorer, const QString &buttonText) {
+        explorer.setTitle(buttonText);
         // 清除旧内容（保留标题）
-        if (QLayout *layout = explorer->layout()) {
+        if (QLayout *layout = explorer.layout()) {
             while (const QLayoutItem *item = layout->takeAt(1)) {
                 if (QWidget *widget = item->widget()) {
                     widget->setParent(nullptr);
@@ -89,10 +82,10 @@ QWidget* HNavigation::createSearchContent() {
 
     QLineEdit *searchInput = new QLineEdit();
     searchInput->setPlaceholderText("输入搜索内容...");
-    searchInput->setStyleSheet("padding: 10px; font-size: 16px;");
+    //searchInput->setStyleSheet("padding: 10px; font-size: 16px;");
 
     QPushButton *searchButton = new QPushButton("搜索");
-    searchButton->setStyleSheet("padding: 10px; background-color: #4CAF50; color: white;");
+    //searchButton->setStyleSheet("padding: 10px; background-color: #4CAF50; color: white;");
 
     QListWidget *resultsList = new QListWidget();
 
@@ -122,10 +115,10 @@ QWidget* HNavigation::createDocumentContent() {
 
     QTextEdit *textEdit = new QTextEdit();
     textEdit->setPlaceholderText("在此输入文档内容...");
-    textEdit->setStyleSheet("font-size: 14px;");
+    //textEdit->setStyleSheet("font-size: 14px;");
 
     QPushButton *saveButton = new QPushButton("保存文档");
-    saveButton->setStyleSheet("padding: 8px; background-color: #2196F3; color: white;");
+    //saveButton->setStyleSheet("padding: 8px; background-color: #2196F3; color: white;");
 
     layout->addWidget(textEdit);
     layout->addWidget(saveButton, 0, Qt::AlignRight);
@@ -149,7 +142,7 @@ QWidget* HNavigation::createSaveContent() {
     QVBoxLayout *layout = new QVBoxLayout(saveWidget);
 
     QLabel *titleLabel = new QLabel("保存选项");
-    titleLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
+    //titleLabel->setStyleSheet("font-size: 18px; font-weight: bold;");
 
     QComboBox *formatCombo = new QComboBox();
     formatCombo->addItems({"PDF", "DOCX", "TXT", "HTML"});
@@ -158,7 +151,7 @@ QWidget* HNavigation::createSaveContent() {
     backupCheck->setChecked(true);
 
     QPushButton *saveButton = new QPushButton("执行保存");
-    saveButton->setStyleSheet("padding: 10px; background-color: #FF9800; color: white;");
+    //saveButton->setStyleSheet("padding: 10px; background-color: #FF9800; color: white;");
 
     layout->addWidget(titleLabel);
     layout->addWidget(new QLabel("保存格式:"));
@@ -196,7 +189,7 @@ QWidget* HNavigation::createContactContent() {
     messageInput->setMaximumHeight(150);
 
     QPushButton *sendButton = new QPushButton("发送消息");
-    sendButton->setStyleSheet("padding: 10px; background-color: #9C27B0; color: white;");
+    //sendButton->setStyleSheet("padding: 10px; background-color: #9C27B0; color: white;");
 
     form->addRow("姓名:", nameInput);
     form->addRow("邮箱:", emailInput);

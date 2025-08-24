@@ -1,0 +1,23 @@
+//
+// Created by zhaoj on 25-8-10.
+//
+
+#ifndef ERROR_H
+#define ERROR_H
+
+enum ErrCode
+{
+    ERR_OK = 0,
+    ERR_FAILURE = 1,
+    ERR_NEW_FILE_FAILED,
+    ERR_NEW_FILE_EXIST,
+    ERR_NEW_FOLDER_FAILED,
+    ERR_OPEN_FILE_FAILED,
+    ERR_OPEN_FOLDER_FAILED,
+    ERR_SAVE_FILE_FAILED,
+    ERR_SAVE_FOLDER_FAILED,
+    ERR_CLOSE_FILE_FAILED,
+    ERR_CLOSE_FOLDER_FAILED,
+};
+
+#endif //ERROR_H

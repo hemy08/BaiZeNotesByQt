@@ -1,10 +1,10 @@
 #include <iostream>
 #include <QApplication>
 #include <QFile>
-#include <QPushButton>
-#include <QMessageBox>
-#include "src/mainwindow/hmain_window.h"
+#include <QtCore5Compat/QTextCodec>
+#include "hmain_window.h"
 #include "common.h"
+#include "gui_comm_def.h"
 
 #ifdef _WIN32
     #include <windows.h>
@@ -12,18 +12,38 @@
 
 int main(int argc, char* argv[])
 {
+    // 日志控制台显示
 #ifdef _WIN32
-    FreeConsole();   // 隐藏控制台窗口
+    SetConsoleOutputCP(65001); // 设置控制台输出编码为UTF-8
+    if (AttachConsole(ATTACH_PARENT_PROCESS) || AllocConsole()) {
+        freopen("CONOUT$", "w", stdout);
+        freopen("CONOUT$", "w", stderr);
+        std::ios::sync_with_stdio();
+    }
 #endif
+    qputenv("QT_USE_DIRECTWRITE", "0");  // 禁用DirectWrite
 
-    Logger::getInstance().initialize("run.log", LogLevel::DEBUG);
+    HEMY_API::Logger::getInstance().initialize("run.log", LogLevel::LOG_DEBUG, true);
     QApplication app(argc, argv);
+    // 设置全局UTF-8编码
+    QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     // 设置应用程序属性
-    QApplication::setApplicationName(WIN_TITLE);
-    QApplication::setApplicationDisplayName("HemyEdit");
-    QApplication::setWindowIcon(QIcon(":/icons/app_icon.png")); // 如果有图标
+    QApplication::setApplicationName(HEMY_GUI::MAIN_WINDOW_TITLE);
+    QApplication::setApplicationDisplayName("白泽笔记");
+    QApplication::setWindowIcon(QIcon(":/icons/app_icon.png"));
 
-    HemyUI::HMainWindow w;
-    w.ShowWindow();
+    // 加载QSS样式表
+    QFile styleFile(":/style/default_black.css");  // 使用资源系统
+    // QFile styleFile("path/to/style.qss"); // 或直接路径
+    if (styleFile.open(QIODevice::ReadOnly)) {
+        QString styleSheet = styleFile.readAll();
+        app.setStyleSheet(styleSheet); // 全局应用
+        styleFile.close();
+    }
+
+
+    HemyUI::HMainWindow::GetInst()->Initial();
+    const auto w = HemyUI::HMainWindow::GetInst();
+    w->show();
     return QApplication::exec();
 }

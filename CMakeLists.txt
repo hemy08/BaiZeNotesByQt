@@ -8,55 +8,67 @@ set(CMAKE_AUTOUIC ON)
 
 set(CMAKE_PREFIX_PATH "D:/Qt/6.10.0/mingw_64/lib/cmake")
 
-set(QT_LIBS Core Gui Widgets Xml)
+set(QT_LIBS Core Gui Widgets Xml Core5Compat WebChannel WebView)
 
 find_package(Qt6 COMPONENTS ${QT_LIBS} REQUIRED)
 
 include_directories(
         src/common/
-        src/log
-        src/mainwindow
-        src/mainwindow/window_widget
-        src/menubar
-        src/menubar/base
-        src/menubar/hemy_menu
-        src/menubar/menu_file
-        src/menubar/menu_edit
-        src/menubar/menu_view
-        src/menubar/menu_coding
-        src/menubar/menu_insert
-        src/menubar/menu_model
-        src/menubar/menu_setting
-        src/menubar/menu_tools
-        src/menubar/menu_plugins
-        src/menubar/menu_help
+        src/common/hemy_font
+        src/common/hemy_color
+        src/common_api
+        src/common_api/file
+        src/common_api/log
+        src/windows
+        src/windows/central
+        src/windows/central/sidebar
+        src/windows/central/explorer
+        src/windows/central/workbench
+        src/windows/central/workbench/editor_menu
+        src/windows/central/workbench/editor
+        src/windows/central/workbench/preview
+        src/windows/dialogs
+        src/windows/gui_comm
+        src/windows/menubar
+        src/windows/menubar/base
+        src/windows/menubar/hemy_menu
+        src/windows/menubar/menu_file
+        src/windows/menubar/menu_edit
+        src/windows/menubar/menu_view
+        src/windows/menubar/menu_coding
+        src/windows/menubar/menu_insert
+        src/windows/menubar/menu_model
+        src/windows/menubar/menu_setting
+        src/windows/menubar/menu_tools
+        src/windows/menubar/menu_plugins
+        src/windows/menubar/menu_help
+        src/windows/status_bar
         src/model
         src/navigation
-        src/status_bar
         src/style_def
         src/tools/local
         src/tools/online
         src/tools/web
-        src/workbench/compose_bar
-        src/workbench/edit_toolbar
-        src/workbench/markdown_edit
-        src/workbench/markdown_preview
-        src/workbench/menu
+        src/process/compose_bar
+        src/process/edit_toolbar
+        src/process/markdown_edit
+        src/process/markdown_preview
+        src/process/menu
 )
 
 set(SRC_FILES "")
-file(GLOB_RECURSE  MENU_SRCS src/mainwindow/window_widget/*.cpp src/menubar/*.cpp src/status_bar/*.cpp src/model/*.cpp src/navigation/*.cpp)
-file(GLOB_RECURSE  MAIN_WINDOW_SRCS src/mainwindow/*.cpp src/workbench/*.cpp)
-file(GLOB_RECURSE  COMMON_SRCS src/common/*.cpp src/style_def/*.cpp src/log/*.cpp)
-file(GLOB_RECURSE  PLG_TOOL_SRCS src/menubar/plugins/*.cpp src/tools/*.cpp)
-list(APPEND SRC_FILES ${MENU_SRCS} ${MAIN_WINDOW_SRCS} ${COMMON_SRCS} ${PLG_TOOL_SRCS})
+file(GLOB_RECURSE  GUI_SRCS src/windows/*.cpp src/windows/gui_comm/*.cpp src/windows/dialogs/*.cpp src/windows/central/*.cpp  src/windows/menubar/*.cpp src/windows/status_bar/*.cpp)
+file(GLOB_RECURSE  PROCESS_SRCS src/process/*.cpp)
+file(GLOB_RECURSE  COMMON_SRCS src/common/*.cpp src/common/hemy_font/*.cpp  src/common/hemy_color/*.cpp src/style_def/*.cpp src/common_api/*.cpp src/navigation/*.cpp)
+file(GLOB_RECURSE  PLG_TOOL_SRCS src/windows/menubar/plugins/*.cpp src/tools/*.cpp)
+list(APPEND SRC_FILES ${GUI_SRCS} ${PROCESS_SRCS} ${COMMON_SRCS} ${PLG_TOOL_SRCS})
 message("SRC_FILES ${SRC_FILES}")
 
 set(HEAD_FILES "")
-file(GLOB_RECURSE  MENU_HEAD src/menubar/*.h src/status_bar/*.h)
-file(GLOB_RECURSE  MAIN_WINDOW_HEAD src/mainwindow/*.h src/workbench/*.h)
+file(GLOB_RECURSE  MENU_HEAD src/windows/menubar/*.h src/windows/status_bar/*.h)
+file(GLOB_RECURSE  MAIN_WINDOW_HEAD src/windows/central/workbench/*.h src/process/*.h)
 file(GLOB_RECURSE  COMMON_HEAD src/common/*.h src/style_def/*.h)
-file(GLOB_RECURSE  PLG_TOOL_HEAD src/menubar/plugins/*.h src/tools/*.h)
+file(GLOB_RECURSE  PLG_TOOL_HEAD src/windows/menubar/plugins/*.h src/tools/*.h)
 list(APPEND HEAD_FILES ${MENU_HEAD} ${MAIN_WINDOW_HEAD} ${COMMON_HEAD} ${PLG_TOOL_HEAD})
 message("HEAD_FILES ${HEAD_FILES}")
 
@@ -71,6 +83,7 @@ endforeach()
 target_link_libraries(MdEditorByQt
         ${QT_TARGETS}
 )
+
 
 # 在代码中定义资源根路径
 target_compile_definitions(${PROJECT_NAME} PRIVATE

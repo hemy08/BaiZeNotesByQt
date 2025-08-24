@@ -4,8 +4,7 @@
 
 #ifndef NAVIGATION_H
 #define NAVIGATION_H
-#include "main_spitter.h"
-
+#include "hmain_window.h"
 
 namespace HemyNav
 {
@@ -15,7 +14,7 @@ namespace HemyNav
     public:
         void addSampleContent();
     public slots:
-        static void onHandleTriggeredButton(const HMainLayOut::HemyMainSpitter& mainSpliter, const QString &buttonText);
+        static void onHandleTriggeredButton(const HemyUI::HExplorer& explorer, const QString &buttonText);
 
     private:
         // 内容创建函数

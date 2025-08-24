@@ -15,4 +15,15 @@
         <file>main_menu/links.xml</file>
         <file>main_menu/help.xml</file>
     </qresource>
+    <qresource prefix="/">
+        <file>font/seguibl.ttf</file>
+        <file>font/segoeui.ttf</file>
+        <file>font/msyh.ttc</file>
+        <file>font/msyhbd.ttc</file>
+        <file>font/msyhl.ttc</file>
+    </qresource>
+    <qresource prefix="/">
+        <file>style/default_black.qss</file>
+        <file>style/default_black.css</file>
+    </qresource>
 </RCC>

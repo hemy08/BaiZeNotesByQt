@@ -8,7 +8,7 @@
 #include <QStringList>
 #include <QStyleFactory>
 
-namespace HemyStyle
+namespace HEMY::STYLE
 {
     // - 跨平台现代风格
     // - 在Windows、macOS和Linux上外观一致

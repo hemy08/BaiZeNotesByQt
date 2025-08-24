@@ -7,10 +7,10 @@
 
 QList<MenuItem> getFileMenuItems(){
     return  {
-        MenuItem(MenuItemID::M_FILE_NEW_File,"新建文件", "actionNewFile","Ctrl+N"),
-        MenuItem(MenuItemID::M_FILE_NEW_DIR,"新建文件夹", "actionNewDir","Ctrl+D"),
-        MenuItem(MenuItemID::M_FILE_OPEN_File,"打开文件", "actionOpenFile","Ctrl+Alt+N"),
-        MenuItem(MenuItemID::M_FILE_OPEN_DIR,"打开文件夹", "actionOpenDir","Ctrl+Alt+D"),
+        MenuItem(MenuItemID::M_FILE_NEW_FILE,"新建文件", "actionNewFile","Ctrl+N"),
+        MenuItem(MenuItemID::M_FILE_NEW_FOLDER,"新建文件夹", "actionNewDir","Ctrl+D"),
+        MenuItem(MenuItemID::M_FILE_OPEN_FILE,"打开文件", "actionOpenFile","Ctrl+Alt+N"),
+        MenuItem(MenuItemID::M_FILE_OPEN_FOLDER,"打开文件夹", "actionOpenDir","Ctrl+Alt+D"),
         MenuItem(MenuItemID::MENU_BUTT, "", "", MenuItem::Separator),
         MenuItem(MenuItemID::M_FILE_IMPORT,"从文件导入", "FileSubMenuImport",{
             MenuItem(MenuItemID::M_FILE_IMPORT_WORD,"从 Word 导入", "FromWord",""),
