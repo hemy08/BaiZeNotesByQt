@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.31)
-project(MdEditorByQt)
+project(BaiZeNotes)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_AUTOMOC ON)
@@ -74,13 +74,13 @@ message("HEAD_FILES ${HEAD_FILES}")
 
 set(RESOURCE_FILE resources/resource.qrc)
 
-add_executable(MdEditorByQt WIN32 main.cpp ${SRC_FILES} ${HEAD_FILES} ${RESOURCE_FILE})
+add_executable(${PROJECT_NAME} WIN32 main.cpp ${SRC_FILES} ${HEAD_FILES} ${RESOURCE_FILE})
 
 set(QT_TARGETS)
 foreach(lib ${QT_LIBS})
     list(APPEND QT_TARGETS Qt::${lib})
 endforeach()
-target_link_libraries(MdEditorByQt
+target_link_libraries(${PROJECT_NAME}
         ${QT_TARGETS}
 )
 

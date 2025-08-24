@@ -9,7 +9,8 @@
 
 namespace HEMY_GUI
 {
-    inline static const QString MAIN_WINDOW_TITLE = "Markdown Editor Developed Based on Qt Framework";
+    inline static const QString APP_NAME = "白泽笔记";
+    inline static const QString MAIN_WINDOW_TITLE = "白泽笔记 -- Markdown Editor Powered By Qt Widgets";
     inline static const QString MAIN_WINDOW_OBJ_NAME = "HMainWindow";
     inline static constexpr uint32_t MAIN_WINDOW_DEFAULT_WIDTH = 1440;
     inline static constexpr uint32_t MAIN_WINDOW_DEFAULT_HEIGHT = 960;

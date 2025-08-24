@@ -28,8 +28,8 @@ int main(int argc, char* argv[])
     // 设置全局UTF-8编码
     QTextCodec::setCodecForLocale(QTextCodec::codecForName("UTF-8"));
     // 设置应用程序属性
-    QApplication::setApplicationName(HEMY_GUI::MAIN_WINDOW_TITLE);
-    QApplication::setApplicationDisplayName("白泽笔记");
+    QApplication::setApplicationName(HEMY_GUI::APP_NAME);
+    QApplication::setApplicationDisplayName(HEMY_GUI::MAIN_WINDOW_TITLE);
     QApplication::setWindowIcon(QIcon(":/icons/app_icon.png"));
 
     // 加载QSS样式表
